@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h3 {
+            font-family: Arial, Helvetica, sans-serif;
+            /* font-family: '微软雅黑'; */
+        }
+
+        body {
+            font-size: 16px;
+        }
+
+        /* 标题标签比较特殊,需要单独指定文字大小 */
+        h2 {
+            font-size: 16px;
+        }
+
+        .bold {
+            /* font-weight: bold; */
+            /* 这个700 的后面不要跟单位  等价于 bold 都是加粗的效果 */
+            /* 实际开发中,我们跟提倡使用数字 表示加粗或者变细 */
+            font-weight: 700;
+            /* 斜体 */
+            font-style: italic;
+        }
+
+        i {
+            /* 让倾斜标签的字体不倾斜  */
+            font-style: normal;
+        }
+
+        /* CSS字体属性之复合属性: */
+        div {
+            /* font-style: italic;
+           font-weight: 700;
+           font-size: 16px;
+           font-family: 'Microsoft yahei'; */
+
+            /* 复合属性: 简写的方式  节约代码 但要按下面顺序： */
+            /* font: font-style  font-weight  font-size/line-height  font-family; */
+            font: italic 700 16px 'Microsoft yahei';
+
+        }
+
+        #style1 {
+            /* 本质是让h1盒子里面的文字水平居中对齐 */
+            text-align: center;
+
+            /* 下划线 */
+            /* text-decoration: underline;   */
+            /* 删除线 */
+            text-decoration: line-through;
+            /* 上划线
+            text-decoration: overline; */
+        }
+
+        a {
+            /* 取消a默认的下划线 */
+            text-decoration: none;
+            color: rgb(129, 45, 45);
+        }
+
+        p {
+            font-size: 20px;
+            /* 文本的第一行首行缩进 多少距离  */
+            /* text-indent: 20px; */
+            /* 如果此时写了2em 则是缩进当前元素 2个文字大小的距离  */
+            text-indent: 2em;
+            /* 行间距 */
+            line-height: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>月球土特产首次公开亮相：人类时隔44年再迎月球样品</h3>
+    <p class="bold">嫦娥五号带回的月壤首次公开亮相，你知道月球“土特产”到底长啥样吗？</p>
+    <p>嫦娥五号从月球带回的约1731克“土特产”备受关注。2021年1月，国家航天局发布《月球样品管理办法》</p>
+    <p><i>明确月球样品原则上分为永久存储、备份永久存储、研究和公益四种基础用途。</i></p>
+    <div>想要div文字变倾斜 加粗 字号设置为16像素 并且 是微软雅黑</div>
+    <div id="style1">居中对齐</div>
+    <a href="#">点击查看</a>
+</body>
+
+</html>
