@@ -1,0 +1,22 @@
+.center{
+    text-align: center;
+}
+.bottomTxt{
+    text-align: center;
+    font-size: 14px;
+}
+.verticalLine{
+    font-weight: 400;
+    color: #979595;
+}
+.searchStyle{
+    width: 28%;
+    height: 24px;
+}
+
+.smallTxt{
+    font-size: 13px;
+    color: #979595;
+    padding-top: 5px;
+}
+.btn{height:30px; width:100px; font-size:15px;}
