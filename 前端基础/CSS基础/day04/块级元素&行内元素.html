@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css的显示模式</title>
+    <style>
+        div {
+            height: 100px;
+            background-color: darkseagreen;
+        }
+
+        span {
+            width: 100px;
+            height: 100px;
+            background-color: deeppink;
+        }
+
+        input,
+        img {
+            width: 250px;
+            height: 35px;
+        }
+
+
+        .a1 {
+            width: 180px;
+            height: 50px;
+            background-color: pink;
+            /* 把行内元素 a 转换为 块级元素 */
+            display: block;
+        }
+
+        .div1 {
+            width: 300px;
+            height: 100px;
+            background-color: purple;
+            /* 把 div 块级元素转换为行内元素 */
+            display: inline;
+        }
+
+        .span1 {
+            width: 300px;
+            height: 50px;
+            background-color: skyblue;
+            /* 装换为行内块元素  */
+            display: inline-block;
+        }
+    </style>
+</head>
+
+
+<body>
+    <!-- 元素显示模式就是元素（标签）以什么方式进行显示，比如<div>自己占一行，比如一行可以放多个<span>。 -->
+
+    <!-- **常见的块元素**：
+
+<h1>~<h6>、<p>、 <div>、<ul>、<ol>、<li>
+
+    ​ <div> 标签是最典型的块元素。
+
+        **【块级元素的特点】**：
+
+        - 比较霸道，自己独占一行。
+        - 高度，宽度、外边距以及内边距都可以控制。
+        - 宽度默认是容器（父级宽度）的100%。
+        - 是一个容器及盒子，里面可以放行内或者块级元素。
+
+        **注意：**
+
+        ​ 文字类的元素内不能放块级元素
+
+        <p> 标签主要用于存放文字，因此
+        <p> 里面不能放块级元素，特别是不能放<div>
+            同理， <h1>~<h6>等都是文字类块级标签，里面也不能放其他块级元素 -->
+
+    <div>自己独占一行</div> 瑟瑟发抖
+    <p>
+    <div>这里有问题，p里面不应放块级元素</div>
+    </p>
+
+
+
+    <!-- **常见的行内元素：**
+
+    <a>、<strong>、<b>、<em>、<i>、<del>、<s>、<ins>、<u>、<span>
+    ​ <span> 标签是最典型的行内元素。有的地方也将行内元素称为内联元素。
+
+        **【行内元素的特点】：**
+
+        - 相邻行内元素在一行上，一行可以显示多个。
+        - 高、宽直接设置是无效的。
+        - 默认宽度就是它本身内容的宽度。
+        - 行内元素只能容纳文本或其他行内元素。
+
+        **注意：**
+        链接里面不能再放链接
+        特殊情况链接 <a> 里面可以放块级元素，但是给 <a> 转换一下块级模式最安全 -->
+
+    <span>一二三四五</span> <strong>上山打老虎</strong>
+    <span>老虎不在家</span> <strong>我喝娃哈哈</strong>
+
+    <a href="http://www.baidu.com">
+        012
+        <a href="#">123</a>
+    </a>
+
+
+
+    <!-- 显示模式之行内块元素(特殊情况) -->
+
+    <!-- **常见的行内块标签**：
+    
+    <img />、<input />、<td>
+        ​ 它们同时具有块元素和行内元素的特点。有些资料称它们为行内块元素。
+
+        **【行内块元素的特点】**：
+
+        - 和相邻行内元素（行内块）在一行上，但是他们之间会有空白缝隙。
+        - 一行可以显示多个（行内元素特点）。
+        - 默认宽度就是它本身内容的宽度（行内元素特点）。
+
+        - 高度，行高、外边距以及内边距都可以控制（块级元素特点）。 -->
+    <input type="text">
+    <img src="images/01.png">
+
+
+    <!-- 元素显示模式转换 -->
+    <a class="a1" href="#">星光之约,将会独占一行</a>
+    <a class="a1" href="#">万家灯火,将会独占一行</a>
+    <div class="div1">我是块级元素</div>
+    <div class="div1">我是块级元素</div>
+    <span class="span1">行内元素转换为行内块元素，即成了可以设置宽高的 行内块元素</span>
+    <span class="span1">行内元素转换为行内块元素，即成了可以设置宽高的 行内块元素</span>
+</body>
+
+</html>

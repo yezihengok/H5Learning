@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>复合选择器之链接伪类选择器</title>
+    <style>
+        /* 伪类选择器书写最大的特点是用冒号【:】表示，比如 :hover 、 :first-child 。 */
+
+
+        /* 1.未访问的链接 a:link  把没有点击过的(访问过的)链接选出来 */
+        a:link {
+            color: #333;
+            text-decoration: none;
+        }
+
+        /*2. a:visited 选择点击过的(访问过的)链接 */
+        a:visited {
+            color: darkmagenta;
+        }
+
+        /*3. a:hover 选择鼠标经过的那个链接 */
+        a:hover {
+            color: deepskyblue;
+            text-decoration: underline;
+        }
+
+        /* 4. a:active 选择的是我们鼠标正在按下还没有弹起鼠标的那个链接 */
+        a:active {
+            color: green;
+        }
+
+        /* **链接伪类选择器注意事项**
+
+​		为了确保生效，请按照 LVHA 的循顺序声明 :link－:visited－:hover－:active。
+
+​		记忆法：love hate 或者 lv 包包 hao 。
+
+​		因为 a 链接在浏览器中具有默认样式，所以实际工作中都需要给链接单独指定样式。 */
+
+
+
+        /*  把获得光标焦点的input表单元素选取出来 */
+        input:focus {
+            background-color: rgb(241, 240, 134);
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#" target="_blank">链接1</a><br>
+    <a href="https://baidu.com" target="_blank">链接2</a>
+    <input type="text">
+    <input type="text">
+</body>
+
+</html>
