@@ -1,6 +1,22 @@
-.nav a{
+.nav a {
     display: inline-block;
     width: 100px;
-    height: 50px;
-    background: #000;
+    height: 100px;
+    background: #5ee2bb;
+    text-align: center;
+    line-height: 100px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.nav .tab1 {
+    width: 100px;
+    height: 100px;
+    background: url(images/icon_primary_evluate_star_empty.png) no-repeat;
+}
+
+.nav .tab1:hover {
+    width: 100px;
+    height: 100px;
+    background: url(images/icon_primary_evluate_star_empty.png) no-repeat;
 }
