@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>盒子模型之内边距</title>
+    <style>
+        .div {
+            width: 200px;
+            height: 200px;
+            background-color: aquamarine;
+            /* padding-left: 5px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            padding-right: 5px; */
+
+            /* 内边距复合写法(简写) */
+            /* padding: 35px; */
+            /* padding: 25px 25px; */
+            /* padding: 25px 5px 15px; */
+
+            /*顺序: top right bottom left */
+            padding: 15px 25px 35px 45px;
+        }
+
+
+        /* 注意：与盒子边框一样，padding 内边距会影响盒子实际大小 */
+        .div1 {
+            width: 160px;
+            height: 160px;
+            background-color: pink;
+            padding: 20px;
+        }
+
+        /* padding不会影响盒子大小的情况 ,就是 pading设置在子标签里*/
+        h1 {
+            height: 20px;
+            background-color: rgb(241, 114, 135);
+            padding: 30px;
+        }
+
+        div {
+            width: 50%;
+            height: 80px;
+            background-color: purple;
+        }
+
+        div p {
+            padding-top: 10px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="div">
+        <div style="background-color: thistle; width: 200px; height: 200px;"></div>
+    </div>
+
+
+
+
+    <div class="div1">
+        我实际上是200x200大小的盒子，padding会影响盒子实际大小~
+    </div>
+
+
+    <h1>会影响高度</h1>
+    <div>
+        <p> 不会影响父标签高度，因为设置的高度是父标签，即便p设置成超大的padding-top，也是p标签的高度撑大挡住父标签</p>
+    </div>
+
+
+
+
+</body>
+
+</html>

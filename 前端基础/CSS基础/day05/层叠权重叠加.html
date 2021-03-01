@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 优先级注意点:
+    
+    1. 权重是有4组数字组成,但是不会有进位。
+    
+    2. 可以理解为类选择器永远大于元素选择器, id选择器永远大于类选择器,以此类推..
+    
+    3. 等级判断从左向右，如果某一位数值相同，则判断下一位数值。
+    
+    4. 可以简单记忆法: 通配符和继承权重为0, 标签选择器为1,类(伪类)选择器为 10, id选择器 100, 行内样式表为 1000, !important 无穷大.
+    
+    5. 继承的权重是0， 如果该元素没有直接选中，不管父元素权重多高，子元素得到的权重都是 0。
+    
+    
+    权重叠加：如果是复合选择器，则会有权重叠加 
+    
+    - div ul li ------ 0,0,0,3
+    - .nav ul li ------ 0,0,1,2
+    - a:hover -----— 0,0,1,1
+    - .nav a ------ 0,0,1,1     
+ -->
+    <style>
+        /* 复合选择器会有权重叠加的问题 */
+        /* 权重虽然会叠加,但是永远不会有进位 */
+        /* ul li 权重  0,0,0,1 + 0,0,0,1  =  0,0,0,2     2 */
+        ul li {
+            color: green;
+        }
+
+        /* li 的权重是 0,0,0,1    1 */
+        li {
+            color: red;
+        }
+
+        /* .nav li  权重    0,0,1,0  +  0,0,0,1  =  0,0,1,1    11 */
+        .nav li {
+            color: slateblue;
+        }
+
+        /* -------复合选择器-权重练习------------------- */
+
+        /* .nav li  权重是 11 */
+        .demo li {
+            color: red;
+        }
+
+        /* 需求把第一个li 颜色改为 粉色加粗 ? */
+
+        /* .pink  权重是 10    .nav .pink  20  */
+        .demo .orange {
+            color: orange;
+            font-weight: 700;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <ul class="nav">
+        <li>会显示紫色：</li>
+        <li>个人理解，前面设置的几道颜色都是 标签选择器 里的颜色 ，而紫色是类 选择器里的，类选择器优先级更高</li>
+    </ul>
+
+
+
+    <ul class="demo">
+        <li>会显示红色</li>
+        <li class="orange">会显示橙色,虽然设置的2次颜色，第一层都是类选择器的颜色.但第二层 前者是标签选择器 后者是类选择器 累加权重后者更高。 </li>
+    </ul>
+
+</body>
+
+</html>

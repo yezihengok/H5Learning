@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>盒子模型之外边距margin</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: gray;
+        }
+
+        /* .one {
+          margin-bottom: 20px;
+      } */
+        .two {
+            /* margin-top: 20px; */
+            /* margin: 30px; */
+            margin: 30px 50px;
+        }
+
+        /* 与内边距padding的设置相同，这些值的顺序是从上外边距 (top) 开始围着元素顺时针旋转的： */
+
+        /* margin: top right bottom left */
+
+        /* 有时，我们会输入一些重复的值：p {margin: 1px 2px 1px;}   
+           下面写法等价于上面写法：       p {margin: 1px 2px;}      */
+
+        /* 这两个值可以取代前面 4 个值。这是如何做到的呢？CSS 定义了一些规则，允许为外边距指定少于 4 个值。规则如下：
+
+如果缺少左外边距的值，则使用右外边距的值。 
+如果缺少下外边距的值，则使用上外边距的值。 
+如果缺少右外边距的值，则使用上外边距的值。 
+ 
+换句话说，如果为外边距指定了 3 个值，则第 4 个值（即左外边距）会从第 2 个值（右外边距）复制得到。如果给定了两个值，第 4 个值会从第 2 个值复制得到，
+第 3 个值（下外边距）会从第 1 个值（上外边距）复制得到。最后一个情况，如果只给定一个值，那么其他 3 个外边距都由这个值（上外边距）复制得到 */
+
+        /* 利用这个简单的机制，您只需指定必要的值，而不必全部都应用 4 个值，例如：
+
+h1 {margin: 0.25em 1em 0.5em;}	 等价于 0.25em 1em 0.5em 1em
+h2 {margin: 0.5em 1em;}		等价于 0.5em 1em 0.5em 1em  
+p {margin: 1px;}			等价于 1px 1px 1px 1px */
+
+
+
+
+        /* 块级盒子水平居中对齐：并上下加50px外间距 */
+        .demo {
+            width: 800px;
+            height: 200px;
+            background-color: #f890a2;
+            margin: 50px auto;
+        }
+
+
+
+        /* 行内元素/行内块元素水平居中对齐 */
+
+        /* 行内元素或者行内块元素水平居中  给其父元素添加 text-align:center 即可 */
+        .demo2 {
+            width: 900px;
+            height: 200px;
+            background-color: pink;
+            margin: 100px auto;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="one">1</div>
+    <div class="two">2</div>
+    <hr>
+    <div class="demo"></div>
+
+
+    <div class="demo2">
+        <span>里面的文字</span>
+    </div>
+    <div class="demo2">
+        <img src="images/up.jpg" alt="">
+    </div>
+
+
+</body>
+
+</html>

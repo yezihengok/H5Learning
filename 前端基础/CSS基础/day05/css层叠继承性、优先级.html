@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* CSS层叠性 */
+        .div1 {
+            color: red;
+            font-size: 13px;
+        }
+
+        .div1 {
+            color: blue;
+        }
+
+        /* CSS继承性 */
+        div {
+            color: pink;
+            font-size: 14px;
+        }
+
+        /* CSS优先级 */
+
+        span {
+            color: deeppink !important;
+            /* color: deeppink; */
+        }
+
+        #demo {
+            color: green;
+        }
+
+        .test {
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="div1">显示的是蓝色，后面覆盖前面的</div>
+
+
+    <div>
+        <p>p标签没有设置颜色，但div父标签设置了所以继承属性显示</p>
+    </div>
+
+
+    <!-- 当同一个元素指定多个选择器，就会有优先级的产生。
+    
+    - 选择器相同，则执行层叠性
+    - 选择器不同，则根据选择器权重执行 -->
+
+    <!-- 可以简单记忆法: 通配符和继承权重为0, 标签选择器为1,类(伪类)选择器为 10, id选择器 100, 行内样式表为(<p stlye="xxx">) 1000, !important 无穷大. -->
+
+    <span class="test" id="demo">我显示的是深粉色 (不管你属性重复嵌套什么样!important;等于提权，我最重要以我为准!)</span>
+
+</body>
+
+</html>

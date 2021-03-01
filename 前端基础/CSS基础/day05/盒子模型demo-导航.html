@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .nav {
+            height: 42px;
+            font-size: 14px;
+            border-top: 4px solid #f77f2f;
+            border-bottom: 1px solid #eeeaea;
+            background-color: #fcfcfc;
+            line-height: 42px;
+        }
+
+        .nav a {
+            /* a属于行内元素 须要转换 行内块元素 ,多个标签在一行显示又能设置宽高 */
+            display: inline-block;
+            text-decoration: none;
+            height: 42px;
+            padding: 0px 22px;
+            color: #4c4c4c;
+        }
+
+        .nav a:hover {
+            background-color: #eee;
+            color: #ff8500;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav">
+        <a href="#">新浪导航</a>
+        <a href="#">手机新浪网</a>
+        <a href="#">客户端</a>
+        <a href="#">微博</a>
+        <a href="#">话题广场</a>
+    </div>
+</body>
+
+</html>

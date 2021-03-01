@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .div {
+            width: 300px;
+            height: 200px;
+            /* border-width 边框的粗细  一般情况下都用 px */
+            border-width: 3px;
+            /* border-style 边框的样式  solid 实线边框   dashed 虚线边框  dotted 点线边框*/
+            border-style: dashed;
+            /* border-color 边框的颜色  */
+            border-color: greenyellow;
+        }
+
+        .div1 {
+            width: 300px;
+            height: 200px;
+
+            /* border-width: 5px;
+            border-style: solid;
+            border-color: purple; */
+
+            /* 边框的复合写法 简写:  */
+            /* border: 5px solid purple; */
+
+            /* 上边框 */
+            border-top: 5px solid darkcyan;
+            /* 下边框 */
+            border-bottom: 8px dashed purple;
+
+            border-left: 5px dotted coral;
+        }
+
+        /*给一个 200*200 的盒子，设置上边框为红色，其余边框为蓝色 */
+        .div2 {
+            width: 200px;
+            height: 200px;
+            /* border-top: 1px solid red;
+            border-bottom: 1px solid blue;
+            border-left: 1px solid blue;
+            border-right: 1px solid blue; */
+
+            /* border包含四条边 */
+            border: 1px solid blue;
+            /* 层叠性 只是层叠了 上边框 */
+            border-top: 1px solid red;
+        }
+
+
+        table,
+        th,
+        td {
+            border: 1px solid orangered;
+            /* 合并相邻的边框 */
+            border-collapse: collapse;
+            font-size: 14px;
+            text-align: center;
+        }
+
+
+        /*注意：  边框会影响盒子的实际大小 */
+        /* 我们需要一个200*200的盒子, 但是这个盒子有10像素的红色边框 */
+        .div3 {
+            width: 180px;
+            height: 180px;
+            background-color: pink;
+            border: 10px solid olivedrab;
+        }
+
+        
+    </style>
+</head>
+
+<body>
+    <div class="div"></div>
+    <div class="div1"></div>
+    <div class="div2"></div>
+
+
+    <!-- 细边框的表格 -->
+    <table cellspacing="0" style="margin-top: 10px;">
+        <thead>
+            <tr>
+                <th>排名</th>
+                <th>关键词</th>
+                <th>进入搜索</th>
+                <th>最近七日</th>
+                <th>相关链接</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>鬼吹灯</td>
+                <td>afa</td>
+                <td>reger</td>
+                <td> <a href="#">贴吧</a> <a href="#">图片</a> <a href="#">百科</a> </td>
+            </tr>
+
+            <tr>
+                <td>1</td>
+                <td>鬼吹灯</td>
+                <td>3433</td>
+                <td>123</td>
+                <td> <a href="#">贴吧</a> <a href="#">图片</a> <a href="#">百科</a> </td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>西游记</td>
+                <td>sdgf</td>
+                <td>123</td>
+                <td> <a href="#">贴吧</a> <a href="#">图片</a> <a href="#">百科</a> </td>
+            </tr>
+
+        </tbody>
+    </table>
+
+
+
+    <div class="div3"></div>
+</body>
+
+</html>
