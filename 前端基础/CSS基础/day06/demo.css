@@ -1,0 +1,56 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+.top {
+    height: 50px;
+    background-color: #b1abab;
+    /* 333
+        text-align: 实现水平居中;
+        line-height: 50px;  行高与盒子高一样 实现 垂直居中*/
+    text-align: center;
+    line-height: 50px;
+}
+
+.banner {
+    margin: 10px auto;
+    background-color: #a89393;
+    width: 980px;
+    height: 150px;
+    text-align: center;
+    line-height: 150px;
+}
+
+.box {
+    width: 980px;
+    margin: 0 auto;
+    height: 300px;
+    background-color: rgb(216, 160, 169);
+}
+
+.box li {
+    float: left;
+    width: 237px;
+    height: 300px;
+    background-color: #c4d869;
+    margin-right: 10px;
+    text-align: center;
+    line-height: 300px;
+}
+
+.box .lastOne {
+    margin-right: 0;
+}
+
+.footer {
+    height: 210px;
+    background-color: #812bc7;
+    margin-top: 10px;
+    text-align: center;
+    line-height: 220px;
+}
