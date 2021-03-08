@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>为什么需要清除浮动</title>
+    <style>
+        .topbox {
+            width: 600px;
+            border: 1px solid #d400ff;
+            margin: 0 auto;
+        }
+
+        .a1 {
+            float: left;
+            width: 250px;
+            height: 200px;
+            background-color: rgb(204, 36, 148);
+        }
+
+        .a2 {
+            float: left;
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+
+        .footer {
+            height: 200px;
+            background-color: forestgreen;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 为什么需要清除浮动？
+    ​ 由于父级盒子很多情况下，不方便给高度，但是子盒子浮动又不占有位置，最后父级盒子高度为 0 时，就会影响下面的标准流盒子。 -->
+
+
+    <!-- 以下：导致footer盒子占据了topbox父盒子的位置 -->
+
+
+    <!-- 清除浮动本质是：清除浮动的本质是清除浮动元素脱离标准流造成的影响 -->
+    <div class="box">
+        <div class="a1">浮动盒子1</div>
+        <div class="a2">浮动盒子2</div>
+    </div>
+    <div class="footer"></div>
+
+</body>
+
+</html>
