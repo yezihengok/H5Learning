@@ -1,0 +1,86 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+li{
+    list-style: none;
+}
+.banner {
+    width: 1000px;
+    height: 200px;
+    margin: 0 auto;
+
+}
+
+.banner img {
+    width: 1000px;
+    height: 200px;
+}
+
+.position {
+    margin: 0 auto;
+    width: 1000px;
+    padding: 5px 0px;
+    border-bottom: 1px solid #cccccc;
+    margin-top: 10px;
+}
+
+.content {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.content h4 {
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.content p {
+    text-indent: 2em;
+    font-size: 14px;
+    line-height: 25px;
+}
+
+.pages {
+    width: 1000px;
+    margin: 20px auto;
+    border-bottom: 1px solid #cccccc;
+    padding-bottom: 10px;
+    /* 清除浮动印象否则边框会移上来 */
+    overflow: hidden;
+}
+
+/* CSS3 :nth-child() 伪类选择器: 选择sanpan的指定第几个 */
+.pages span:nth-child(1) {
+    float: left;
+    margin-left: 200px;
+}
+
+.pages span:nth-child(2) {
+    float: right;
+    margin-right: 200px;
+}
+
+.recommend {
+    width: 1000px;
+    margin: 20px auto;
+        /* overflow: hidden; */
+}
+.recommend h4{
+    margin: 20px 0;
+}
+.recommend ul{
+    float: left;
+    width: 50%;
+}
+.recommend li {
+    text-indent: 2em;
+    line-height: 22px;
+}

@@ -1,0 +1,74 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+a:hover {
+    color: rgb(163, 236, 28);
+}
+
+/* 1、伪元素法--推荐使用（相当于在浮动元素的前后各用css生成了个盒子封住浮动的影响）写法固定复制就好： */
+/* 代表网站： 小米、腾讯等 */
+.clearfix:before,
+.clearfix:after {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+
+.root {
+    width: 96%;
+    margin: 2% auto;
+    /* background-color: teal; */
+}
+
+.topBox .titleUl li {
+    float: left;
+    margin: 10px;
+    padding: 10px;
+    background: #5f6d7e;
+}
+
+
+
+
+.picBox .picUl li {
+    float: left;
+    width: 32%;
+    margin-left: 10px;
+    margin-top: 15px;
+}
+
+.picBox .picUl li img {
+    height: 200px;
+    width: 100%;
+}
+
+.picBox .picUl li span {
+    display: block;
+    color: #333;
+    text-align: center;
+    background: #f1f1f1;
+    padding: 10px 0px;
+}
+
+.picBox .picUl li span:hover {
+    background: #b7b8b8;
+}
