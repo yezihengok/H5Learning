@@ -1,0 +1,167 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    background-color: #f3f5f7;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+/**整个网页主题内容显示区域 1200宽 水平居中*/
+.w {
+    width: 1200px;
+    margin: auto;
+}
+
+.headBox {
+    height: 42px;
+    /* background-color: pink; */
+    /* 注意此地方会层叠 w 里面的margin */
+    margin: 30px auto;
+    /* background: #bcd6f0; */
+}
+
+/* 顶部盒子部分 */
+
+.logo {
+    float: left;
+    width: 198px;
+    height: 42px;
+}
+
+.nav {
+    float: left;
+    margin-left: 50px;
+}
+
+.nav li {
+    float: left;
+    margin: 0 15px;
+}
+
+.nav li a {
+    display: block;
+    height: 42px;
+    line-height: 42px;
+    padding: 0 8px;
+    color: #251717f1;
+    font-size: 18px;
+}
+
+.nav li a:hover {
+    color: #00a4ff;
+    border-bottom: #00a4ff solid 2px;
+}
+
+.search {
+    float: left;
+    /*412px= 362px+50px  */
+    width: 412px;
+    height: 42px;
+    margin-left: 70px;
+}
+
+/* 注意:search input 盒子实际宽 为 362px  : 345px+2px （1px 左边border边框） + padding-left: 15px*/
+.search input {
+    float: left;
+    width: 346px;
+    height: 40px;
+    border: #00a4ff solid 1px;
+    border-right: 0;
+    color: #000;
+    color: #bfbfbf;
+    font-size: 14px;
+    padding-left: 15px;
+}
+
+.search button {
+    float: left;
+    width: 50px;
+    height: 42px;
+    /* 按钮button默认有个边框需要去掉 */
+    border: 0;
+    background: url(images/btn.png);
+}
+
+.user {
+    float: right;
+    text-align: center;
+    height: 42px;
+    line-height: 42px;
+    margin-right: 30px;
+    font-size: 14px;
+    color: #251717f1;
+
+}
+
+/* .user span {
+    float: right;
+    display: block;
+    height: 42px;
+    line-height: 42px;
+    background: sandybrown;
+} */
+
+/* banner区域 */
+.banner {
+    height: 405px;
+    background-color: #1c036c;
+}
+
+.banner .w {
+    height: 405px;
+    background: url(images/banner2_20190819_210028.png);
+}
+
+.banner .subjectNav {
+    /* float: left; */
+    width: 190px;
+    height: 405px;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.banner .subjectNav ul li {
+    height: 45px;
+    line-height: 45px;
+    float: right;
+}
+
+.banner .subjectNav ul li a {
+    display: block;
+    width: 150px;
+    padding: 0 20px;
+    font-size: 14px;
+    color: white;
+}
+
+.banner .subjectNav ul li a:hover {
+    background: rgba(175, 70, 70, 0.5);
+    color: wheat;
+}
+
+.banner .subjectNav ul li a span {
+    float: right;
+}

@@ -33,3 +33,8 @@ Vscode  快速格式化代码:   shift+alt+f
 
 ​		"editor.formatOnType": true,
 ​		"editor.formatOnSave": true
+
+### 4、VSCode列编辑 快捷键:
+
+◾VSCode列选择快捷键：alt+shift+鼠标左键拖动
+
