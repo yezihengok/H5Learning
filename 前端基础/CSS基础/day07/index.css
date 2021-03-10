@@ -137,7 +137,7 @@ a {
 }
 
 .banner .subjectNav {
-    /* float: left; */
+    float: left;
     width: 190px;
     height: 405px;
     background: rgba(0, 0, 0, 0.3);
@@ -158,10 +158,67 @@ a {
 }
 
 .banner .subjectNav ul li a:hover {
-    background: rgba(175, 70, 70, 0.5);
-    color: wheat;
+    background: #00a6ffbd;
+    font-weight: 900;
+    font-size: 15px;
 }
 
 .banner .subjectNav ul li a span {
     float: right;
+}
+
+.kecheng {
+    float: right;
+    width: 230px;
+    height: 300px;
+    background-color: #fff;
+    margin-top: 50px;
+    border-radius: 5px;
+}
+
+.kecheng .pd {
+    padding: 0 20px;
+}
+
+.kecheng h2 {
+    height: 48px;
+    background-color: #9bceea;
+    text-align: center;
+    color: #fff;
+    line-height: 48px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.kecheng li {
+    padding: 13px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.pd ul li h4 {
+    font-size: 16px;
+    color: #4e4e4e;
+}
+
+.pd ul li p {
+    font-size: 12px;
+    color: #a5a5a5;
+}
+
+.pd .moreclass {
+    display: block;
+    height: 38px;
+    border: 1px solid #00a4ff;
+    line-height: 38px;
+    margin: 6px 0;
+    color: #00a4ff;
+    font-size: 16px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.pd .moreclass:hover {
+    /* background-color: #00a6ffbd; */
+    color: #3700ff;
+    border: 1px solid #3700ff;
 }
