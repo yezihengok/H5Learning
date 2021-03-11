@@ -4,10 +4,6 @@
 }
 
 
-body {
-    background-color: #f3f5f7;
-}
-
 li {
     list-style: none;
 }
@@ -29,6 +25,16 @@ a {
 .clearfix {
     *zoom: 1;
 }
+
+/* 以上基本为通用样式 */
+
+
+
+
+body {
+    background-color: #f3f5f7;
+}
+
 
 /**整个网页主题内容显示区域 1200宽 水平居中*/
 .w {
@@ -172,6 +178,7 @@ a {
     width: 230px;
     height: 300px;
     background-color: #fff;
+    /* 浮动的盒子不会有外边距合并的问题 */
     margin-top: 50px;
     border-radius: 5px;
 }
@@ -219,6 +226,171 @@ a {
 
 .pd .moreclass:hover {
     /* background-color: #00a6ffbd; */
-    color: #3700ff;
-    border: 1px solid #3700ff;
+    color: #0077ff;
+    border: 1px solid #0077ff;
+}
+
+.recommendNav {
+    height: 60px;
+    background-color: whitesmoke;
+    margin-top: 10px;
+    /* 行高会继承， 会继承给里面3个孩子  h3 ul a*/
+    line-height: 60px;
+    box-shadow: 0 2px 3px 3px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.recommendNav h3 {
+    float: left;
+    height: 60px;
+    margin: 0 30px;
+    font-size: 16px;
+    color: #00a4ff;
+}
+
+.recommendNav ul {
+    float: left;
+}
+
+.recommendNav ul li {
+    float: left;
+}
+
+.recommendNav ul li a {
+    padding: 0 30px;
+    font-size: 16px;
+    color: #050505;
+    border-left: 1px solid #ccc;
+}
+
+.recommendNav .rc_interest {
+    float: right;
+    margin-right: 30px;
+    color: #00a4ff;
+}
+
+.recommendNav ul li a:hover {
+    color: #00a4ff;
+}
+
+
+.recommendBox {
+    margin-top: 30px;
+}
+
+.recommendBox .rcBox_top {
+    height: 45px;
+}
+
+.recommendBox h3 {
+    float: left;
+    color: #494949;
+    font-size: 20px;
+}
+
+.recommendBox .rcBox_top a {
+    float: right;
+    margin-right: 30px;
+    font-size: 12px;
+    color: #a5a5a5;
+}
+
+
+/* 把li 的父亲ul 修改的足够宽一行能装开5个盒子就不会换行了 */
+.recommendBox .boxList ul {
+    width: 1225px;
+}
+
+/* 这个就是主要产品盒子的宽高 */
+.recommendBox .boxList ul li {
+    float: left;
+    width: 228px;
+    height: 270px;
+    background-color: #fff;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+.recommendBox .boxList ul li img {
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+}
+
+.recommendBox .boxList h4 {
+    color: #050505;
+    font-size: 14px;
+    margin: 20px;
+}
+
+.recommendBox .boxList .infomation {
+    margin: 20px;
+    font-size: 12px;
+    color: #969494;
+}
+
+.recommendBox .boxList .infomation span {
+    color: #fd7b2b;
+}
+
+.recommendBox .boxList ul li:hover {
+    box-shadow: 10px 10px 10px -4px rgba(44, 43, 43, 0.3);
+}
+
+/* 底部盒子部分 */
+.footer {
+    height: 400px;
+    padding-top: 25px;
+    background: white;
+}
+
+.footer .leftBox {
+    float: left;
+
+}
+
+.footer .leftBox p {
+    font-size: 13px;
+    color: #b3b3b3;
+    margin: 20px 0;
+}
+
+.footer .leftBox a {
+    display: block;
+    width: 115px;
+    height: 35px;
+    color: #00a4ff;
+    border: #00a4ff solid 1px;
+    text-align: center;
+    line-height: 35px;
+}
+
+.footer .leftBox a:hover {
+    /* background-color: #00a6ffbd; */
+    color: #0077ff;
+    border: 1px solid #0077ff;
+}
+
+
+.footer .rightBox {
+    float: right;
+}
+
+.footer .rightBox a {
+    font-size: 13px;
+    color: #8b8989;
+}
+
+.footer .rightBox .title {
+    margin-bottom: 10px;
+}
+
+.footer .rightBox .title a {
+    font-size: 15px;
+    color: #4e4e4e;
+}
+
+.footer .rightBox .more {
+    float: left;
+    margin-left: 100px;
 }
