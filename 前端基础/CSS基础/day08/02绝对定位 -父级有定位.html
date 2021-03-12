@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>绝对定位-父级有定位</title>
+    <style>
+        .grandpa {
+            position: relative;
+            width: 600px;
+            height: 600px;
+            background-color: deeppink;
+            padding: 50px;
+        }
+
+        .father {
+            width: 300px;
+            height: 300px;
+            background-color: hotpink;
+        }
+
+        /* .绝对定位不再占有原先的位置。所以绝对定位是脱离标准流的。*/
+
+        /* 因此儿子不受爷爷的  padding: 50px;影响 */
+        .son {
+
+            /* 注意：
+        边偏移需要和定位模式联合使用，单独使用无效；
+        top 和 bottom 不要同时使用；-非要用则取前者top  bottm 无效
+        left 和 right 不要同时使用。-非要用则取前者left  right 无效 */
+
+            position: absolute;
+            left: 20px;
+            /*靠左边并偏移20px*/
+            bottom: 10px;
+            /*靠底部并偏移10px*/
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="grandpa">
+        <div class="father">
+            <div class="son"></div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+        }
+
+        /* - 相对定位的特点：
+    - 1.它是相对于自己原来的位置来移动的（移动位置的时候参照点是自己原来的位置）.
+    - 2. 原来 在标准流的 位置 继续占有，后面的盒子仍然以标准流的方式对待它。
+    因此， 相对定位并没有脱标 。 */
+
+        .box1 {
+            position: relative;
+            left: 100px;
+            top: 100px;
+            width: 200px;
+            height: 200px;
+            background-color: rgba(55, 20, 255, 0.741);
+        }
+
+        .box2 {
+            width: 200px;
+            height: 200px;
+            background-color: deeppink;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="box1">
+    </div>
+    <div class="box2">
+    </div>
+
+
+</body>
+
+</html>

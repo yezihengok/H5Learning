@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>定位会压住标准流盒子内容</title>
+    <style>
+        .box {
+            /* 1.浮动的元素不会压住下面标准流的文字
+            (因为浮动影响的是浮动后面标准流的盒子。前面盒子正常占位显示) */
+            float: left;
+
+            /* 2. 绝对定位（固定定位） 会压住下面标准流所有的内容。 */
+            position: absolute;
+            width: 200px;
+            height: 150px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <p>娉娉袅袅十三余，豆蔻梢头二月初。 春风十里扬州路，卷上珠帘总不如。</p>
+</body>
+
+</html>

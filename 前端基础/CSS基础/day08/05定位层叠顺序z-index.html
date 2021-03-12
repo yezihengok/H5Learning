@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>定位的堆叠顺序</title>
+    <style>
+        .box {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200px;
+            height: 200px;
+        }
+
+        /* 
+        当盒子脱离标准流， 层叠在一起的时候 ，默认按书写的顺序层叠显示。后面覆盖 前面的显示
+         当添加z-index属性 则按这个值显示 。越大优先级越高 显示在最上层 */
+
+        /* 以下将会按照 红 绿 蓝  优先级显示： */
+        .aa {
+            background-color: green;
+            z-index: 1;
+            left: 100px;
+            top: 100px;
+        }
+
+        .bb {
+            background-color: red;
+            left: 50px;
+            top: 50px;
+            z-index: 2;
+        }
+
+        .cc {
+            background-color: blue;
+            left: 150px;
+            top: 150px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box aa">a</div>
+    <div class="box bb">b</div>
+    <div class="box cc">c</div>
+</body>
+
+</html>

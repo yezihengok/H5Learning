@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <style>
+        /* 绝对定位 */
+
+        /* 1、无父亲或者父亲无定位 子元素则以浏览器为准定位（Document 文档）。*/
+        .father {
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+        }
+
+        .son {
+            position: absolute;
+            left: 0;
+            /* 靠左边 */
+            bottom: 0;
+            /* 靠底部*/
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div>
+
+        <div class="father">
+            <div class="son"></div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
