@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>显示隐藏元素之display</title>
+    <style>
+        .aa {
+            display: none;
+            /* display: none 隐藏对象
+                display：block 除了转换为块级元素之外，同时还有显示元素的意思。 */
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+
+        }
+
+        .bb {
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+        }
+
+
+        .cc {
+            /* visibility：visible ; 　元素可视
+            visibility：hidden; 　  元素隐藏 */
+            visibility: hidden;
+            width: 200px;
+            height: 200px;
+            background-color: deepskyblue;
+        }
+
+        .dd {
+            width: 200px;
+            height: 200px;
+            background-color: deeppink;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 7.4. 显示与隐藏总结
+    | **display 显示 （重点）** | 隐藏对象，不保留位置 | 配合后面js做特效，比如下拉菜单，原先没有，鼠标经过，显示下拉菜单， 应用极为广泛 |
+    | **visibility 可见性 （了解）** | 隐藏对象，保留位置 | 使用较少 |
+    
+    | **overflow 溢出（重点）** | 只是隐藏超出大小的部分 | 1. 可以清除浮动 2. 保证盒子里面的内容不会超出该盒子范围 | -->
+    <div class="aa">111</div>
+    <div class="bb">222</div>
+    <div class="cc">333</div>
+    <div class="dd">444</div>
+</body>
+
+</html>
