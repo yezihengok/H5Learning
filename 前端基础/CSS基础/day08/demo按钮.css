@@ -1,0 +1,71 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #f0f0f0;
+}
+
+.w {
+    width: 250px;
+    margin: 20px auto;
+}
+
+
+.box {
+    width: 300px;
+    height: 350px;
+    margin: 50px auto;
+    background: white;
+    border-radius: 8px;
+}
+
+.header {
+    padding: 18px 0;
+    border-bottom: 1px solid #d8d8d8;
+    text-align: center;
+}
+
+/* 1--父盒子相对*/
+.w .bgBox {
+    width: 250px;
+    height: 152px;
+    display: block;
+    position: relative;
+}
+
+.w .bgBox img {
+    /* 保证图片与父盒子一样大 */
+    width: 100%;
+    height: 100%;
+}
+
+/* 2--子元素绝对*/
+.w .bgBox .icon {
+    width: 38px;
+    height: 22px;
+    text-align: center;
+    line-height: 22px;
+    background: url('./images/label.png') no-repeat;
+    color: #fff;
+    position: absolute;
+    right: 8px;
+    top: -10px;
+}
+
+.info {
+    border: 1px solid #e4e4e4;
+    border-top: none;
+    padding: 5px;
+}
+
+.info .footTv {
+    margin: 0 0 10px;
+    padding: 5px;
+}
+
+.info i,
+span {
+    color: #f4830a;
+}

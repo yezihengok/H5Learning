@@ -9,14 +9,18 @@
     <style>
         .box {
             /* 1.浮动的元素不会压住下面标准流的文字
-            (因为浮动影响的是浮动后面标准流的盒子。前面盒子正常占位显示) */
+            (因为浮动就是为了做文字环绕图片显示的，所以虽然 浮动下面的盒子的 文字、图片都不会被遮挡) */
             float: left;
 
             /* 2. 绝对定位（固定定位） 会压住下面标准流所有的内容。 */
             position: absolute;
             width: 200px;
             height: 150px;
-            background-color: pink;
+            background-color: rgba(255, 192, 203, 0.7);
+        }
+
+        p {
+            background-color: skyblue;
         }
     </style>
 </head>

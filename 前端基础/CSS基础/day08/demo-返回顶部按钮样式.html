@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 绝对定位和固定定位也和浮动类似。
+
+1.行内元素添加绝对或者固定定位，可以直接设置高度和宽度。
+2.块级元素添加绝对或者固定定位，如果不给宽度或者高度，默认大小是内容的大小。 */
+
+        .toTop {
+            position: absolute;
+            /* 因此这里要给宽高 */
+            width: 50px;
+            height: 160px;
+            bottom: 30px;
+            right: 10px;
+            background: url(images/2.png) no-repeat;
+            background-size: 50px 160px;
+        }
+
+        .toTop a {
+            display: inline-block;
+            width: 50px;
+            height: 51px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="toTop">
+        <a href="#1"></a>
+        <a href="#2"></a>
+        <a href="#3" title="返回顶部"></a>
+    </div>
+</body>
+
+</html>
