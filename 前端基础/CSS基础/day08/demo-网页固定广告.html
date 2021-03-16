@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .contentBox {
+            width: 1000px;
+            margin: 30px auto;
+        }
+
+        .ad_left {
+            width: 120px;
+            position: fixed;
+            top: 30%;
+            left: 50%;
+            /*1000/2  版心的一半 + 120px 盒子自己的宽度 + 10px的缝隙*/
+            margin-left: -630px;
+        }
+
+        .ad_right {
+            width: 120px;
+            position: fixed;
+            top: 30%;
+            right: 50%;
+            margin-right: -630px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="contentBox">
+        <img src="images/box.png" alt="">
+    </div>
+
+    <img class="ad_left" src="images/ad-l.png" alt="">
+    <img class="ad_right" src="images/ad-r.png" alt="">
+
+
+</body>
+
+
+</html>

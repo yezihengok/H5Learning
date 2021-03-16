@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* 宽度高度为要0 
+         4个边框都要写， 只保留需要的边框颜色，其余的不能省略，都改为 transparent 透明就好了 */
+        .box1 {
+            width: 0;
+            height: 0;
+            /* border: 10px solid pink; */
+            border-top: 10px solid orange;
+            border-right: 10px solid red;
+            border-bottom: 10px solid blue;
+            border-left: 10px solid green;
+        }
+
+        .box2 {
+            width: 0;
+            height: 0;
+            border: 50px solid transparent;
+            border-left-color: rgb(202, 238, 102);
+            margin: 100px auto;
+        }
+
+
+
+        /* 三角形应用测试： */
+        .box3 {
+            background: rgba(255, 99, 71, 0.7);
+            width: 120px;
+        }
+
+        .box3:hover {
+            background: rgba(255, 99, 71, 0.5);
+        }
+
+        .bigBox:hover .arrowBox {
+            display: block;
+        }
+
+        .arrowBox {
+            display: none;
+            position: relative;
+            width: 100px;
+            height: 150px;
+            background: paleturquoise;
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 5px;
+        }
+
+        .arrowBox .arrow {
+            position: absolute;
+            top: -10px;
+            right: 50%;
+            margin-right: -5px;
+            width: 0;
+            height: 0;
+            /* 为了照顾兼容性 */
+            line-height: 0;
+            font-size: 0;
+            /*             */
+            border: 5px solid transparent;
+            border-bottom-color: paleturquoise;
+        }
+
+        .arrowBox .words {
+            width: 100%;
+            height: 100%;
+            color: white;
+            /* word-wrap: break-word */
+        }
+    </style>
+</head>
+
+<body>
+    宽高为0时，每个实际上画的就是个三角形
+    <div class="box1"></div>
+    <div class="box2"></div>
+
+    <div class="bigBox">
+        <div class="box3">鼠标放上来</div>
+        <div class="arrowBox">
+            <span class="arrow"></span>
+            <span class="words">模拟下拉框效果三角形1111111</span>
+        </div>
+    </div>
+
+</body>
+
+</html>

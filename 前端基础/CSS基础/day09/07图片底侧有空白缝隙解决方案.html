@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>图片底侧空白缝隙解决方案</title>
+    <style>
+        div {
+            border: 1px solid red;
+        }
+
+        .after img {
+            /* 图片行内元素，默认与文字基线对齐的，推荐调整对齐方式 即可解决   */
+
+            vertical-align: middle;
+
+            /* 或者 转化为块元素。也可解决 */
+            /* display: block; */
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <img src="images/123.png" alt="">
+        good boys
+    </div>
+    <br>
+    <div class="after">
+        <img src="images/123.png" alt="">
+    </div>
+</body>
+
+</html>

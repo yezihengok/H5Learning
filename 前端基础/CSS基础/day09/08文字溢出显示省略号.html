@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <style>
+        .w {
+            margin: 100px auto;
+            width: 1000px;
+            height: 1000px;
+            border: darkgrey solid 1px;
+        }
+
+
+
+        .w .t1 {
+            width: 150px;
+            height: 80px;
+            background-color: darkkhaki;
+
+            /* 这个单词的意思是如果文字显示不开自动换行 */
+            /* white-space: normal; */
+
+            /* 1.这个单词的意思是如果文字显示不开也必须强制一行内显示 */
+            white-space: nowrap;
+            /* 2.溢出的部分隐藏起来 */
+            overflow: hidden;
+            /* 3. 文字溢出的时候用省略号来显示 */
+            text-overflow: ellipsis;
+        }
+
+
+        .w .t2 {
+            width: 150px;
+            height: 65px;
+            background-color: rgb(219, 212, 113);
+
+            overflow: hidden;
+            text-overflow: ellipsis;
+
+            /* 弹性伸缩盒子模型显示 */
+            display: -webkit-box;
+            /* 限制在一个块元素显示的文本的行数 */
+            -webkit-line-clamp: 3;
+            /* 设置或检索伸缩盒对象的子元素的排列方式 */
+            -webkit-box-orient: vertical;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="w">
+
+        单行文本溢出显示省略号：<br>
+        <div class="t1">
+            人狠话不多不说，此处省略一万字
+        </div>
+
+
+        <br><br><br>
+
+
+        多行文本溢出显示省略号(要设置盒子高度刚好三行的样子)：<br>
+        <div class="t2">
+            啥也不说，此处省略一万字,啥也不说，此处省略一万字此处省略一万字
+        </div>
+    </div>
+
+</body>
+
+</html>

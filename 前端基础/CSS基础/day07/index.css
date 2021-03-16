@@ -118,16 +118,13 @@ body {
     margin-right: 30px;
     font-size: 14px;
     color: #251717f1;
-
+    /* vertical-align: middle; */
 }
 
-/* .user span {
-    float: right;
-    display: block;
-    height: 42px;
-    line-height: 42px;
-    background: sandybrown;
-} */
+.user img {
+    /* 图片文字垂直居中对齐 */
+    vertical-align: middle;
+}
 
 /* banner区域 */
 .banner {
