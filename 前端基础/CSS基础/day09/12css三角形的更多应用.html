@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    .box1 {
+        width: 0;
+        height: 0;
+        /* 把上边框宽度调大 */
+        /* border-top: 100px solid transparent;
+            border-right: 50px solid skyblue; */
+        /* 左边和下边的边框宽度设置为0 */
+        /* border-bottom: 0 solid blue;
+            border-left: 0 solid green; */
+
+
+        /* 1.只保留右边的边框有颜色 */
+        border-color: transparent red skyblue yellow;
+        /* 2. 样式都是solid */
+        border-style: solid;
+        /* 3. 上边框宽度要大， 右边框 宽度稍小， 其余的边框该为 0 */
+        border-width: 100px 50px 0px 0px;
+    }
+
+
+
+    .priceBox {
+        margin-top: 50px;
+        border: 1px red solid;
+        height: 26px;
+        width: 150px;
+        line-height: 26px;
+        margin: 0 auto;
+    }
+
+    .left {
+        /* 转换为行内块元素才能给 行内元素设置宽高 ,当然用float 默认也会转换为行内块元素*/
+        display: inline-block;
+        /* float: left; */
+        position: relative;
+        background: red;
+        height: 100%;
+        width: 80px;
+        text-align: center;
+        color: #fff;
+        font-weight: 700;
+        margin-right: 8px;
+    }
+
+    .left u {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 0;
+        height: 0;
+
+
+        /* 1.只保留右边的边框有颜色 */
+        border-color: transparent white skyblue yellow;
+        /* 2. 样式都是solid */
+        border-style: solid;
+        /* 3. 上边框宽度要大， 右边框 宽度稍小， 其余的边框该为 0 */
+        border-width: 26px 12px 0px 0px;
+    }
+
+    .right {
+        font-size: 13px;
+        color: gray;
+        text-decoration: line-through;
+    }
+</style>
+
+<body>
+
+    <div class="box1">
+
+    </div>
+
+    <div class="priceBox">
+        <span class="left">
+            ￥998
+            <u></u>
+        </span>
+        <span class="right">￥1299</span>
+    </div>
+
+</body>
+
+</html>
