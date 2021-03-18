@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS3过渡练习-进度条</title>
+    <style>
+        /* 案例1===进度条效果:=== */
+        .bar {
+            width: 150px;
+            height: 15px;
+            border: 1px solid red;
+            border-radius: 10px;
+            padding: 1px;
+        }
+
+        .bar_in {
+            width: 30%;
+            height: 100%;
+            background-color: red;
+            border-radius: 10px;
+            /* 谁做过渡给谁加 */
+            transition: all .7s;
+        }
+
+        .bar:hover .bar_in {
+            width: 100%;
+        }
+
+
+
+        /* 案例2===背景渐变效果=== */
+        .test {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .test li {
+            float: left;
+            width: 100px;
+            height: 50px;
+            margin: 0 5px;
+            border: 1px solid #ddd;
+            background-color: #eee;
+            text-align: center;
+            transition: background-color .5s ease-in;
+            /* 下面是为了兼容性 */
+            -webkit-transition: background-color .5s ease-in;
+            -moz-transition: background-color .5s ease-in;
+
+        }
+
+        .test li:nth-child(1):hover {
+            background-color: #bbb;
+        }
+
+        .test li:nth-child(2):hover {
+            background-color: burlywood;
+        }
+
+        .test li:nth-child(3):hover {
+            background-color: yellowgreen;
+        }
+
+        .test li:nth-child(4):hover {
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>进度条效果:</h2>
+    <div class="bar">
+        <div class="bar_in"></div>
+    </div>
+
+
+    <h2>请将鼠标移动到下面的矩形上：</h1>
+        <ul class="test">
+            <li>背景色过渡</li>
+            <li>背景色过渡</li>
+            <li>背景色过渡</li>
+            <li>背景色过渡</li>
+        </ul>
+
+</body>
+
+</html>

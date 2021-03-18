@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS3新增选择器nth-type-of</title>
+    <style>
+        ul li:nth-of-type(2n+1) {
+            background-color: skyblue;
+        }
+
+        ul li:first-of-type {
+            background-color: pink;
+        }
+
+        ul li:last-of-type {
+            background-color: pink;
+        }
+
+
+        /*【nth-child】 与 【nth-of-type】  重点区别如下: */
+
+
+        /* nth-child 会把section下所有的盒子都排列序号 */
+        /* 执行的时候首先看序号，之后回去看 前面 标签是否是div */
+
+        section div:nth-child(1) {
+            /* 这个不会命中任何标签  等价于--我要选中1第一个元素。但第一个元素又不是div所以选中无效*/
+            background-color: red;
+        }
+
+        /* nth-of-type 会把指定元素的盒子排列序号 */
+        /* 执行的时候首先看  div指定的元素  之后去看 :nth-of-type(1) 第几个孩子 */
+        section div:nth-of-type(1) {
+            /**会选中第二个元素，也就是第一个div**/
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>我是第1个孩子</li>
+        <li>我是第2个孩子</li>
+        <li>我是第3个孩子</li>
+        <li>我是第4个孩子</li>
+        <li>我是第5个孩子</li>
+        <li>我是第6个孩子</li>
+    </ul>
+
+
+    <!-- 注意区别 -->
+    <section>
+        <p>我是section里的第一个元素</p>
+        <div>我是section里的第二个元素</div>
+        <div>我是section里的第三个元素</div>
+    </section>
+</body>
+
+</html>

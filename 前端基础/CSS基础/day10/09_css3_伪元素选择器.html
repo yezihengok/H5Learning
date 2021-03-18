@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>伪元素选择器before和after</title>
+    <style>
+        注意：
+        /* - before 和 after 创建一个元素，但是属于行内元素
+        - 新创建的这个元素在文档树中是找不到的，所以我们称为伪元素
+        - 语法：  element::before {}   
+        - before 和 after 必须有 content 属性 
+        - before 在父元素内容的前面创建元素，after 在父元素内容的后面插入元素伪元素选择器和标签选择器一样，权重为 1 */
+
+        .box1 {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+
+        /* div::before 权重是2 */
+        .box1::before {
+            /* 这个content是必须要写的 */
+            /* display: inline-block; */
+            content: '我';
+            /* width: 30px;
+            height: 40px; */
+            color: #d84242;
+        }
+
+        .box1::after {
+            content: '小猪佩奇';
+            color: #8f6312;
+        }
+
+
+
+
+        /* #### 应用场景一： 字体图标
+在实际工作中，字体图标基本上都是用伪元素来实现的，好处在于我们不需要在结构中额外去定义字体图标的标签，通过content属性来设置字体图标的 编码 */
+        @font-face {
+            font-family: 'icomoon';
+            src: url('fonts/icomoon.eot?1lv3na');
+            src: url('fonts/icomoon.eot?1lv3na#iefix') format('embedded-opentype'),
+                url('fonts/icomoon.ttf?1lv3na') format('truetype'),
+                url('fonts/icomoon.woff?1lv3na') format('woff'),
+                url('fonts/icomoon.svg?1lv3na#icomoon') format('svg');
+            font-weight: normal;
+            font-style: normal;
+            font-display: block;
+        }
+
+        .box2 {
+            position: relative;
+            margin-top: 50px;
+            width: 200px;
+            height: 35px;
+            border: 1px solid skyblue;
+        }
+
+        .box2::after {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-family: 'icomoon';
+            /* content: ''; */
+            content: '\e91e';
+            color: gray;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1">
+        是
+    </div>
+
+    <div class="box2"></div>
+</body>
+
+</html>

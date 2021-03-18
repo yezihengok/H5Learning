@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* [属性]--- 中括号+属性，即选中 带有次属性的标签 */
+        input[value] {
+            color: chocolate;
+        }
+
+        /*[属性=属性值]--- 只选中 属性为type 且值为text的标签 */
+        input[type=number] {
+            font-weight: 700;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        /* [class^=属性值] ---  具有class属性且属性值是 icon开头的这些元素 */
+        div[class^=icon] {
+            color: #e01e1e;
+        }
+
+
+        /* [class^=属性值] --  具有class属性且属性值是 data结尾的这些元素 */
+        section[class$=data] {
+            color: rgb(10, 243, 68);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 1. 利用属性选择器就可以不用借助于类或者id选择器 -->
+    <input type="text" value="请输入用户名">
+    <input type="number" value="123456">
+
+    <!-- 2. 属性选择器还可以选择属性=值的某些元素 重点务必掌握的 -->
+    <input type="text" name="" id="">
+    <input type="password" name="" id="">
+
+    <!-- 3. 属性选择器可以选择属性值开头的某些元素 -->
+    <div class="icon1">我会被[class^=icon]选中</div>
+    <div class="icon2">我会被[class^=icon]选中</div>
+    <div class="icon3">我会被[class^=icon]选中</div>
+    <div class="icon4">我会被[class^=icon]选中</div>
+    <div>我是打酱油的</div>
+    <!-- 4. 属性选择器可以选择属性值结尾的某些元素 -->
+    <section class="icon1-data">我会被[class$=data选中</section>
+    <section class="icon2-data">我会被[class$=data选中</section>
+    <section class="icon3-ico">我不会被[class$=data]选中</section>
+
+</body>
+
+</html>
