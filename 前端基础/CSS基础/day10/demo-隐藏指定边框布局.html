@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+
+        .box-content {
+            /*下面两个属性 让块级盒子水平居中 */
+            width: 300px;
+            margin: 50px auto;
+            background: #eee;
+            /* 里面孩子浮动了，清除浮动影响,不然浮在上面 灰色背景就看不到了 */
+            overflow: hidden;
+        }
+
+        /* ul {
+            width: 300px;
+        } */
+
+        .box-content ul li {
+            float: left;
+            position: relative;
+            width: 99px;
+            height: 30px;
+            /* 下面两个属性 文字垂直方向和水平方向居中 */
+            line-height: 30px;
+            text-align: center;
+            font-size: 14px;
+            /* border-right: 1px solid #adacac; */
+            padding: 5px 0 5px 0;
+            transition: background-color 1.0s ease, color 1.0s ease, font-size .4s ease-in;
+
+        }
+
+
+        /* 通过伪元素 给每个li添加一个右边框的盒子*/
+        .box-content ul li::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 10px;
+            width: 100%;
+            /* 高度是li高度的-20px  因为顶部top:距离10px ,这样右边框看起来就会 上下各距离10px*/
+            height: calc(100% - 20px);
+            border-right: 1px solid #adacac;
+            /* margin-bottom: 10px; */
+        }
+
+        /*在将3倍数的右边框去除掉*/
+        .box-content ul li:nth-child(3n)::after {
+            content: '';
+            border-right: none;
+        }
+
+        .box-content ul li:hover {
+            background-color: #bbb;
+            color: brown;
+            font-size: 17px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box-content">
+        <ul>
+            <li>关注</li>
+            <li>头条</li>
+            <li>抗疫</li>
+            <li>要闻</li>
+            <li>手机</li>
+            <li>热点</li>
+            <li>网易号</li>
+            <li>科技</li>
+        </ul>
+    </div>
+</body>
+
+</html>
