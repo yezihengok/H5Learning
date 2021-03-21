@@ -1,0 +1,73 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.dateBox {
+    margin: 50px auto;
+    border: 2px solid deepskyblue;
+    width: 266px;
+    height: 220px;
+}
+
+.week-list {
+    height: 35px;
+    width: 100%;
+    border-bottom: 1px solid #c8cacc;
+}
+
+.week-list li {
+    float: left;
+    height: 35px;
+    width: 35px;
+    text-align: center;
+    line-height: 35px;
+    font-size: 15px;
+}
+
+.tabel-ul {
+    height: 35px;
+    border-bottom: 1px solid #c8cacc;
+}
+
+/* date-lines盒子的亲儿子 li标签的最后一个li 里的tabel-ul 不需要底部边框 */
+.date-lines>li:last-of-type .tabel-ul {
+    border-bottom: 0;
+}
+
+.tabel-li {
+    height: 31px;
+    width: 31px;
+    text-align: center;
+    line-height: 31px;
+    float: left;
+    border: 2px solid #fff;
+    margin: 0 1px;
+}
+
+.tabel-li.preDays {
+    color: #bfbfbf;
+}
+
+.tabel-li.nextDay {
+    color: #bfbfbf;
+}
+
+.tabel-li:hover {
+    border-color: #ffbb00;
+}
+
+.tabel-li.showClick {
+    border-color: #ffbb00;
+}
+
+.tabel-li.active {
+    background: #ffbb00;
+    color: #fff !important;
+    border-color: #ffbb00;
+}
+
+.tabel-li.weekColor {
+    color: #e02d2d;
+}

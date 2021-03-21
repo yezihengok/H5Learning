@@ -1,0 +1,48 @@
+        .top-logo {
+            position: relative;
+            margin: 50px auto;
+            background-color: #ff6700;
+            width: 60px;
+            height: 60px;
+            border-radius: 5px;
+        }
+
+        .top-logo a::before {
+            /* 伪元素必须要设置content属性 */
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url(images/mi-logo.png) no-repeat center;
+            /* 设置过渡 */
+            transition: all .4s;
+            /* 透明度 */
+            opacity: 1;
+        }
+
+        .top-logo a::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            margin-left: -100%;
+            background: url(images/mi-home.png) no-repeat center;
+            opacity: 0;
+            transition: all .4s;
+        }
+
+        /* //右移同时隐藏 */
+        .top-logo a:hover::before {
+            opacity: 0;
+            margin-left: 100%;
+        }
+
+        /* //右移同时显示出来 */
+        .top-logo a:hover::after {
+            opacity: 1;
+            margin-left: 0;
+        }
