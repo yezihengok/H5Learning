@@ -1,0 +1,124 @@
+ .goodlistNav {
+     height: 47px;
+     border-bottom: 2px solid #b1191a;
+ }
+
+ .goodslist-navLeft li {
+     float: left;
+ }
+
+ .goodslist-navRight li {
+     float: left;
+ }
+
+ .goodslist-navLeft li a {
+     height: 45px;
+     line-height: 45px;
+     padding: 0 20px;
+     font-size: 16px;
+     font-weight: 600;
+ }
+
+ .goodslist-navRight li a {
+     height: 45px;
+     line-height: 45px;
+     padding: 0 20px;
+     font-size: 14px;
+ }
+
+ .goodslist-navRight li:last-child a::after {
+     content: '\e91e';
+     font-family: 'icomoon';
+ }
+
+
+ /* 商品列表部分 */
+ .goodlist {
+     width: 1200px;
+     /* 清除浮动影响 */
+     overflow: hidden;
+ }
+
+ .goodlist li {
+     float: left;
+     width: 290px;
+     height: 460px;
+     margin-right: 13px;
+     margin-top: 10px;
+     /* 先写个透明的边框占位，避免鼠标移上去的时候在添加边框影响内容 */
+     border: 1px solid transparent;
+ }
+
+ .goodlist li:nth-child(4n) {
+     margin-right: 0;
+ }
+
+ .goodlist .goods {
+     width: 290px;
+     height: 460px;
+ }
+
+ .goodlist .goods h5 {
+     font-weight: 400;
+     font-size: 14px;
+     color: #3f3f3f;
+     margin-bottom: 15px;
+ }
+
+ .goodlist .goods .center {
+     margin: 5px 10px;
+ }
+
+ .goodlist .goods .price-box span {
+     color: #df1515;
+     font-size: 19px;
+     font-weight: 600;
+ }
+
+ .goodlist .goods .price-box del {
+     color: gray;
+     font-size: 13px;
+ }
+
+ .goodlist .goods .bar-box {
+     color: #666;
+     font-size: 13px;
+ }
+
+ .goodlist .goods .bar-box i,
+ span {
+     color: #df1515;
+ }
+
+ .goodlist .goods .bar-out {
+     display: inline-block;
+     width: 130px;
+     height: 12px;
+     border: 1px solid brown;
+     border-radius: 5px;
+     padding: 1px;
+     margin: 5px 5px 0 5px;
+ }
+
+ .goodlist .goods .bar-in {
+     width: 70%;
+     height: 100%;
+     background: #df1515;
+     border-radius: 5px;
+ }
+
+ .goodlist .goods .submit {
+     display: inline-block;
+     height: 52px;
+     width: 100%;
+     color: #fff;
+     font-size: 16px;
+     text-align: center;
+     line-height: 50px;
+     background: #b1191a;
+ }
+
+
+ .goodlist li:hover {
+     border: 1px solid #c81523;
+ }

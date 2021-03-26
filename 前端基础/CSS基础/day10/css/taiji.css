@@ -1,0 +1,50 @@
+    body {
+        background-color: lightgrey;
+
+    }
+
+    section {
+        width: 1000px;
+        margin: 150px auto;
+    }
+
+    /* 先画个圆，其中左边框为黑色半圆 */
+    .taiji {
+        /* 盒子的实际宽度=盒子宽+左边框的宽 */
+        position: relative;
+        height: 300px;
+        width: 150px;
+        background: #fff;
+        border-left: 150px solid black;
+        border-radius: 50%;
+        margin: 50px auto;
+    }
+
+
+    /* 在摆一个边长为 大圆一半的 空心圆放在上方 */
+    .taiji::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -75px;
+        /* 上下边框60 +原本盒子高度30 = 盒子的高度刚好=150px */
+        height: 30px;
+        width: 30px;
+        border: 60px solid black;
+        background: white;
+        border-radius: 50%;
+    }
+
+    /* 在摆一个边长为 大圆一半的 空心圆放在下方 */
+    .taiji::after {
+        content: '';
+        position: absolute;
+        top: 150px;
+        left: -75px;
+        /* 上下边框60 +原本盒子高度30 = 盒子的高度刚好=150px */
+        height: 30px;
+        width: 30px;
+        border: 60px solid white;
+        background: black;
+        border-radius: 50%;
+    }

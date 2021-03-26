@@ -1,0 +1,275 @@
+.main {
+    width: 980px;
+    height: 455px;
+    margin-left: 220px;
+    margin-top: 10px;
+    /* background: rgb(233, 150, 147); */
+}
+
+/* banner样式相关 */
+.main .banner {
+    position: relative;
+    float: left;
+    width: 721px;
+    height: 455px;
+    background: lemonchiffon;
+}
+
+.main .banner .prev::before,
+.next::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    margin-top: -15px;
+    width: 20px;
+    height: 30px;
+    background: rgba(0, 0, 0, .3);
+    color: #fff;
+    text-align: center;
+    line-height: 30px;
+}
+
+.main .banner .prev::before {
+    left: 0;
+    content: '\e91f';
+    font-family: 'icomoon';
+    border-radius: 0 15px 15px 0;
+}
+
+.main .banner .next::before {
+    right: 0;
+    content: '\e920';
+    font-family: 'icomoon';
+    border-radius: 15px 0 0 15px;
+}
+
+.main .banner .pointes {
+    position: absolute;
+    left: 50%;
+    bottom: 15px;
+    margin-left: -35px;
+    width: 70px;
+    height: 13px;
+    background: rgba(0, 0, 0, .3);
+    border-radius: 6px;
+}
+
+.main .banner .pointes li {
+    float: left;
+    width: 8px;
+    height: 8px;
+    background-color: #fff;
+    border-radius: 50%;
+    margin: 3px;
+}
+
+.main .banner .pointes a {
+    display: block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.main .banner .pointes .currentSelected {
+    background-color: darkorange;
+}
+
+
+/* 右侧广告相关 */
+.main .newsAd {
+    float: right;
+    width: 250px;
+    height: 455px;
+    /* background: rgb(233, 224, 147); */
+}
+
+.main .newsAd .news {
+    height: 165px;
+    border: 1px solid #e4e4e4fd;
+}
+
+.main .newsAd .news .news-dt {
+    border-bottom: 1px dotted #e4e4e4fd;
+    height: 33px;
+    line-height: 33px;
+    padding: 0 15px;
+}
+
+.main .newsAd .news-dt h5 {
+    font-size: 14px;
+    float: left;
+}
+
+.main .newsAd .news-dt a {
+    float: right;
+}
+
+.main .newsAd .news-dt a::after {
+    content: '\e920';
+    font-family: 'icomoon';
+}
+
+.main .newsAd .news-dd li {
+    height: 25px;
+    line-height: 25px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding: 0 10px;
+}
+
+.main .newsAd .lifeService {
+    border: 1px solid #e4e4e4fd;
+    height: 210px;
+    width: 250px;
+    border-top: 0;
+    overflow: hidden;
+}
+
+
+
+/* 62px *4=248  +左右边框2px 刚好是250 所以每个盒子宽度248*/
+.main .newsAd .lifeService li {
+    float: left;
+    width: 62px;
+    height: 71px;
+    text-align: center;
+    border-right: 1px solid #e4e4e4;
+    border-bottom: 1px solid #e4e4e4;
+}
+
+/* 去掉4倍数盒子的右边框 */
+.main .newsAd .lifeService li:nth-child(4n) {
+    border-right: 0;
+}
+
+.main .newsAd .lifeService li span {
+    display: inline-block;
+    width: 24px;
+    height: 28px;
+    background-color: pink;
+    margin-top: 12px;
+    background: url(../images/icons.png) no-repeat -79px -15px;
+}
+
+.main .newsAd .lifeService li:nth-child(3n) span {
+    background: url(../images/icons.png) no-repeat -19px -15px;
+}
+
+.main .newsAd .ad {
+    margin-top: 5px;
+}
+
+.recommend {
+    height: 165px;
+    background-color: #ebebeb;
+    margin-top: 12px;
+}
+
+.recommend .dt {
+    height: 163px;
+    width: 205px;
+    text-align: center;
+    line-height: 163px;
+    background-color: #5c5251;
+}
+
+.recommend .dd li {
+    position: relative;
+    float: left;
+}
+
+.recommend .dd li img {
+    width: 248px;
+    height: 163px;
+}
+
+.recommend .dd li:nth-child(-n+3)::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 10px;
+    width: 1px;
+    height: 145px;
+    background-color: #ddd;
+
+}
+
+.floor .topbox {
+    margin-top: 20px;
+    height: 30px;
+    border-bottom: 2px solid #c81623;
+}
+
+.floor .topbox h2 {
+    float: left;
+    font-weight: normal;
+    font-size: 18px;
+    color: #c81623;
+}
+
+.floor .topbox ul {
+    float: right;
+}
+
+.floor .topbox ul li {
+    float: left;
+
+}
+
+.floor .topbox ul li a {
+    padding: 0 15px;
+}
+
+.floor .topbox ul li:first-child a {
+    color: #c81623;
+}
+
+/* .floor .jiadian .contentbox {
+    height: 360px;
+    width: 100%;
+} */
+
+.floor .contentbox>div {
+    float: left;
+    height: 360px;
+}
+
+.floor .contentbox .col_1 {
+    width: 210px;
+    background-color: #f9f9f9;
+    /* text-align: center; */
+    padding-left: 15px;
+
+}
+
+.floor .contentbox .col_1 li {
+    float: left;
+    width: 85px;
+    height: 33px;
+    text-align: center;
+    line-height: 33px;
+    border-bottom: 1px solid #ccc;
+    margin-right: 10px;
+}
+
+
+.floor .contentbox .col_2 {
+    width: 329px;
+}
+
+.floor .contentbox .col_3,
+.col_4 {
+    width: 221px;
+    border-right: 1px solid #ccc;
+}
+
+.floor .contentbox .col_5 {
+    width: 219px;
+}
+
+.floor .contentbox .line {
+    /*a里如果包含有宽度的盒子，a转为行内块元素才会显示边框 */
+    display: inline-block;
+    border-bottom: 1px solid #ccc;
+}

@@ -1,0 +1,88 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+.w {
+    width: 1170px;
+    margin: 50px auto;
+    background: #f3f1f18c;
+    /* 里面孩子浮动了，清除浮动影响,不然浮在上面  背景就看不到了 */
+    overflow: hidden;
+}
+
+.goods:first-child {
+    margin-left: 0;
+}
+
+.goods {
+    float: left;
+    width: 285px;
+    height: 458px;
+    background: #fff;
+    margin-left: 10px;
+}
+
+.goods h5 {
+    font-weight: 400;
+    font-size: 14px;
+    color: #3f3f3f;
+    margin-bottom: 15px;
+}
+
+.goods .center {
+    margin: 5px 10px;
+}
+
+.goods .price-box span {
+    color: #df1515;
+    font-size: 19px;
+    font-weight: 600;
+}
+
+.goods .price-box del {
+    color: gray;
+    font-size: 13px;
+}
+
+.goods .bar-box {
+    color: #666;
+    font-size: 13px;
+}
+
+.goods .bar-box i,
+span {
+    color: #df1515;
+}
+
+.goods .bar-out {
+    display: inline-block;
+    width: 130px;
+    height: 12px;
+    border: 1px solid brown;
+    border-radius: 5px;
+    padding: 1px;
+    margin: 5px 5px 0 5px;
+}
+
+.goods .bar-in {
+    width: 70%;
+    height: 100%;
+    background: #df1515;
+    border-radius: 5px;
+}
+
+.goods .submit {
+    display: inline-block;
+    height: 50px;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    line-height: 50px;
+    background: #b1191a;
+}

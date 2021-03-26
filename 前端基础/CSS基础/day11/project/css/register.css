@@ -1,0 +1,150 @@
+header {
+    margin-top: 30px;
+}
+
+header .logo {
+    border-bottom: 2px solid #b1191a;
+}
+
+.registerBox {
+    height: 520px;
+    border: 1px solid #ccc;
+    margin-top: 20px;
+}
+
+.registerBox .title {
+    height: 42px;
+    border-bottom: 1px solid #ccc;
+    background-color: #ececec;
+    line-height: 42px;
+    padding: 0 15px;
+}
+
+.registerBox .title h3 {
+    float: left;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.registerBox .title .login {
+    float: right;
+    font-size: 14px;
+}
+
+.regFrom {
+    width: 600px;
+    margin: 50px auto;
+}
+
+/* 选中文本框类型 text 与密码的添加边框样式 */
+.regFrom input[type=text],
+input[type=password] {
+    width: 240px;
+    height: 38px;
+    padding-left: 10px;
+    border: 1px solid #ccc;
+}
+
+/* .regFrom input {
+    width: 240px;
+    height: 38px;
+    padding-left: 10px;
+    border: 1px solid #ccc;
+} */
+
+.regFrom li {
+    margin-bottom: 20px;
+}
+
+.regFrom li label {
+    display: inline-block;
+    width: 90px;
+    text-align: right;
+}
+
+.regFrom li .error span {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-right: 5px;
+    background: url(../images/error.png);
+
+}
+
+.regFrom li .ok span {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-right: 5px;
+    background: url(../images/success.png);
+}
+
+.regFrom li .error i {
+    color: rgb(209, 24, 24);
+}
+
+.regFrom li .ok i {
+    color: green;
+}
+
+.regFrom .pwdTip {
+    text-align: center;
+    padding-right: 100px;
+}
+
+.regFrom .pwdTip i {
+    padding: 0 12px;
+    color: #fff;
+    margin-right: 4px;
+}
+
+.regFrom .pwdTip i:nth-child(1) {
+    background-color: #de1111;
+}
+
+.regFrom .pwdTip i:nth-child(2) {
+    background-color: #40b83f;
+}
+
+.regFrom .pwdTip i:nth-child(3) {
+    background-color: #f79100;
+}
+
+.regFrom .protocol {
+    vertical-align: middle;
+}
+
+.regFrom .protocol input {
+    /* width: 13px;
+    height: 13px; */
+    margin-left: 95px;
+    vertical-align: middle;
+}
+
+.regFrom .protocol a {
+    color: #1ba1e6;
+}
+
+.regFrom .submit {
+    width: 200px;
+    height: 34px;
+    background-color: #c81623;
+    font-size: 14px;
+    color: #fff;
+    margin: 20px 90px;
+}
+
+footer {
+    text-align: center;
+    padding-top: 30px;
+}
+
+footer .links {
+    margin-bottom: 15px;
+}
+
+footer .links a {
+    margin: 0 4px;
+}
