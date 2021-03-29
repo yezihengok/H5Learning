@@ -616,6 +616,87 @@ transition: 要过渡的属性  花费时间  运动曲线  何时开始;
 </body>
 ```
 
+
+###### `2D` 转换之 `translate`
+
+1.  `2D` 转换
+
+   - `2D` 转换是改变标签在二维平面上的位置和形状
+
+   - 移动： `translate`
+   - 旋转： `rotate`
+   - 缩放： `scale`
+
+2.  `translate` 语法
+
+   - x 就是 x 轴上水平移动
+   - y 就是 y 轴上水平移动
+
+   ```css
+   transform: translate(x, y)
+   transform: translateX(n)
+   transfrom: translateY(n)
+   ```
+
+3. 重点知识点
+   - `2D` 的移动主要是指 水平、垂直方向上的移动
+   - `translate` 最大的优点就是不影响其他元素的位置
+   - `translate` 中的100%单位，是相对于本身的宽度和高度来进行计算的
+   -  行内标签没有效果
+
+4.  代码演示
+
+```css
+div {
+  background-color: lightseagreen;
+  width: 200px;
+  height: 100px;
+  /* 平移 */
+  /* 水平垂直移动 100px */
+  /* transform: translate(100px, 100px); */
+
+  /* 水平移动 100px */
+  /* transform: translate(100px, 0) */
+
+  /* 垂直移动 100px */
+  /* transform: translate(0, 100px) */
+
+  /* 水平移动 100px */
+  /* transform: translateX(100px); */
+
+  /* 垂直移动 100px */
+  transform: translateY(100px)
+}
+```
+
+
+
+###### 、`2D 转换 rotate`
+
+1. rotate 旋转
+
+   - `2D` 旋转指的是让元素在二维平面内顺时针或者逆时针旋转
+
+2.  `rotate` 语法
+
+   ```css
+   /* 单位是：deg */
+   transform: rotate(度数) 
+   ```
+
+3.  重点知识点
+   - `rotate` 里面跟度数，单位是 `deg`
+   -  角度为正时，顺时针，角度为负时，逆时针
+   - 默认旋转的中心点是元素的中心点
+
+4.  代码演示
+
+   ```css
+   img:hover {
+     transform: rotate(360deg)
+   }
+   ```
+
 # 广义H5说法 了解
 
 ### 狭隘H5
