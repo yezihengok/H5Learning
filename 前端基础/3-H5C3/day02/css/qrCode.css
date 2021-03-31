@@ -1,0 +1,48 @@
+.qrcodeBox {
+    position: relative;
+    width: 145px;
+    height: 240px;
+    background: url(../images/index_z_71df05e.png);
+    background-position: 0px 0px;
+    background-repeat: no-repeat;
+    padding-top: 50px;
+}
+
+.qrcodeBox .qrcode {
+    display: block;
+    margin: 0 auto;
+    width: 107px;
+}
+
+.qrcodeBox .line {
+    position: absolute;
+    left: 12px;
+    top: 45px;
+    animation: scan 5s ease infinite;
+    -webkit-animation: scan 5s ease infinite;
+    -moz-animation: scan 5s ease infinite;
+    -ms-animation: scan 5s ease infinite;
+}
+
+@keyframes scan {
+    0% {
+        transform: translate(0, 0);
+        -webkit-transform: translate(0, 0);
+        -moz-transform: translate(0, 0);
+        -ms-transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(0, 100px);
+        -webkit-transform: translate(0, 100px);
+        -moz-transform: translate(0, 100px);
+        -ms-transform: translate(0, 100px);
+    }
+
+    100% {
+        transform: translate(0, 0);
+        -webkit-transform: translate(0, 0);
+        -moz-transform: translate(0, 0);
+        -ms-transform: translate(0, 0);
+    }
+}

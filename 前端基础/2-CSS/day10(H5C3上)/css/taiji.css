@@ -18,6 +18,12 @@
         border-left: 150px solid black;
         border-radius: 50%;
         margin: 50px auto;
+
+
+        transition: all 1s ease-in-out;
+        -webkit-transition: all 1s ease-in-out;
+        -moz-transition: all 1s ease-in-out;
+        -o-transition: all 1s ease-in-out;
     }
 
 
@@ -47,4 +53,13 @@
         border: 60px solid white;
         background: black;
         border-radius: 50%;
+    }
+
+
+    div:hover {
+        transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
     }

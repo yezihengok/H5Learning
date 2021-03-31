@@ -1,0 +1,69 @@
+.playVideo {
+    position: relative;
+    width: 456px;
+    height: 305px;
+    background: url(../images/games.png) no-repeat;
+}
+
+.playVideo::before,
+.playVideo::after {
+    display: block;
+    content: '';
+    /* 让其在盒子里垂直水平居中 */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* margin-top: -46px;
+    margin-left: -46px; */
+}
+
+.playVideo::before {
+    width: 93px;
+    height: 93px;
+    position: absolute;
+    background-image: url(../images/index_z_9769688.png);
+    background-position: -744px -819px;
+    background-repeat: no-repeat;
+
+    -moz-animation: rotate1 2s linear infinite;
+    -webkit-animation: rotate1 2s linear infinite;
+    -o-animation: rotate1 2s linear infinite;
+    -ms-animation: rotate1 2s linear infinite;
+    animation: rotate1 2s linear infinite;
+}
+
+.playVideo::after {
+    position: absolute;
+    width: 21px;
+    height: 25px;
+    /* margin-top: -12px;
+    margin-left: -10px; */
+    /* //x轴稍微便宜点 不那么居中 */
+    transform: translate(-40%, -50%);
+    /* background-color: honeydew; */
+    background-image: url(../images/index_z_9769688.png);
+    background-position: -2290px -108px;
+    background-repeat: no-repeat;
+}
+
+@keyframes rotate1 {
+    0% {
+        /* 前面垂直居中时使用了translate(-50%, -50%)，这里也要加上 */
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+.playVideo:hover {
+    cursor: pointer;
+}
+
+.playVideo:hover::before {
+    -webkit-animation-play-state: paused;
+    -moz-animation-play-state: paused;
+    -o-animation-play-state: paused;
+    animation-play-state: paused;
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="c">
+    <style>
+        input {
+            /* 默认有灰色边框我们需要手动去掉 */
+            border: 0;
+            outline: none;
+            width: 190px;
+            height: 33px;
+            padding: 0 20px;
+        }
+
+        div {
+            position: relative;
+            width: 250px;
+            height: 35px;
+            border: 1px solid #363030;
+        }
+
+        /* 添加右下边框 旋转45° 就是向下的箭头 */
+        div::before {
+            position: absolute;
+            content: '';
+            top: 8px;
+            right: 15px;
+            width: 10px;
+            height: 10px;
+            border-right: 1px solid #363030;
+            border-bottom: 1px solid #363030;
+            transform: rotate(45deg);
+            transition: all 0.2s;
+        }
+
+        /* 鼠标经过div 在原有45°的角度上旋转180°  */
+        div:hover::before {
+            transform: rotate(225deg);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div>
+        <input type="text">
+    </div>
+</body>
+
+</html>

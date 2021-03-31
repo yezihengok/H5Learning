@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #ccc;
+        }
+
+        div {
+            position: absolute;
+            width: 200px;
+            height: 100px;
+            background: url(images/bear.png) no-repeat;
+            /* steps(8) 即 分8次向右移动1600px  即每次刚好移动200px */
+
+            /* 元素可以添加多个动画， 用逗号分隔 */
+            animation: bear .4s steps(8) infinite, moveCentenr 3s forwards;
+
+        }
+
+        /* 向右循环移动长图实现奔跑 */
+        @keyframes bear {
+            0% {
+                background-position: 0 0;
+            }
+
+            100% {
+                background-position: -1600px 0;
+            }
+        }
+
+        /*移动盒子（熊）的位置到浏览器的中间停止*/
+        @keyframes moveCentenr {
+            0% {
+                left: 0;
+            }
+
+            100% {
+                left: 50%;
+                /* margin-left: -100px; */
+                transform: translateX(-50%);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+</body>
+
+</html>

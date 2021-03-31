@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 1. 定义动画 */
+        @keyframes moveLeft {
+
+            /* from to 等价于  0% 和  100% */
+            /* 开始状态 */
+            from {
+                transform: translate(0, 0);
+            }
+
+            /* 结束状态 */
+            to {
+                transform: translate(500px, 0);
+            }
+
+            /* 0% {
+                transform: translateX(0px);
+            }
+            100% {
+                transform: translateX(500px);
+            } */
+        }
+
+        .box1 {
+            width: 100px;
+            height: 100px;
+            background-color: burlywood;
+            /* 2. 调用动画 */
+            /* 动画名称 */
+            animation-name: moveLeft;
+            /* 持续时间 */
+            animation-duration: 2s;
+        }
+
+
+        /*====== 动画序列 =======*/
+        /* 1. 可以做多个状态的变化 keyframe 关键帧 */
+        /* 2. 里面的百分比要是整数 */
+        /* 3. 里面的百分比就是 总的时间（我们这个案例10s）的划分 25% * 10  =  2.5s */
+
+        @keyframes move {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            25% {
+                transform: translate(1000px, 0)
+            }
+
+            50% {
+                transform: translate(1000px, 500px);
+            }
+
+            75% {
+                transform: translate(0, 500px);
+            }
+
+            100% {
+                transform: translate(0, 0);
+            }
+        }
+
+        .box2 {
+            width: 100px;
+            height: 100px;
+
+            background-color: cadetblue;
+            animation-name: move;
+            animation-duration: 10s;
+            /* 重复次数  iteration 重复的 conut 次数  infinite  无限 */
+            animation-iteration-count: infinite;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+</body>
+
+</html>

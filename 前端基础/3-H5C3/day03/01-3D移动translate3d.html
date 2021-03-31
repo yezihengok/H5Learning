@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* ###### 三、透视 `perspective`
+
+1. 知识点讲解
+
+   - 如果想要网页产生 `3D` 效果需要透视(理解成 `3D` 物体投影的 `2D` 平面上)
+   - 实际上模仿人类的视觉位置，可视为安排一直眼睛去看
+   - 透视也称为视距，所谓的视距就是人的眼睛到屏幕的距离
+   - 距离视觉点越近的在电脑平面成像越大，越远成像越小
+   - 透视的单位是像素
+
+2. 知识要点
+
+   - **透视需要写在被视察元素的父盒子上面**
+   - 注意下方图片
+     - d：就是视距，视距就是指人的眼睛到屏幕的距离
+
+     - z：就是 z 轴，z 轴越大(正值)，我们看到的物体就越大 */
+     
+        body {
+            /* 透视写到被观察元素的父盒子上面 */
+
+            /* //指定透视距离  */
+            perspective: 300px;
+        }
+
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: darkkhaki;
+            /* transform: translateX(100px);
+            transform: translateY(100px); */
+
+            /* transform: translateX(100px) translateY(100px) translateZ(100px); */
+
+            /* 1. translateZ 沿着Z轴移动 */
+            /* 2. translateZ 后面的单位我们一般跟px */
+            /* 3. translateZ(100px) 向外移动100px （向我们的眼睛来移动的） */
+
+            /* 4. 3D移动有简写的方法 */
+            /* transform: translate3d(x,y,z); */
+            /* transform: translate3d(100px, 100px, 100px); */
+
+            /* 5. xyz是不能省略的，如果没有就写0 */
+            transform: translate3d(400px, 100px, 100px);
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+</body>
+
+</html>

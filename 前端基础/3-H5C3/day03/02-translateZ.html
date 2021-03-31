@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            /* `translateZ` 与 `perspecitve` 的区别
+
+- `perspecitve` 给父级进行设置，`translateZ` 给 子元素进行设置不同的大小 */
+            perspective: 500px;
+        }
+
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: rgb(194, 67, 88);
+            margin: 100px auto;
+            /* z 轴，z 轴越大(正值)，我们看到的物体就越大,反之越小 */
+            /* transform: translateZ(0); */
+
+            transform: translateZ(-500px);
+            /* 分析：
+                在视线距离500px的距离上 z 轴是0的 时候 则盒子看起来就是原大小200x200 
+             这时候我把z抽拉远视线距里一倍远：-500px。此时候盒子看起来就100x100 的大小  */
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+</body>
+
+</html>

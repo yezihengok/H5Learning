@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            perspective: 800px;
+        }
+
+        .w {
+            margin: 10px 40%;
+            /* transform: translateX(-50%); */
+        }
+
+        div {
+            width: 320px;
+            height: 320px;
+            margin-top: 20px;
+        }
+
+        img {
+            display: block;
+            width: 320px;
+            height: 320px;
+            transition: all 1s;
+        }
+
+        .boxX img:hover {
+            transform: rotateX(45deg);
+        }
+
+        .boxY img:hover {
+            transform: rotateY(45deg);
+        }
+
+        .boxZ img:hover {
+
+            /* transform: rotateZ(180deg); */
+
+            /* 可以简写 transform: rotate3d(x,y,z,deg)*/
+
+            /* transform: rotate3d(1, 0, 0, 45deg);==rotateX */
+            /* transform: rotate3d(0, 1, 0, 45deg);==rotateY */
+
+            /* XY轴同时旋转（即沿着对角线旋转）45°: */
+            transform: rotate3d(1, 1, 0, 45deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="w">
+        <div class="boxX">
+            rotateX
+            <img src="images/pig.jpg" alt="">
+        </div>
+
+        <div class="boxY">
+            rotateY
+            <img src="images/pig.jpg" alt="">
+        </div>
+        <div class="boxZ">
+            rotateZ
+            <img src="images/pig.jpg" alt="">
+        </div>
+    </div>
+
+</body>
+
+</html>
