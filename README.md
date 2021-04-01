@@ -33,6 +33,8 @@ Vscode  快速格式化代码:   shift+alt+f
 
 ​		"editor.formatOnType": true,
 ​		"editor.formatOnSave": true
+
+
 4）修改默认底部蓝色在settings.json 中添加,自行修改颜色值查看效果
     ```
     "workbench.colorCustomizations": {

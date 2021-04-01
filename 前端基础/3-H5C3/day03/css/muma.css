@@ -1,0 +1,65 @@
+ body {
+     perspective: 1000px;
+ }
+
+ .muma {
+     position: relative;
+     width: 250px;
+     height: 150px;
+     margin: 150px auto;
+     transform-style: preserve-3d;
+     background: url(../images/dog.jpg) no-repeat;
+     animation: rotate360 10s linear infinite;
+ }
+
+ .muma:hover {
+     animation-play-state: paused;
+ }
+
+ @keyframes rotate360 {
+     from {
+         transform: rotateY(0);
+     }
+
+     to {
+         transform: rotateY(360deg);
+     }
+ }
+
+ .muma div {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background: url(../images/pig.jpg) no-repeat;
+ }
+
+ section div:nth-child(1) {
+     transform: rotateY(0) translateZ(250px);
+ }
+
+ section div:nth-child(2) {
+     /* 先旋转好了再 移动距离 */
+     transform: rotateY(60deg) translateZ(250px);
+ }
+
+ section div:nth-child(3) {
+     /* 先旋转好了再 移动距离 */
+     transform: rotateY(120deg) translateZ(250px);
+ }
+
+ section div:nth-child(4) {
+     /* 先旋转好了再 移动距离 */
+     transform: rotateY(180deg) translateZ(250px);
+ }
+
+ section div:nth-child(5) {
+     /* 先旋转好了再 移动距离 */
+     transform: rotateY(240deg) translateZ(250px);
+ }
+
+ section div:nth-child(6) {
+     /* 先旋转好了再 移动距离 */
+     transform: rotateY(300deg) translateZ(250px);
+ }
