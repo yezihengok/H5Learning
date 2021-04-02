@@ -7,10 +7,21 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            width: 1600px;
+
+        }
+
         div {
             position: relative;
             width: 400px;
             height: 400px;
+            margin: 50px auto;
             background-color: deepskyblue;
             /* 1. 我们tranlate里面的参数是可以用 % */
             /* 2. 如果里面的参数是 % 移动的距离是 盒子自身的宽度或者高度来对比的 */
@@ -25,8 +36,10 @@
             width: 200px;
             height: 200px;
             background-color: antiquewhite;
+            /*当然也可以用之前方法：margin 负的宽高一半*/
             /* margin-top: -100px;
             margin-left: -100px; */
+
             /* translate(-50%, -50%)  盒子往上走自己高度的一半   */
             transform: translate(-50%, -50%);
         }
@@ -39,6 +52,7 @@
 </head>
 
 <body>
+
     <div>
         <p></p>
     </div>

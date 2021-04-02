@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
@@ -8,9 +9,11 @@
 			padding: 0;
 			margin: 0;
 		}
+
 		body {
 			padding: 200px 300px;
 		}
+
 		ul {
 			position: relative;
 			list-style: none;
@@ -22,7 +25,8 @@
 			-webkit-perspective: 500;
 			perspective-origin: 10% 10%; */
 		}
-		ul > li {
+
+		ul>li {
 			position: absolute;
 			top: 0;
 			left: 0;
@@ -32,32 +36,39 @@
 			text-align: center;
 			font-size: 40px;
 		}
-		ul > li:nth-of-type(1) {
+
+		ul>li:nth-of-type(1) {
 			background-color: #ccc;
 			transform: translateZ(150px);
 		}
-		ul > li:nth-of-type(2) {
+
+		ul>li:nth-of-type(2) {
 			background-color: skyblue;
 			transform: translateZ(-150px) rotateY(180deg);
 		}
-		ul > li:nth-of-type(3) {
+
+		ul>li:nth-of-type(3) {
 			background-color: greenyellow;
 			transform: translateX(-150px) rotateY(-90deg);
 		}
-		ul > li:nth-of-type(4) {
+
+		ul>li:nth-of-type(4) {
 			background-color: deeppink;
 			transform: translateX(150px) rotateY(90deg);
 		}
-		ul > li:nth-of-type(5) {
+
+		ul>li:nth-of-type(5) {
 			background-color: rebeccapurple;
 			transform: translateY(-150px) rotateX(90deg);
 		}
-		ul > li:nth-of-type(6) {
+
+		ul>li:nth-of-type(6) {
 			background-color: saddlebrown;
 			transform: translateY(150px) rotateX(-90deg);
 		}
 	</style>
 </head>
+
 <body>
 	<ul>
 		<li>01-前面</li>
@@ -68,4 +79,5 @@
 		<li>06-下面</li>
 	</ul>
 </body>
+
 </html>
