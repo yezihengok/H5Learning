@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            display: flex;
+            margin: 10px auto;
+            width: 600px;
+            height: 300px;
+            background-color: rgb(207, 196, 204);
+            /* flex布局中，默认的子元素是nowrap不换行的， 如果装不下，会缩小子元素的宽度，放到父元素里面  */
+            flex-wrap: nowrap;
+        }
+
+        div span {
+            width: 150px;
+            height: 100px;
+            background-color: skyblue;
+            color: #fff;
+            margin: 10px;
+        }
+
+        .div2 {
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+        <span>4</span>
+        <span>5</span>
+    </div>
+    <div class="div2">
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+        <span>4</span>
+        <span>5</span>
+    </div>
+</body>
+
+</html>
