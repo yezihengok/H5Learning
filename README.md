@@ -1,6 +1,9 @@
 # H5Learning
 平时学习H5前端相关的测试代码~~~
 
+##### 代码截图：
+   <img src="images/img1.png">
+   
 ###### 1、快速生成HTML结构语法
 
 - 生成标签 直接输入标签名 按tab键即可   比如  div   然后tab 键， 就可以生成 <div></div>
@@ -47,5 +50,3 @@ Vscode  快速格式化代码:   shift+alt+f
 ###### 4、VSCode列编辑 快捷键:
 
 ◾VSCode列选择快捷键：alt+shift+鼠标左键拖动
-
- 

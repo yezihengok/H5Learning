@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* align-items 设置侧轴上的子元素排列方式（单行 ）
+
+        + 该属性是控制子项在侧轴（默认是y轴）上的排列方式  在子项为单项（单行）的时候使用
+        + flex-start 从头部开始
+        + flex-end 从尾部开始
+        + center 居中显示
+        + stretch 拉伸 */
+
+        div {
+            display: flex;
+            width: 800px;
+            height: 500px;
+            background-color: rgb(207, 196, 204);
+            margin: 10px auto;
+
+            /*设置主轴为Y轴，列排列*/
+            flex-direction: column;
+            /* 主轴排列先设置居中 */
+            justify-content: center;
+            /*不设置默认就是: align-items: flex-start; */
+        }
+
+        div span {
+            width: 150px;
+            height: 100px;
+            background-color: skyblue;
+            color: #fff;
+            margin: 10px;
+        }
+
+        .div2 {
+            /* 尾部对齐 */
+            align-items: flex-end;
+        }
+
+        .div3 {
+            /* 主轴排列居中,侧轴排列也居中===水平垂直居中*/
+            align-items: center;
+        }
+
+        .div4 span {
+            width: auto;
+        }
+
+        .div4 {
+            /* 拉伸，但是子盒子不要给宽度*/
+            align-items: stretch;
+            /* stretch： 如果指定侧轴大小的属性值为'auto'，则其值会使项目的边距盒的尺寸尽可能接近所在行的尺寸，但同时会遵照'min/max-width/height'属性的限制。  */
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+    </div>
+
+    <div class="div2">
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+    </div>
+
+    <div class="div3">
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+    </div>
+    <div class="div4">
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+    </div>
+</body>
+
+</html>

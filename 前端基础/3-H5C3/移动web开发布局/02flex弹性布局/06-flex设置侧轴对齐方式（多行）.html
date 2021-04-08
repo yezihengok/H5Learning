@@ -9,75 +9,93 @@
     <style>
         div {
             display: flex;
-            width: 600px;
-            height: 200px;
+            width: 800px;
+            height: 400px;
             background-color: rgb(207, 196, 204);
-            /* 默认的主轴是 x 轴 row */
-            flex-direction: row;
-
-            /* justify-content: 是设置主轴上子元素的排列方式默认头部对齐 flex-start*/
-            /* justify-content: flex-start; */
             margin: 10px auto;
+            /* 换行 */
+            flex-wrap: wrap;
+            /* 【侧轴上对齐方式】 子项多行时用 align-content ，单行时用align-items*/
+
+            /*多行侧轴子项--头部对齐*/
+            align-content: flex-start;
         }
 
         div span {
-            width: 100px;
+            width: 150px;
             height: 100px;
             background-color: skyblue;
+            color: #fff;
+            margin: 5px;
         }
 
         .div2 {
-            /* 让子元素尾部对齐 */
-            justify-content: flex-end;
+            /*多行侧轴子项--居中对齐*/
+            align-content: center;
         }
 
         .div3 {
-            /* 让子元素居中对齐 */
-            justify-content: center;
+            /*多行侧轴子项--平分侧轴的剩余空间*/
+            align-content: space-around;
         }
 
         .div4 {
-            /* 平分剩余空间 */
-            justify-content: space-around;
+            /*多行侧轴子项--子项在侧轴先分布在两头，在平分的剩余空间*/
+            align-content: space-between;
         }
 
         .div5 {
-            /* 先两边贴边对齐， 在分配剩余的空间 */
-            justify-content: space-between;
+            /*多行侧轴子项--子项高度平分父元素高度*/
+            align-content: stretch;
+
+            /*注意与 space-around; 不一样的地方*/
         }
     </style>
 </head>
 
 <body>
-    <div class="div1">
+    <div>
         <span>1</span>
         <span>2</span>
         <span>3</span>
         <span>4</span>
+        <span>5</span>
+        <span>6</span>
     </div>
+
     <div class="div2">
         <span>1</span>
         <span>2</span>
         <span>3</span>
         <span>4</span>
+        <span>5</span>
+        <span>6</span>
     </div>
+
     <div class="div3">
         <span>1</span>
         <span>2</span>
         <span>3</span>
         <span>4</span>
+        <span>5</span>
+        <span>6</span>
     </div>
+
     <div class="div4">
         <span>1</span>
         <span>2</span>
         <span>3</span>
         <span>4</span>
+        <span>5</span>
+        <span>6</span>
     </div>
     <div class="div5">
         <span>1</span>
         <span>2</span>
         <span>3</span>
         <span>4</span>
+        <span>5</span>
+        <span>6</span>
     </div>
 </body>
 

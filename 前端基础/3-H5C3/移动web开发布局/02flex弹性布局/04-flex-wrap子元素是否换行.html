@@ -14,7 +14,11 @@
             height: 300px;
             background-color: rgb(207, 196, 204);
             /* flex布局中，默认的子元素是nowrap不换行的， 如果装不下，会缩小子元素的宽度，放到父元素里面  */
-            flex-wrap: nowrap;
+            /* flex-wrap: nowrap;
+               flex-direction: row; */
+
+            /* 把设置主轴方向和是否换行（换列）简写方式 */
+            flex-flow: row wrap;
         }
 
         div span {
