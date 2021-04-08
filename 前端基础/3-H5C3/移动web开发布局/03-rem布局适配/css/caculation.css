@@ -1,0 +1,15 @@
+html {
+  font-size: 50px;
+}
+div {
+  width: 250px;
+  height: 300px;
+  border: 4px solid aliceblue;
+  background-color: #444444;
+}
+div span {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  background-color: #d5f523;
+}

@@ -1,0 +1,19 @@
+/* 以前写css 样式需要这样:*/
+.top {
+  width: 200px;
+  height: 200px;
+  background-color: #c9c1c4;
+}
+.top a {
+  color: cadetblue;
+  text-decoration: none;
+}
+.top a:hover {
+  color: brown;
+}
+.nav .logo {
+  color: #53d153;
+}
+.nav::before {
+  content: "";
+}

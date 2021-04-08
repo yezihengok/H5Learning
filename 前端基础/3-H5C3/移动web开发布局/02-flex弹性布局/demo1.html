@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .main {
+            display: flex;
+            width: 60%;
+            height: 45px;
+            background-color: rgb(206, 205, 205);
+
+        }
+
+        div[class^="box"] {
+            height: 45px;
+            width: 100px;
+            line-height: 45px;
+            text-align: center;
+        }
+
+        /* .box1,
+        .box3 {
+            height: 45px;
+            width: 100px;
+            line-height: 45px;
+        } */
+
+        .box2 {
+            flex: 1;
+            background-color: rgb(192, 223, 106);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 利用flex布局实现，左右两侧宽度100px固定，中间宽度根据屏幕宽度自适应撑满 -->
+    <div class="main">
+        <div class="box1">
+            左侧
+        </div>
+        <div class="box2">
+            中间
+        </div>
+        <div class="box3">
+            右侧
+        </div>
+    </div>
+</body>
+
+</html>

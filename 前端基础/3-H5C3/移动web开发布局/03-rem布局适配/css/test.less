@@ -1,0 +1,19 @@
+// 定义一个蓝色色的变量
+@color_1: skyblue;
+@color_2: rgb(232, 234, 236);
+
+// 错误的变量名  @1color   @color~@#
+// 变量名区分大小写  @color  和  @Color 是两个不同的变量
+// 定义了一个 字体为16像素的变量
+@font16: 16px;
+
+body {
+    background-color: @color_1;
+    color: @color_1;
+}
+
+div {
+    color: @color_1;
+    background-color: @color_2;
+    font-size: @font16;
+}

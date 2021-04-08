@@ -1,0 +1,27 @@
+@baseFontSize: 50px;
+@color1: #d5f523;
+
+html {
+    font-size: @baseFontSize;
+}
+
+@border: 2px+2;
+
+// 1. 运算符的左右两侧必须敲一个空格隔开
+// 2. 两个数参与运算  如果只有一个数有单位，则最后的结果就以这个单位为准
+// 3. 两个数参与运算，如果2个数都有单位，而且不一样的单位 最后的结果以第一个单位为准
+div {
+    width: 300px - 50;
+    height: (100px + 50px) * 2;
+    border: @border solid aliceblue;
+    background-color: #666 - #222;
+
+    span {
+        display: inline-block;
+        //tips：注意除法不要直接 a/b 需要加括号 (a/b)，否则运算不生效。
+        // width: 100px / 50px;
+        width: (100rem / @baseFontSize);
+        height: (100rem / @baseFontSize);
+        background-color: @color1;
+    }
+}

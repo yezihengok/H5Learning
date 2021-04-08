@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        
+        /* 1. 首先我们选一套标准尺寸 750px为准，假设我们把整个屏幕划分为15等份（划分标准不一可以是20份也可以是10等份）
+           2. 我们用屏幕尺寸 除以 我们划分的份数 得到了 html 里面的font-size文字大小 但是我们知道不同屏幕下得到的文字大小是不一样的 */
+        /* 3. 页面元素的rem值 =  页面元素在 750像素的下px值 / html 里面的文字大小 */
+        
+        @media screen and (min-width: 320px) {
+            html {
+                font-size: 21.33px;
+            }
+        }
+
+        @media screen and (min-width: 480px) {
+            html {
+                font-size: 32px;
+            }
+        }
+
+        @media screen and (min-width: 750px) {
+            html {
+                font-size: 50px;
+            }
+        }
+
+        div {
+            width: 3rem;
+            height: 3rem;
+            background-color: pink;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div>123</div>
+</body>
+
+</html>
