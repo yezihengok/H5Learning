@@ -1,0 +1,169 @@
+* {
+    /*点击高亮我们需要清除清除  设置为transparent 完成透明*/
+    -webkit-tap-highlight-color: transparent;
+    /* 把我们所有标签的内外边距清零 */
+    margin: 0;
+    padding: 0;
+    /* css3盒子模型 */
+    box-sizing: border-box;
+}
+
+/*在移动端浏览器默认的外观在iOS上加上这个属性才能给按钮和输入框自定义样式*/
+input {
+    -webkit-appearance: none;
+    /* 默认有灰色边框我们需要手动去掉 */
+    border: 0;
+    outline: none;
+}
+
+/*禁用长按页面时的弹出菜单*/
+img,
+a {
+    -webkit-touch-callout: none;
+}
+
+a {
+    color: #666;
+    text-decoration: none;
+    font-size: .333333rem;
+}
+
+
+
+/* rem 适配方案2: 手机淘宝团队出的简洁高效 移动端适配库 我们不需要在写不同屏幕的媒体查询，因为里面js做了处理
+ 它的原理是把当前设备划分为10等份，但是不同设备下，比例还是一致的。
+  我们要做的，就是确定好我们当前设备的html 文字大小就可以了 比如当前设计稿是 750px， 
+  那么我们只需要把 html 文字大小设置为 75px(750px / 10) 就可以 里面页面元素rem值： 页面元素的px 值 / 75 剩余的，让flexible.js来去算 */
+
+/* 因此下面的 rem值是根据： 元素px大小 / font size 75 */
+body {
+    min-width: 320px;
+    max-width: 750px;
+    /* flexible 给我们划分了 10 等份 */
+    width: 10rem;
+    margin: 0 auto;
+    line-height: 1.5;
+    font-family: Arial, Helvetica;
+    background: #f2f2f2;
+}
+
+
+/* 这个插件默认的html文字大小 cssroot  16px */
+
+
+/* 
+img {
+    width: 5.125rem;
+    height: 4rem;
+    width: 1rem;
+    width: 1.093333rem;
+    height: 1rem;
+} */
+
+
+/* 如果我们的屏幕超过了 750px  那么我们就按照 750设计稿来走 不会让我们页面超过750px */
+
+@media screen and (min-width: 750px) {
+    html {
+        font-size: 75px !important;
+    }
+}
+
+
+/* search-content */
+
+.search {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10rem;
+    height: 1.173333rem;
+    background-color: #FFC001;
+}
+
+.search .fenlei {
+    width: .586667rem;
+    height: .933333rem;
+    margin: .146667rem .333333rem .133333rem;
+    background: url(../images/classify.png) no-repeat;
+    background-size: .586667rem .933333rem;
+}
+
+.search .search_box {
+    flex: 1;
+}
+
+.search .search_box input {
+    outline: none;
+    border: 0;
+    width: 100%;
+    height: .88rem;
+    font-size: .333333rem;
+    background-color: #FFF2CC;
+    margin-top: .133333rem;
+    border-radius: .44rem;
+    color: #757575;
+    padding-left: .733333rem;
+}
+
+.search .login {
+    width: 1rem;
+    height: .933333rem;
+    margin: .133333rem;
+    color: #fff;
+    text-align: center;
+    line-height: .933333rem;
+    font-size: .333333rem;
+}
+
+.banner {
+    background: aliceblue;
+    width: 10rem;
+    height: 4.906667rem;
+}
+
+.banner div {
+    width: 100%;
+    height: 100%;
+    background: url(../../upload/banner.gif) no-repeat;
+    background-size: 100% 100%;
+}
+
+.activity {
+    background: aliceblue;
+    display: flex;
+}
+
+.activity a {
+    flex: 1;
+}
+
+.activity a img {
+    width: 100%;
+}
+
+.centerNav {
+    display: flex;
+    flex-flow: row wrap;
+    margin-top: .133333rem;
+}
+
+.centerNav a {
+    display: flex;
+    flex-direction: column;
+    flex: 20%;
+}
+
+.centerNav a img {
+    width: 1.093333rem;
+    height: 1.093333rem;
+    margin: .133333rem auto 0;
+}
+
+.centerNav a span {
+    font-size: .333333rem;
+    color: #6b6a6a;
+    text-align: center;
+}

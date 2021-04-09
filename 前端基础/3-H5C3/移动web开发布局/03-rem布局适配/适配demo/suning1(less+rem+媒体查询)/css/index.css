@@ -129,5 +129,67 @@ body {
   height: 1.4rem;
   margin: 0.22rem 0.5rem 0.14rem 0.48rem;
   background: url(../images/classify.png) no-repeat;
-  background-size: 44rem / 50px 70rem / 50px;
+  background-size: 0.88rem 1.4rem;
+}
+.search .search_box {
+  flex: 1;
+}
+.search .search_box input {
+  width: 100%;
+  height: 1.32rem;
+  border-radius: 0.66rem;
+  margin-top: 0.24rem;
+  padding: 0 0.4rem;
+  color: gray;
+  font-size: 0.44rem;
+}
+.search .login {
+  width: 1.5rem;
+  height: 1.4rem;
+  line-height: 1.4rem;
+  margin: 0.2rem;
+  font-size: 0.5rem;
+  text-align: center;
+  color: #fff;
+}
+.banner {
+  background: aliceblue;
+  width: 15rem;
+  height: 7.36rem;
+}
+.banner div {
+  width: 100%;
+  height: 100%;
+  background: url(../../upload/banner.gif) no-repeat;
+  background-size: 100% 100%;
+}
+.activity {
+  background: aliceblue;
+  display: flex;
+}
+.activity a {
+  flex: 1;
+}
+.activity a img {
+  width: 100%;
+}
+.centerNav {
+  display: flex;
+  flex-flow: row wrap;
+  margin-top: 0.2rem;
+}
+.centerNav a {
+  display: flex;
+  flex-direction: column;
+  flex: 20%;
+}
+.centerNav a img {
+  width: 1.64rem;
+  height: 1.64rem;
+  margin: 0.2rem auto 0;
+}
+.centerNav a span {
+  font-size: 25rem / 50px;
+  color: #6b6a6a;
+  text-align: center;
 }
