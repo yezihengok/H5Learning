@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- 一定不要忘记引入bootstrap 的样式文件 -->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <title>Document</title>
+    <style>
+        .row>div {
+            height: 50px;
+            background-color: pink;
+            /* margin: 0 10px; */
+        }
+
+        .row .ohter {
+            background-color: hotpink;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <!-- 我们列嵌套最好加1个行 row 这样可以取消父元素的padding值 而且高度自动和父级一样高 -->
+                <div class="row">
+                    <div class="col-md-4">a</div>
+                    <div class="col-md-8">b</div>
+                </div>
+            </div>
+
+            <div class="col-md-4 ohter">2</div>
+            <div class="col-md-4">3</div>
+
+            <!-- tips：该案例在当我们缩小浏览器宽度 至992px以下时 ，会发现盒子b 不见了 -->
+
+            <!-- 原因：由于我们只设置了中等屏幕范围，即设备宽度 大于等于 992px，时列表宽度按照指定比重去显示，这没问题。
+
+                 当我们缩小浏览器宽度 至992px以下时。 由于没有设置其它设备按比重显示宽度的情况， div是 块级元素，宽度自然会撑满container 
+                 a与b在同一行显示，所以b就看不到了，被撑满的a 完全挡住。 
+                -->
+
+        </div>
+    </div>
+
+</body>
+
+</html>

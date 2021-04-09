@@ -4,7 +4,7 @@
 
 ###### 截图：
    <img src="images/img1.png">
-   
+
 ###### 1、快速生成HTML结构语法
 
 - 生成标签 直接输入标签名 按tab键即可   比如  div   然后tab 键， 就可以生成 <div></div>
@@ -38,15 +38,15 @@ Vscode  快速格式化代码:   shift+alt+f
 ​		"editor.formatOnType": true,
 ​		"editor.formatOnSave": true
 
-
 4）修改默认底部蓝色在settings.json 中添加,自行修改颜色值查看效果
-    ```
+
+```
     "workbench.colorCustomizations": {
-        "statusBar.background": "#484848",
-        "statusBar.noFolderBackground": "#0A0A0D",
-        "statusBar.debuggingBackground": "#511f1f"
-    }
-    ```
+​        "statusBar.background": "#484848",
+​        "statusBar.noFolderBackground": "#0A0A0D",
+​        "statusBar.debuggingBackground": "#511f1f"
+​    }
+```
 
 ###### 4、VSCode列编辑 快捷键:
 

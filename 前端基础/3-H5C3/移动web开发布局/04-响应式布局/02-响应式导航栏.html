@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /*如果浏览器宽度缩小到小设备 767px ，容器宽度定为767px，则竖着显示*/
+        @media screen and (max-width:767px) {
+            .container {
+                width: 100%;
+            }
+
+            .container ul li {
+                float: none
+            }
+        }
+
+        .container {
+            width: 750px;
+            margin: 0 auto;
+        }
+
+        .container li {
+            float: left;
+            width: 80px;
+            height: 40px;
+            background-color: bisque;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <ul>
+            <li>栏目1</li>
+            <li>栏目2</li>
+            <li>栏目3</li>
+            <li>栏目4</li>
+            <li>栏目5</li>
+            <li>栏目6</li>
+            <li>栏目7</li>
+            <li>栏目8</li>
+        </ul>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- 一定不要忘记引入bootstrap 的样式文件 -->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <title>Document</title>
+    <style>
+        .row div {
+            height: 300px;
+            background-color: rgb(159, 63, 189);
+        }
+
+        .row div:nth-child(3) {
+            background-color: rgb(53, 203, 230);
+        }
+
+        span {
+            font-size: 20px;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- visible-xx 即指定设备尺寸下才显示
+     hidden-xx 即指定设备尺寸下才隐藏 -->
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-3">
+                <span class="visible-lg">拉到大设备范围时我会显示</span>
+            </div>
+            <div class="col-xs-3">2</div>
+            <div class="col-xs-3 hidden-md hidden-xs">我一会儿显示一会儿又隐藏</div>
+            <div class="col-xs-3">4</div>
+        </div>
+
+    </div>
+</body>
+
+</html>
