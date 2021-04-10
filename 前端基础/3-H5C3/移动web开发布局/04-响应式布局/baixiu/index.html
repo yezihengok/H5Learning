@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- 引入bootstrap 样式文件 -->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <!--坑出来的教训之：注意引入顺序先引入bootstrap，在引入自己的css,这样自己css 自己定义的属性才能层叠掉bootstrap里的-->
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <header class="col-md-2">
+                <!-- 这里加个row盒子是为了去掉col-md-2里自带的pandding -->
+                <div class="row">
+                    <div class="logo">
+                        <img class="hidden-xs" src="images/logo.png" alt="">
+                        <span class="visible-xs">阿里百秀</span>
+                    </div>
+                    <div class="nav">
+                        <ul>
+                            <li><a href="#" class="glyphicon glyphicon-camera">生活馆</a></li>
+                            <li><a href="#" class="glyphicon glyphicon-picture">自然汇</a></li>
+                            <li><a href="#" class="glyphicon glyphicon-phone">科技湖</a></li>
+                            <li><a href="#" class="glyphicon glyphicon-gift">奇趣事</a></li>
+                            <li><a href="#" class="glyphicon glyphicon-glass">美食杰</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </header>
+
+            <!-- 新闻部分 -->
+            <article class="col-md-7">
+                <!-- 响应式布局就是为了一个网页能同时在电脑,手机端上显示，所以为了兼容性就不用方便的flex去布局了。用传统的浮动 -->
+                <div class="news clearfix">
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <img src="upload/lg.png" alt="">
+                                <p>阿里百秀</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="upload/1.jpg" alt="">
+                                <p>奇了 成都一小区护卫长得像马云 市民纷纷求合影</p>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                <img src="upload/2.jpg" alt="">
+                                <p>大千世界 长江平原的九曲回肠卫星实景图</p>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                <img src="upload/4.jpg" alt="">
+                                <p>生活馆 关于指甲的健康小知识</p>
+
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                <img src="upload/3.jpg" alt="">
+                                <p>猎奇 毒蛇竟然被这种动物绞杀</p>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+
+                <!-- 新闻列表 -->
+                <div class="newsList">
+                    <div class="row">
+                        <!-- 这里需要：当设备宽度为小屏幕时，需要新闻列表占9份 ，新闻图片占3份 -->
+                        <div class="col-sm-9">
+                            <h3>生活馆 关于指甲的10个健康知识 你知道几个？</h3>
+                            <p class="text-muted hidden-xs">alibaixiu 发布于 2015-11-23</p>
+                            <p class="hidden-xs">指甲是经常容易被人们忽略的身体部位， 事实上从指甲的健康状况可以看出一个人的身体健康状况， 快来看看10个暗藏在指甲里知识吧！</p>
+                            <p class="text-muted">阅读(2417)评论(1)赞 (18) <span class="hidden-xs">标签：健康 / 感染 / 指甲 / 疾病 / 皮肤
+                                    / 营养 / 趣味生活</span>
+                        </div>
+
+                        <!--当设备宽度为小屏幕时，需要新闻列表占9份 ，超小屏幕时新闻图片隐藏不在显示 -->
+                        <div class="col-sm-3 pic hidden-xs">
+                            <img src="upload/4.jpg" alt="">
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-sm-9">
+                            <h3>生活馆 关于指甲的10个健康知识 你知道几个？</h3>
+                            <p class="text-muted hidden-xs">alibaixiu 发布于 2015-11-23</p>
+                            <p class="hidden-xs">指甲是经常容易被人们忽略的身体部位， 事实上从指甲的健康状况可以看出一个人的身体健康状况， 快来看看10个暗藏在指甲里知识吧！</p>
+                            <p class="text-muted">阅读(2417)评论(1)赞 (18) <span class="hidden-xs">标签：健康 / 感染 / 指甲 / 疾病 / 皮肤
+                                    / 营养 / 趣味生活</span>
+                        </div>
+
+
+                        <div class="col-sm-3 pic hidden-xs">
+                            <img src="upload/4.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-sm-9">
+                            <h3>生活馆 关于指甲的10个健康知识 你知道几个？</h3>
+                            <p class="text-muted hidden-xs">alibaixiu 发布于 2015-11-23</p>
+                            <p class="hidden-xs">指甲是经常容易被人们忽略的身体部位， 事实上从指甲的健康状况可以看出一个人的身体健康状况， 快来看看10个暗藏在指甲里知识吧！</p>
+                            <p class="text-muted">阅读(2417)评论(1)赞 (18) <span class="hidden-xs">标签：健康 / 感染 / 指甲 / 疾病 / 皮肤
+                                    / 营养 / 趣味生活</span>
+                        </div>
+
+
+                        <div class="col-sm-3 pic hidden-xs">
+                            <img src="upload/4.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-sm-9">
+                            <h3>生活馆 关于指甲的10个健康知识 你知道几个？</h3>
+                            <p class="text-muted hidden-xs">alibaixiu 发布于 2015-11-23</p>
+                            <p class="hidden-xs">指甲是经常容易被人们忽略的身体部位， 事实上从指甲的健康状况可以看出一个人的身体健康状况， 快来看看10个暗藏在指甲里知识吧！</p>
+                            <p class="text-muted">阅读(2417)评论(1)赞 (18) <span class="hidden-xs">标签：健康 / 感染 / 指甲 / 疾病 / 皮肤
+                                    / 营养 / 趣味生活</span>
+                        </div>
+
+                        <div class="col-sm-3 pic hidden-xs">
+                            <img src="upload/4.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-sm-9">
+                            <h3>生活馆 关于指甲的10个健康知识 你知道几个？</h3>
+                            <p class="text-muted hidden-xs">alibaixiu 发布于 2015-11-23</p>
+                            <p class="hidden-xs">指甲是经常容易被人们忽略的身体部位， 事实上从指甲的健康状况可以看出一个人的身体健康状况， 快来看看10个暗藏在指甲里知识吧！</p>
+                            <p class="text-muted">阅读(2417)评论(1)赞 (18) <span class="hidden-xs">标签：健康 / 感染 / 指甲 / 疾病 / 皮肤
+                                    / 营养 / 趣味生活</span>
+                        </div>
+
+                        <div class="col-sm-3 pic hidden-xs">
+                            <img src="upload/4.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 右边广告部分 -->
+            <section class="col-md-3">
+                <a href="#" class="ad">
+                    <img src="upload/zgboke.jpg" alt="">
+                </a>
+                <a href="#" class="hot">
+                    <span class="btn btn-primary">热搜</span>
+                    <h4 class="text-primary">欢迎加入中国博客联盟</h4>
+                    <p>这里收录国内各个领域的优秀博客，是一个全人工编辑的开放式博客联盟交流和展示平台......</p>
+                </a>
+            </section>
+
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,262 @@
+/* body {
+    min-width: 320px;
+    margin: 0 auto;
+    font: normal 14px/1.5 Tahoma, "Lucida Grande", Verdana, "Microsoft Yahei", STXihei, hei;
+    color: #000;
+    background: #f2f2f2;
+    overflow-x: hidden;
+} */
+
+* {
+    /*点击高亮我们需要清除清除  设置为transparent 完成透明*/
+    -webkit-tap-highlight-color: transparent;
+    /* 把我们所有标签的内外边距清零 */
+    margin: 0;
+    padding: 0;
+    /* css3盒子模型 */
+    box-sizing: border-box;
+}
+
+/*在移动端浏览器默认的外观在iOS上加上这个属性才能给按钮和输入框自定义样式*/
+input {
+    -webkit-appearance: none;
+    /* 默认有灰色边框我们需要手动去掉 */
+    border: 0;
+    outline: none;
+}
+
+/*禁用长按页面时的弹出菜单*/
+img,
+a {
+    -webkit-touch-callout: none;
+    text-decoration: none;
+}
+
+a {
+    color: #666;
+}
+
+/* 去掉li 的小圆点 */
+li {
+    list-style: none;
+}
+
+img {
+    /* border 0 照顾低版本浏览器 如果 图片外面包含了链接会有边框的问题 */
+    border: 0;
+    /* 取消图片底侧有空白缝隙的问题 */
+    vertical-align: middle;
+}
+
+.clearfix:after {
+    content: "";
+    display: block;
+    line-height: 0;
+    visibility: hidden;
+    height: 0;
+    clear: both;
+}
+
+/* ==============公共属性初始化部分结束============ */
+
+/*----- bootstrap.min.css 会自带一些样式去除掉------*/
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: #666;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+/*------------------------------------------*/
+
+
+body {
+    background-color: #f5f5f5;
+}
+
+.container {
+    background-color: #fff;
+}
+
+/* 修改container的最大宽度为 1280 根据设计稿来定的 */
+
+@media screen and (min-width: 1280px) {
+    .container {
+        width: 1280px;
+    }
+}
+
+header .logo {
+    background-color: #429ad9;
+}
+
+header .logo img {
+    display: block;
+    /* width: 100%; */
+    /* logo图片不需要缩放 */
+    max-width: 100%;
+}
+
+/* 1.如果进入了超小屏幕下  logo里面的图片就隐藏起来 */
+
+/* 2. 准备好一个盒子 在logo里面，它平时是隐藏起来的，只有在超小屏幕下显示 */
+
+header .logo span {
+    display: block;
+    height: 50px;
+    line-height: 50px;
+    color: #fff;
+    font-size: 18px;
+    text-align: center;
+}
+
+header .nav {
+    background-color: #eee;
+    border-bottom: 1px solid rgba(204, 204, 204, 0.863);
+}
+
+header .nav a {
+    display: block;
+    height: 50px;
+    line-height: 50px;
+    padding-left: 30px;
+    font-size: 16px;
+    /* color: #666;
+    text-decoration: none; */
+}
+
+header .nav a:hover {
+    background-color: #fff;
+    color: #333;
+}
+
+header .nav a::before {
+    vertical-align: middle;
+    padding-right: 5px;
+}
+
+/* 当我们进入 小屏幕或超小屏幕的时 li 浮动，让标签横着显示 并且宽度为 20%  */
+@media screen and (max-width:991px) {
+    header .nav li {
+        float: left;
+        width: 20%;
+    }
+
+    article {
+        margin-top: 10px;
+    }
+}
+
+/* 当我们进入 超小屏幕的时的变动： */
+
+@media screen and (max-width: 767px) {
+
+    /* nav 文字变成14px */
+    .nav li a {
+        font-size: 14px;
+        padding-left: 3px;
+    }
+
+    /* news 第一个li 宽度为 100%  剩下的小li  各 50% */
+    .news li:nth-child(1) {
+        width: 100% !important;
+    }
+
+    .news li {
+        width: 50% !important;
+    }
+
+    /* 新闻列表字体变小一点 */
+    .newsList h3 {
+        font-size: 14px;
+    }
+}
+
+article .news li {
+    float: left;
+    width: 25%;
+    height: 138px;
+    padding: 0 5px;
+    /* padding-right: 10px; */
+    margin-bottom: 10px;
+}
+
+article .news li:first-child {
+    width: 50%;
+    height: 286px;
+    /* padding-right: 10px; */
+}
+
+
+article .news li a {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+article .news li img {
+    width: 100%;
+    height: 100%;
+}
+
+article .news li p {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    padding: 5px 10px;
+    color: #fff;
+    font-size: 12px;
+    background-color: #00000071;
+    /* bootstrap.min.css  里的p 自带 margin: 0 0 10px; 这里不需要去掉*/
+    margin-bottom: 0;
+}
+
+.news li:nth-child(1) p {
+    line-height: 40px;
+    font-size: 20px;
+    padding: 0 10px;
+}
+
+.newsList .row {
+    border-top: 1px solid #ccccccc5;
+    padding: 10px 0;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.pic {
+    margin-top: 10px;
+}
+
+.pic img {
+    width: 100%;
+}
+
+section .ad img {
+    width: 100%;
+}
+
+section .hot {
+    display: block;
+    margin-top: 15px;
+    border: 1px solid #ccccccc5;
+    padding: 0 15px 15px;
+}
+
+section .hot .btn {
+    border-radius: 0;
+    margin-bottom: 20px;
+}
