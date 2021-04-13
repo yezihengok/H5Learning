@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        // 1.数组(Array) ：就是一组数据的集合 存储在单个变量下的优雅方式 
+        // 2. 利用new 创建数组
+        var arr = new Array(); // 创建了一个空的数组
+        // 3. 利用数组字面量创建数组 []
+        var arr = []; // 创建了一个空的数组
+        var arr1 = [1, 2, 'pink', true];
+
+        // 4. 数组里面的数据用逗号分隔
+        // 5. 数组里面的数据 比如1,2， 我们称为数组元素
+        // 6. 获取数组元素  格式 数组名[索引号]  索引号从 0开始 
+        console.log(arr1);
+        console.log(arr1[2]); // pink
+        console.log(arr1[3]); // true
+        var arr2 = ['迪丽热巴', '古丽扎娜', '佟丽丫丫'];
+        console.log(arr2[0]);
+        console.log(arr2[1]);
+        console.log(arr2[2]);
+        console.log(arr2[3]); // 因为没有这个数组元素 所以输出的结果是 undefined
+
+
+        console.log('===========遍历数组===============');
+        var arr = ['red', 'green', 'blue'];
+        for (var i = 0; i < 3; i++) {
+            console.log(arr[i]);
+        }
+        //数组长度 数组名.length
+        console.log(arr.length);
+
+
+        console.log('===========案例--数组元素的和以及平均值===============');
+        // 1. 求数组 [2,6,1,7, 4] 里面所有元素的和以及平均值。
+        // (1)声明一个求和变量 sum。
+        // (2)遍历这个数组，把里面每个数组元素加到 sum 里面。
+        // (3)用求和变量 sum 除以数组的长度就可以得到数组的平均值。
+        var arr = [2, 6, 1, 7, 4];
+        var sum = 0;
+        for (var i = 0; i < arr.length; i++) {
+            sum += arr[i]; // 我们加的是数组元素 arr[i] 不是计数器 i
+        }
+        var average = sum / arr.length;
+        console.log(sum, average); // 想要输出多个变量，用逗号分隔即可
+
+
+        console.log('===========案例--求数组中的最大值==============');
+        // 声明一个保存最大元素的变量 max。
+        // 默认最大值可以取数组中的第一个元素。
+        // 遍历这个数组，把里面每个数组元素和 max 相比较。
+        // 如果这个数组元素大于max 就把这个数组元素存到 max 里面，否则继续下一轮比较。
+        // 最后输出这个 max
+        var arr = [2, 6, 1, 77, 52, 25, 7, 99];
+        var max = arr[0];
+        for (var i = 1; i < arr.length; i++) {
+            if (arr[i] > max) {
+                max = arr[i];
+            }
+        }
+        console.log('该数组里面的最大值是：' + max);
+
+
+        console.log('===========案例--数组全部内容 转换为字符串==============');
+        // 将数组 ['red', 'green', 'blue', 'pink'] 转换为字符串，并且用 | 或其他符号分割
+        var arr = ['red', 'green', 'blue', 'pink'];
+        var str = '';
+        for (var i = 0; i < arr.length; i++) {
+            str += arr[i] + '|';
+        }
+        console.log(str);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

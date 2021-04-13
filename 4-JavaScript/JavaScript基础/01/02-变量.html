@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        // 1. 声明了一个age 的变量 
+        var age;
+        // 2. 赋值  把值存入这个变量中
+        age = 18;
+        // 3. 输出结果 
+        console.log(age);
+        // 4. 变量的初始化 
+        var myname = 'good~~';
+        console.log(myname);
+
+        var myname = '旗木卡卡西';
+        var age = 30;
+        var money = 2000.88;
+        console.log(myname + ' age:' + age + ' money:' + money);
+
+        // 1. 用户输入姓名  存储到一个 myname的变量里面
+        var name = prompt('请输入您的名字');
+        console.log('用户输入的名字是：' + name);
+
+        // 3.1 只声明不赋值 结果是 undefined  未定义的
+        var sex;
+        console.log(sex); // undefined
+
+
+        // int num = 10;  java 
+        // var num; // 这里的num 我们是不确定属于哪种数据类型的
+        var num = 10; // num 属于数字型 
+        // js 的变量数据类型是只有程序在运行过程中，根据等号右边的值来确定的
+        var str = 'pink'; // str 字符串型
+        // js是动态语言 变量的数据类型是可以变化的
+        var x = 10; // x 是数字型 
+        x = 'pink'; // x 字符串型
+
+
+        console.log('=================数字类型=====================');
+        var num = 10; // num 数字型 
+        var PI = 3.14 // PI 数字型
+        // 1. 八进制  0 ~ 7  我们程序里面数字前面加0 表示八进制
+        var num1 = 010;
+        console.log('num1=' + num1); //  010  八进制 转换为 10进制 就是  8 
+        var num2 = 012;
+        console.log('num2=' + num2);
+        // 2. 十六进制  0 ~ 9  a ~ f    #ffffff  数字的前面加 0x 表示十六进制
+        var num3 = 0x9;
+        console.log('num3=' + num3);
+        var num4 = 0xa;
+        console.log('num4=' + num4);
+        // 3. 数字型的最大值
+        console.log(Number.MAX_VALUE);
+        // 4. 数字型的最小值
+        console.log(Number.MIN_VALUE);
+        // 5. 无穷大
+        console.log(Number.MAX_VALUE * 2); // Infinity 无穷大  
+        // 6. 无穷小
+        console.log(-Number.MAX_VALUE * 2); // -Infinity 无穷大
+        // 7. 非数字
+        console.log('HELLO' - 100); // NaN
+
+
+        console.log('==================isNaN====================');
+        // isNaN() 这个方法用来判断非数字 是数字返回的是 false 如果不是数字返回的是true
+        console.log(isNaN(12)); // false
+        console.log(isNaN('bad boy')); // true
+
+        var str = '我是一个"帅气的"小伙';
+        console.log(str);
+        // 字符串转义字符  都是用 \ 开头 
+        var str1 = "我是一个'很棒'的\n人儿";
+        console.log(str1);
+
+
+        console.log('===============布尔型=======================');
+        var flag = true; // flag 布尔型 
+        var flag1 = false; // flag1 布尔型
+        console.log(flag + 1); // true 参与加法运算当1来看
+        console.log(flag1 + 1); // false 参与加法运算当 0来看
+
+        // 如果一个变量声明未赋值 就是 undefined 未定义数据类型
+        var str;
+        console.log(str);
+        var variable = undefined;
+        console.log(variable + 'OK'); // undefinedOK
+        console.log(variable + 1); // NaN  undefined 和数字相加 最后的结果是 NaN
+        // null 空值
+        var space = null;
+        console.log(space + 'OK'); // nullOK
+        console.log(space + 1); // 1
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

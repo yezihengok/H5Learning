@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        console.log(3 >= 5); // false
+        console.log(2 <= 4); // true
+        //1. 我们程序里面的等于符号 是 ==  默认转换数据类型 会把字符串型的数据转换为数字型 只要求值相等就可以
+        console.log(3 == 5); // false
+        console.log('我' == '刘德华'); // flase
+        console.log(18 == 18); // true
+        console.log(18 == '18'); // true
+        console.log(18 != 18); // false
+        // 2. 程序里面有全等 一模一样  要求 两侧的值 还有 数据类型完全一致才可以 true
+        console.log(18 === 18);
+        console.log(18 === '18'); // false
+
+        console.log('=============赋值运算符===========');
+        var num = 10;
+        age += 5;  // 相当于 age = age + 5;
+        console.log(num);
+        age -= 5;  // 相当于 age = age - 5;
+        console.log(num);
+        age *= 10; // 相当于 age = age * 10;
+        console.log(num);
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

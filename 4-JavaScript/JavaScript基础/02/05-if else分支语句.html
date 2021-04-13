@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+
+
+        // 1. 语法结构  if 如果  else 否则 
+
+        // if (条件表达式) {
+        //     // 执行语句1
+        // } else {
+        //     // 执行语句2 
+        // }
+        //如果表达式结果为真 那么执行语句1  否则  执行语句2
+        var age = prompt('请输入您的年龄:');
+        if (age >= 18) {
+            alert('我想带你去网吧偷耳机');
+        } else {
+            alert('滚， 回家做作业去');
+        }
+        // 5. if里面的语句1 和 else 里面的语句2 最终只能有一个语句执行  2选1
+        // 6.  else 后面直接跟大括号
+
+
+        console.log("===========多分支语句================");
+        // 1. 多分支语句   就是利用多个条件来选择不同的语句执行 得到不同的结果  多选1 的过程
+        // 2. if else if语句是多分支语句
+        // 3. 语法规范
+        if (条件表达式1) {
+            // 语句1;
+        } else if (条件表达式2) {
+            // 语句2;
+        } else if (条件表达式3) {
+            // 语句3;
+        } else {
+            // 最后的语句;
+        }
+        // 4. 执行思路
+        // 如果条件表达式1 满足就执行 语句1 执行完毕后，退出整个if 分支语句  
+        // 如果条件表达式1 不满足，则判断条件表达式2  满足的话，执行语句2 以此类推
+        // 如果上面的所有条件表达式都不成立，则执行else 里面的语句
+        // 5. 注意点
+        // (1) 多分支语句还是多选1 最后只能有一个语句执行
+        // (2) else if 里面的条件理论上是可以任意多个的
+        // (3) else if 中间有个空格了
+
+        var score = prompt('请您输入分数:');
+        if (score >= 90) {
+            alert('你是我的骄傲');
+        } else if (score >= 80) {
+            alert('你已经很出色了');
+        } else if (score >= 70) {
+            alert('你要继续加油喽');
+        } else if (score >= 60) {
+            alert('孩子，你很危险');
+        } else {
+            alert('熊孩子，我不想和你说话，我只想用鞭子和你说话');
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        console.log("==============加减乘除运算=============");
+        console.log(1 + 1); // 2
+        console.log(1 - 1); // 0
+        console.log(1 * 1); // 1
+        console.log(1 / 1); // 1
+        // 1. % 取余 （取模）  
+        console.log(4 % 2); // 0
+        console.log(5 % 3); // 2
+        console.log(3 % 5); // 3
+        // 2. 浮点数 算数运算里面会有问题
+        console.log(0.1 + 0.2); // 0.30000000000000004
+        console.log(0.07 * 100); // 7.000000000000001
+        // 3. 因此不能直接拿着浮点数来进行相比较 是否相等
+        var num = 0.1 + 0.2;
+        console.log(num == 0.3); // false
+
+
+        console.log("==============(前置递增 与后置递增)=============");
+        // 1. 前置递增运算符  ++ 写在变量的前面
+        var age = 10;
+        ++age; // 等同于age = age + 1
+        console.log(age);
+        // 2. 先加1  后返回值
+        var p = 10;
+        console.log(++p + 10);
+
+        // 2. 后置自增 口诀：先返回原值 后自加1 
+        var age = 10;
+        console.log(age++ + 10);
+        console.log(age);
+
+        console.log("--------------------");
+        var a = 10;
+        ++a; // ++a  11    a = 11
+        var b = ++a + 2; // a = 12   ++a = 12
+        console.log(b); // 14
+
+        var c = 10;
+        c++; // c++ 11  c = 11
+        var d = c++ + 2; //  c++  = 11     c = 12
+        console.log(d); // 13
+
+        var e = 10;
+        var f = e++ + ++e; // 1. e++ =  10  e = 11  2. e = 12  ++e = 12
+        console.log(f); // 22
+        // 后置自增  先表达式返回原值 后面变量再自加1
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

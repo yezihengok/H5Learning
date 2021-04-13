@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        // 1. for 重复执行某些代码， 通常跟计数有关系
+        // 2. for 语法结构
+        // for (初始化变量; 条件表达式; 操作表达式) {
+        //     // 循环体
+        // }
+        // 3. 初始化变量 就是用var 声明的一个普通变量， 通常用于作为计数器使用 
+        // 4. 条件表达式 就是用来决定每一次循环是否继续执行 就是终止的条件
+        // 5. 操作表达式 是每次循环最后执行的代码 经常用于我们计数器变量进行更新（递增或者递减）
+        // 6. 代码体验 我们重复打印20次 你好
+        for (var i = 1; i <= 20; i++) {
+            // for 循环可以执行相同的代码
+            console.log('你好吗');
+        }
+
+        var sum = 10; // 求和 的变量
+        for (var i = 1; i <= 100; i++) {
+            // sum = sum + i;
+            sum += i;
+        }
+        console.log(sum);
+
+        console.log('=========案例========');
+        // 2. 求1-100之间所有偶数和奇数的和   我们需要一个偶数的和变量 even  还需要一个奇数 odd
+        var even = 0;
+        var odd = 0;
+        for (var i = 1; i <= 100; i++) {
+            if (i % 2 == 0) {
+                even = even + i;
+            } else {
+                odd = odd + i;
+            }
+        }
+        console.log('1~100 之间所有的偶数和是' + even);
+        console.log('1~100 之间所有的奇数和是' + odd);
+
+
+        console.log('=========双重for循环========');
+        // 1. 双重for循环 语法结构
+        // for (外层的初始化变量; 外层的条件表达式; 外层的操作表达式) {
+        //     for (里层的初始化变量; 里层的条件表达式; 里层的操作表达式) {
+        //         // 执行语句;
+        //     }
+        // }
+        // 2. 我们可以把里面的循环看做是外层循环的语句
+        // 3. 外层循环循环一次， 里面的循环执行全部
+        // 4. 代码验证
+        for (var i = 1; i <= 3; i++) {
+            console.log('这是外层循环第' + i + '次');
+            for (var j = 1; j <= 3; j++) {
+                console.log('这是里层的循环第' + j + '次');
+
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

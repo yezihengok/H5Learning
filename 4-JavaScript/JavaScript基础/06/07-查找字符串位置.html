@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+
+        console.log('==============字符串的不可变性=============');
+        var str = 'andy';
+        console.log(str);
+        str = 'red';
+        console.log(str);
+        // 因为我们字符串的不可变所以不要大量的拼接字符串,在大量拼接字符串 的时候会有效率问题
+        var str = '';
+        // for (var i = 1; i <= 100000000; i++) {
+        //     str += i;
+        // }
+        // console.log(str);
+        console.log('这里注释了不然流浪器卡半天');
+
+
+
+        console.log('==============根据字符返回位置=============');
+        // 字符串对象  根据字符返回位置  str.indexOf('要查找的字符', [起始的位置])
+        var str = '改革春风吹满地，春天来了';
+        console.log(str.indexOf('春'));
+        console.log(str.indexOf('春', 3)); // 从索引号是 3的位置开始往后查找
+
+
+
+        console.log('==============根据位置返回字符=============');
+        var str = 'apple';
+        console.log(str.charAt(3));
+        // 遍历所有的字符
+        for (var i = 0; i < str.length; i++) {
+            console.log(str.charAt(i));
+        }
+        // 2. charCodeAt(index)  返回相应索引号的字符ASCII值 目的： 判断用户按下了那个键 
+        console.log(str.charCodeAt(0)); // 97
+        
+        // 3. str[index] H5 新增的
+        console.log(str[0]); // a
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
