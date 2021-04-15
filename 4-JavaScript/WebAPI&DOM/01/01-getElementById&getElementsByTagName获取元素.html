@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="time">2019-9-9</div>
+
+    <ul>
+        <li>测试文化1</li>
+        <li>测试文化2</li>
+        <li>测试文化3</li>
+        <li>测试文化4</li>
+        <li>测试文化5</li>
+    </ul>
+    <ol id="ol">
+        <li>生僻字</li>
+        <li>生僻字</li>
+        <li>生僻字</li>
+        <li>生僻字</li>
+
+    </ol>
+
+
+
+    <script>
+        // 1. 因为我们文档页面从上往下加载，所以先得有标签 所以我们script写到标签的下面
+
+        // 2. get 获得 element 元素 by 通过 驼峰命名法 
+        // 3. 参数 id是大小写敏感的字符串
+        // 4. 返回的是一个元素对象
+
+        //=========getElementById（根据id获取某些元素） 
+        var timer = document.getElementById('time');
+        console.log(timer);
+        console.log(typeof timer);
+        // 5. console.dir 打印我们返回的元素对象 更好的查看里面的属性和方法
+        console.dir(timer);
+
+
+
+
+
+        //=========getElementsByTagName（根据标签获取某些元素集合） 
+
+        // 1.返回的是 获取过来元素对象的集合 以伪数组的形式存储的
+        var list = document.getElementsByTagName('li');
+        console.log(list);
+
+
+        // 2. 遍历的方式依次打印里面的元素对象
+        for (var i = 0; i < list.length; i++) {
+            console.log(list[i]);
+        }
+
+        //  element.getElementsByTagName('标签名'); 父元素必须是指定的单个元素
+
+        var ol = document.getElementById('ol');
+        console.log(ol.getElementsByTagName('li'));//获得ol 父元素吓得所有 li
+
+    </script>
+
+
+</body>
+
+</html>

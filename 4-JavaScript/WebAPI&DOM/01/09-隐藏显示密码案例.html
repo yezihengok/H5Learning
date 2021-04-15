@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            position: relative;
+            margin: 50px auto;
+            height: 40px;
+            width: 250px;
+            border-bottom: 1px solid gainsboro;
+        }
+
+        .box input {
+            position: absolute;
+            width: 215px;
+            height: 38px;
+            left: 0;
+            top: 0;
+            outline: none;
+            border: 0;
+        }
+
+        /*         .box::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 30px;
+            height: 30px;
+            background: url(images/open.png) no-repeat;
+            background-size: 30px 30px;
+        } */
+        .box img {
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            width: 28px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <input type="text" placeholder="请输入" id="pwd">
+        <img src="images/open.png" alt="" id="eye">
+    </div>
+
+    <script>
+        var eye = document.getElementById('eye');
+        var pwd = document.getElementById('pwd');
+
+        var isOpen = true;
+        eye.onclick = function () {
+            if (isOpen) {
+                pwd.type = 'password';
+                eye.src = 'images/close.png';
+                isOpen = false;
+            } else {
+                pwd.type = 'text';
+                eye.src = 'images/open.png';
+                isOpen = true;
+            }
+        }
+    </script>
+</body>
+
+</html>

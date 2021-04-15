@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: url(images/1.jpg) no-repeat center top;
+        }
+
+        li {
+            list-style: none;
+        }
+
+
+        .box {
+            overflow: hidden;
+            margin: 100px auto;
+            background-color: #fff;
+            width: 420px;
+            padding-top: 3px;
+        }
+
+        .box li {
+            width: calc(33.33333% - 2px);
+            float: left;
+            margin: 0 1px;
+            cursor: pointer;
+        }
+
+        .box img {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <ul class="box">
+        <li><img src="images/1.jpg"></li>
+        <li><img src="images/2.jpg"></li>
+        <li><img src="images/4.jpg"></li>
+    </ul>
+    <script>
+        var list = document.querySelector('.box').querySelectorAll('img');
+        for (let index = 0; index < list.length; index++) {
+            const element = list[index];
+            element.onclick = function () {
+                // 把这个路径 this.src 给body 就可以了
+                document.body.style.backgroundImage = `url(${this.src})`;
+            }
+        }
+    </script>
+</body>
+
+</html>

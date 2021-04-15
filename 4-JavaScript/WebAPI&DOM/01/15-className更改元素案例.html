@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div {
+            width: 500px;
+            margin: 50px auto;
+        }
+
+        span {
+            font-size: 13px;
+            color: #999999;
+            background: url(images/mess.png) no-repeat left center;
+            padding-left: 20px;
+        }
+
+        .success {
+            color: green;
+            background-image: url(images/right.png);
+        }
+
+        .error {
+            color: red;
+            background-image: url(images/wrong.png);
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <input type="password" class="pwd">
+        <span>请输入6~16位密码</span>
+    </div>
+    <script>
+        var pwd = document.querySelector('.pwd');
+        var info = document.querySelector('span');
+        pwd.onblur = function () {
+            console.log('失去焦点~');
+            var length = this.value.length;
+            if (length > 5 && length < 17) {
+                info.className = 'success';
+                info.innerHTML = '验证通过';
+            } else {
+                info.className = 'error';
+                info.innerHTML = '输入有误,请输入6~16位密码';
+            }
+        }
+    </script>
+</body>
+
+</html>

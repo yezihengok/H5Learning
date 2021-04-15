@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 300px;
+            margin: 100px auto;
+        }
+
+        textarea {
+            width: 200px;
+            height: 100px;
+            border: 1px solid rgb(85, 85, 85);
+            outline: none;
+            resize: none;
+        }
+
+        ul {
+            margin-top: 50px;
+        }
+
+        li {
+            width: 300px;
+            padding: 5px;
+            background-color: #a59fa541;
+            color: rgb(97, 141, 25);
+            font-size: 14px;
+            margin: 10px 0;
+            list-style: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <textarea name="" id="content"></textarea><br>
+        <button>发布信息</button>
+        <ul>
+
+        </ul>
+    </div>
+
+    <script>
+        var liuyanList = document.querySelector('ul');
+        var btn = document.querySelector('button');
+        var content = document.querySelector('#content');
+
+
+        btn.onclick = function () {
+            var str = content.value;
+            if (str.length == 0) {
+                alert('请先输入');
+                return
+            }
+            var li = document.createElement('li');
+            // li.textContent = str;
+            li.innerHTML=str;
+            liuyanList.appendChild(li);
+        }
+
+    </script>
+</body>
+
+</html>

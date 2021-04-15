@@ -1,0 +1,29 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+section {
+    width: 1000px;
+    margin: 50px auto;
+}
+
+table {
+    margin-top: 20px;
+    width: 500px;
+    border: 1px solid #999999;
+    border-collapse: collapse;
+
+}
+
+thead th {
+    height: 35px;
+    background-color: skyblue;
+    border: 1px solid #999999;
+}
+
+td {
+    text-align: center;
+    height: 28px;
+    border: 1px solid #999999;
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 节点的优点 -->
+    <div>我是div</div>
+    <span>我是span</span>
+    <ul>
+        <li>我是li</li>
+        <li>我是li</li>
+        <li>我是li</li>
+        <li>我是li</li>
+    </ul>
+    <div class="demo">
+        <div class="box">
+            <span class="qrCode">aaaaa</span>
+        </div>
+    </div>
+
+    <!-- 一般地，节点至少拥有nodeType（节点类型）、nodeName（节点名称）和nodeValue（节点值）这三个基本属性。
+                元素节点nodeType 为1
+                属性节点nodeType为2
+                文本节点nodeType 为3(文本节点包含文字、空格、换行等)
+                在实际开发中，节点操作主要操作的是元素节点 -->
+
+                
+    <script>
+        /* 父节点=========== parentNode */
+        var qrCode = document.querySelector('.qrCode');
+        // var box = document.querySelector('.box');
+        // 得到的是离元素最近的父级节点(亲爹) 如果找不到父节点就返回为 null
+        console.log(qrCode.parentNode);
+
+
+        /* 子节点=========== childNodes */
+
+        // DOM 提供的方法（API）获取子元素
+        var ul = document.querySelector('ul');
+        var lis = ul.querySelectorAll('li');
+
+        // 1. 子节点  childNodes 所有的子节点 包含: 元素节点 文本节点等等
+        console.log(ul.childNodes);
+        console.log(ul.childNodes[0].nodeType);
+        console.log(ul.childNodes[2].nodeType);
+
+        // 2. children 获取所有的子 元素节点 也是实际开发常用的
+        console.log(ul.children);
+
+
+
+    </script>
+</body>
+
+</html>

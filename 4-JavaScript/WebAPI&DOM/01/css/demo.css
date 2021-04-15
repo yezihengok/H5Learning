@@ -1,0 +1,89 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+nav {
+    box-sizing: border-box;
+    width: 300px;
+    margin: 10px auto;
+    /* background-color: azure; */
+    height: 45px;
+
+}
+
+nav ul {
+    height: 100%;
+    width: 300px;
+}
+
+nav ul li {
+    list-style: none;
+    float: left;
+    width: 33.33%;
+    height: 100%;
+}
+
+nav ul li a {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    line-height: 45px;
+    color: gray;
+}
+
+nav ul li a:hover {
+    background-color: #cccccc41;
+    color: orange;
+}
+
+/* nav>ul>li>a:hover,
+nav>ul>li>#outBox>a:hover {
+    border-bottom: 1px solid orange;
+} */
+
+nav ul li #arrow::after {
+    position: absolute;
+    content: '';
+    top: 19px;
+    right: 20px;
+    width: 6px;
+    height: 6px;
+    border-right: 1px solid orange;
+    border-bottom: 1px solid orange;
+    transform: rotate(45deg);
+}
+
+#listBox {
+    border: 1px solid #EBBE7A;
+    border-top: 0;
+    border-radius: 0 0 4px 4px;
+    /* overflow: hidden; */
+    -moz-box-shadow: 3px 3px 3px rgba(0, 0, 0, .1);
+    -webkit-box-shadow: 3px 3px 3px rgba(0, 0, 0, .1);
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, .1);
+
+    -moz-box-transition: all .5s ease;
+    -webkit-transition: all .5s ease;
+    transition: all .5s ease;
+}
+
+#listBox ul {
+    width: 100%;
+}
+
+#listBox li {
+    float: none;
+    width: 100%;
+}
+
+#listBox li:nth-child(-n+2) {
+    border-bottom: 1px solid #EBBE7A;
+}
+
+ 
+
+ 

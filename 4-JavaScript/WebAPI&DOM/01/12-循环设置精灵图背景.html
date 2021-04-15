@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* * {
+            margin: 0;
+            padding: 0;
+        } */
+
+        li {
+            list-style-type: none;
+        }
+
+        div {
+            width: 250px;
+            margin: 100px auto;
+        }
+
+        div li {
+            float: left;
+            width: 24px;
+            height: 24px;
+            background-color: rgb(66, 20, 28);
+            margin: 15px;
+            background: url(images/sprite.png) no-repeat;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <script>
+        // 1. 获取元素 所有的小li 
+        var list = document.querySelectorAll('li');
+        for (var i = 0; i < list.length; i++) {
+            // 让索引号 乘以 44 就是每个li 的背景y坐标
+            var y = 44 * i;
+            list[i].style.backgroundPosition = `0 -${y}px`
+        }
+    </script>
+</body>
+
+</html>

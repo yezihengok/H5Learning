@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input {
+            color: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 实现placeholder效果，又让文本框里实际有默认值 -->
+    <input type="text" value="女装">
+
+    <script>
+        var inp = document.querySelector('input');
+        inp.onfocus = function () {
+            console.log('获得焦点了~~~');
+            this.style.color = 'black';
+            if ('女装' === this.value) {
+                this.value = '';
+            }
+        }
+
+        inp.onblur = function () {
+            console.log('失去焦点了~~~');
+            this.style.color = '#ccc';
+            if (this.value === '') {
+                this.value = '女装';
+            }
+        }
+    </script>
+</body>
+
+</html>
