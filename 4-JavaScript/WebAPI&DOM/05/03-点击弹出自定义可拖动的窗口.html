@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000000;
+        }
+
+        .mask {
+            display: none;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            background: rgba(0, 0, 0, .3);
+        }
+
+        .loginArert {
+            width: 100%;
+            text-align: center;
+            height: 30px;
+            font-size: 24px;
+            line-height: 30px;
+        }
+
+        .login {
+            display: none;
+            width: 512px;
+            height: 280px;
+            position: fixed;
+            border: #ebebeb solid 1px;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 1px 1px 10px rgba(0, 0, 0, .3);
+            z-index: 999;
+            background-color: aliceblue;
+            border-radius: 5px;
+            /* box-shadow: 0px 0px 20px #ddd; */
+        }
+
+        .dialog-title {
+            position: relative;
+            height: 50px;
+            width: 100%;
+            text-align: center;
+            line-height: 50px;
+            font-size: 18px;
+            cursor: move;
+        }
+
+        .dialog-title>div {
+            position: absolute;
+            top: -16px;
+            right: -16px;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: #ebebeb solid 1px;
+            text-align: center;
+            line-height: 35px;
+            font-size: 15px;
+            background: #ffffff;
+        }
+
+        .dialog-title #closeBtn {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .dialog-content {
+            margin-top: 20px;
+        }
+
+        .login-input label {
+            /* float: left; */
+            display: inline-block;
+            width: 90px;
+            padding-right: 10px;
+            text-align: right;
+            line-height: 35px;
+            height: 35px;
+            font-size: 14px;
+        }
+
+        .login-input {
+            /* overflow: hidden; */
+            margin: 0px 0px 20px 0px;
+        }
+
+        .login-input .inputs {
+            /* float: left; */
+            line-height: 35px;
+            height: 35px;
+            width: 350px;
+            border: #ebebeb 1px solid;
+            text-indent: 5px;
+        }
+
+        #loginBtn {
+            width: 50%;
+            margin: 20px auto;
+            text-align: center;
+            line-height: 40px;
+            border: #cac9c9 1px solid;
+        }
+
+        #loginBtn a {
+            display: block;
+        }
+
+        .hover-bg:hover {
+            background-color: #ebe4e4;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="loginArert"><a href="javascript:">点击，弹出登录框</a></div>
+
+    <div class="login">
+        <div id="title" class="dialog-title">登录会员
+            <div class="hover-bg"><a id="closeBtn" href="javascript:">x</a></div>
+        </div>
+
+        <div class="dialog-content">
+            <div class="login-input">
+                <label>用户名:</label> <input type="text" name="" id="username" class="inputs" placeholder="输入用户名">
+            </div>
+            <div class="login-input">
+                <label>密码:</label> <input type="text" name="" id="pwd" class="inputs" placeholder="输入用户名">
+            </div>
+        </div>
+        <div id="loginBtn" class="hover-bg"><a href="javascript:void(0);" id="submit">登录会员</a></div>
+    </div>
+    <!-- 遮盖层 -->
+    <div class="mask"></div>
+
+    <script>
+        var loginArert = document.querySelector('.loginArert');
+        var login = document.querySelector('.login');
+        var mask = document.querySelector('.mask');
+        var closeBtn = document.querySelector('#closeBtn');
+        var title = document.querySelector('#title');
+        loginArert.addEventListener('click', function () {
+            mask.style.display = 'block';
+            login.style.display = 'block';
+        });
+
+        closeBtn.addEventListener('click', function () {
+            mask.style.display = 'none';
+            login.style.display = 'none';
+        });
+
+
+        //拖拽 
+        title.addEventListener('mousedown', function (e) {
+            //1、当我们鼠标按下， 就获得鼠标在盒子内的坐标
+            var x = e.pageX - login.offsetLeft;
+            var y = e.pageY - login.offsetTop;
+
+            //2、 鼠标移动的时候，把鼠标在页面中的坐标，减去 鼠标在盒子内的坐标就是弹框左上角的left和top值
+            function move(e) {
+                login.style.left = e.pageX - x + 'px';
+                login.style.top = e.pageY - y + 'px';
+            }
+
+            document.addEventListener('mousemove', move)
+
+            // (3) 鼠标弹起，就让鼠标移动事件移除
+            document.addEventListener('mouseup', function () {
+                document.removeEventListener('mousemove', move);
+            })
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .father {
+            /* position: relative; */
+            width: 200px;
+            height: 200px;
+            background-color: rgba(226, 112, 169, 0.637);
+            margin: 150px;
+        }
+
+        .son {
+            width: 100px;
+            height: 100px;
+            background-color: purple;
+            margin-left: 10px;
+        }
+
+        .w {
+            height: 200px;
+            width: 400px;
+            background-color: skyblue;
+            margin: 0 auto 200px;
+            padding: 10px;
+            border: 15px solid rgb(145, 119, 119);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="father">
+        father
+        <div class="son">son</div>
+    </div>
+    <div class="w" style="width: 400px">w</div>
+    <script>
+        // offset 系列
+        var father = document.querySelector('.father');
+        var son = document.querySelector('.son');
+
+        // 1.可以得到元素的偏移 位置 返回的不带单位的数值  
+        console.log('father.offsetTop=' + father.offsetTop);
+        console.log('father.offsetLeft=' + father.offsetLeft);
+        // 它以带有定位的父亲为准  如果么有父亲或者父亲没有定位 则以 body 为准
+        console.log('son.offsetLeft=' + son.offsetLeft);
+        var w = document.querySelector('.w');
+
+        // 2.可以得到元素的大小 宽度和高度 是包含padding + border + width 
+        console.log('w.offsetWidth=' + w.offsetWidth);
+        console.log('w.offsetHeight=' + w.offsetHeight);
+
+        // 3. 返回带有定位的父亲 否则返回的是body
+        console.log('son.offsetParent=' + son.offsetParent); // 返回带有定位的父亲 否则返回的是body
+        console.log('son.parentNode=' + son.parentNode); // 返回父亲 是最近一级的父亲 亲爸爸 不管父亲有没有定位
+
+
+
+        console.log('========== offset与style的区别==========');
+        /* offset 与 style 区别 
+        
+        ### offset
+            offset 可以得到任意样式表中的样式值
+            offset 系列获得的数值是没有单位的
+            offsetWidth 包含padding + border + width
+            offsetWidth 等属性是只读属性，只能获取不能赋值
+                > 所以，我们想要获取元素大小位置，用offset更合适
+        
+        ### style
+            style 只能得到行内样式表中的样式值
+            style.width 获得的是带有单位的字符串
+            style.width 获得不包含padding和border 的值
+            style.width 是可读写属性，可以获取也可以赋值
+                > 所以，我们想要给元素更改值，则需要用style改变 */
+
+        console.log('w.offsetWidth=' + w.offsetWidth);
+        console.log('w.style.width=' + w.style.width);
+        // w.offsetWidth = '300px';
+        w.style.width = '300px';
+    </script>
+</body>
+
+</html>

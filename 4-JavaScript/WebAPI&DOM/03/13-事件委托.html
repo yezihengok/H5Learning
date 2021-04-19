@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 点击每个li都会弹出对话框，以前需要给每个li注册事件，是非常辛苦的，
+        而且访问DOM的次数越多，这就会延长整个页面的交互就绪时间。 -->
+
+    <ul>
+        <li>赤橙黄绿青蓝紫1</li>
+        <li>赤橙黄绿青蓝紫2</li>
+        <li>赤橙黄绿青蓝紫3</li>
+        <li>赤橙黄绿青蓝紫4</li>
+        <li>赤橙黄绿青蓝紫5</li>
+    </ul>
+    <script>
+        // 事件委托的核心原理：给父元素注册事件，利用事件冒泡，当子元素的事件触发(点击子元素本身会触发事件，这里我们只是没有给每个设置监听而已)，会冒泡到父元素，然后去控制相应的子元素。
+        var ul = document.querySelector('ul');
+        ul.addEventListener('click', function (e) {
+            //
+            for (const chd of ul.children) {
+                chd.style.backgroundColor = '#00000000'
+            }
+            // alert('aaaaaaa');
+            // e.target 这个可以得到我们点击的对象
+            e.target.style.backgroundColor = 'pink';
+
+
+        })
+    </script>
+</body>
+
+</html>

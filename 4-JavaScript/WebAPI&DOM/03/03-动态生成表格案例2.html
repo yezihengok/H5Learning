@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        table {
+            width: 500px;
+            margin: 100px auto;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        td,
+        th {
+            border: 1px solid #333;
+        }
+
+        thead tr {
+            height: 40px;
+            background-color: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <table cellspacing="0">
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>科目</th>
+                <th>成绩</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <script>
+        // 模拟学生的数据
+        var datas = [{
+            name: '和河岸',
+            subject: 'HTML',
+            score: 100
+        }, {
+            name: '送蛋糕',
+            subject: 'JavaScript',
+            score: 98
+        }, {
+            name: '官人',
+            subject: 'CSS',
+            score: 99
+        }, {
+            name: '补贴',
+            subject: 'JavaScript',
+            score: 88
+        }, {
+            name: '帮别人',
+            subject: 'JavaScript',
+            score: 0
+        }];
+
+        var tbody = document.querySelector('tbody');
+        for (var i = 0; i < datas.length; i++) {
+            // 1. 创建 tr行
+            var tr = document.createElement('tr');
+            tbody.appendChild(tr);
+
+            var student = datas[i];
+            //遍历学生对象
+            for (const k in student) {
+                // 创建单元格 
+                var td = document.createElement('td');
+                td.innerHTML = student[k];
+                tr.appendChild(td);
+            }
+            // 3. 创建删除的单元格 
+            var td = document.createElement('td');
+            td.innerHTML = '<a href="javascript:;" class="del">删除 </a>';
+            tr.appendChild(td);
+        }
+        // 刪除
+        var as = document.querySelectorAll('.del');
+        for (const a of as) {
+            a.onclick = function () {
+                //点击a 删除 当前a 所在的行td(即链接的父亲的父亲) 
+                tbody.removeChild(a.parentNode.parentNode);
+            }
+        }
+    </script>
+</body>
+
+</html>

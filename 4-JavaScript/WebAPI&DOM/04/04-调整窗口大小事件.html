@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: rgb(182, 219, 45);
+            transition: .3s all ease;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        window.addEventListener('load', function () {
+            var div = document.querySelector('div');
+
+            window.addEventListener('resize', function () {
+
+                console.log('变化了' + window.innerWidth);
+
+                div.style.width = window.innerWidth * 0.5 + 'px';
+                div.style.height = window.innerHeight * 0.5 + 'px';
+                if (window.innerWidth <= 400) {
+                    div.style.display = 'none';
+                } else {
+                    div.style.display = 'block';
+                }
+
+            })
+        })
+    </script>
+    <div></div>
+</body>
+
+</html>

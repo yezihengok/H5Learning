@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+
+        /*         window它是一个全局对象。定义在全局作用域中的变量、函数都会变成window对象的属性和方法。
+                    在调用的时候可以省略window，前面学习的对话框都属于window对象方法，如alert() 、prompt()等。
+                    注意: window下的一个特殊属性window.name */
+
+
+        /*  1.有了window.onload就可以把JS代码写到页面元素的上方，因为onload是等页面内容全部加载完!再去执行处理函数。
+            2. window.onload传统注册事件方式只能写一次，如果有多个，会以最后一个window.onload为准。
+            3.如果使用addEventListener则没有限制 */
+
+        // window.onload = function() {
+        //     alert(22);
+        // }
+        window.addEventListener('load', function () {
+            var btn = document.querySelector('button');
+            btn.addEventListener('click', function () {
+                alert('点击我');
+            })
+        })
+
+        window.addEventListener('load', function () {
+            console.log('load 等页面内容全部加载完毕，包含页面dom元素 图片 flash  css 等等');
+        })
+        document.addEventListener('DOMContentLoaded', function () {
+            console.log('DOMContentLoaded 是DOM 加载完毕，不包含图片 falsh css 等就执行, 比load先执行');
+        })
+
+
+        //window.name是一个所有浏览器都有的属性，表示浏览器窗口的名称，默认是一个空字符串，所有浏览器都是个空字符串。
+        // window.name有个很有意思的跨页面特性，具体描述为：页面如果设置了window.name，即使进行了页面跳转到了其他页面，这个window.name还是会保留
+    </script>
+</head>
+
+<body>
+
+    <button>点击</button>
+
+</body>
+
+</html>

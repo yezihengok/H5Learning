@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .father {
+            overflow: hidden;
+            width: 300px;
+            height: 300px;
+            margin: 100px auto;
+            background-color: pink;
+            text-align: center;
+        }
+
+        .son {
+            width: 200px;
+            height: 200px;
+            margin: 50px;
+            background-color: purple;
+            line-height: 200px;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<!-- /* DOM 事件流会经历3个阶段：
+1. 捕获阶段
+2. 当前目标阶段（捕获阶段）
+3. 冒泡阶段
+
+我们向水里面扔一块石头，首先它会有一个下降的过程，这个过程就可以理解为从最顶层向事件发生的最具体元素（目标点）的捕获过程；
+之后会产生泡泡，会在最低点（ 最具体元素）之后漂浮到水面上，这个过程相当于事件冒泡。 */ -->
+
+<body>
+
+    <div class="father">
+        <div class="son">son盒子</div>
+    </div>
+    <script>
+        // dom 事件流 三个阶段
+        // 1. JS 代码中只能执行捕获或者冒泡其中的一个阶段。
+        // 2. onclick 和 attachEvent（ie） 只能得到冒泡阶段。
+        // 3. 捕获阶段如果addEventListener 第三个参数是 true 那么则处于捕获阶段(向下传递)   document -> html -> body -> father -> son
+
+        // var son = document.querySelector('.son');
+        // son.addEventListener('click', function() {
+        //     alert('son');
+        // }, true);
+
+        // var father = document.querySelector('.father');
+        // father.addEventListener('click', function() {
+        //     alert('father');
+        // }, true);
+
+
+        // 4. 冒泡阶段 如果addEventListener 第三个参数是 false 或者 省略 那么则处于冒泡阶段(向上传递)   son -> father ->body -> html -> document
+        var son = document.querySelector('.son');
+        son.addEventListener('click', function () {
+            alert('son');
+        }, false);
+
+        var father = document.querySelector('.father');
+        father.addEventListener('click', function () {
+            alert('father');
+        }, false);
+
+        document.addEventListener('click', function () {
+            alert('document');
+        })
+
+
+    </script>
+</body>
+
+</html>
