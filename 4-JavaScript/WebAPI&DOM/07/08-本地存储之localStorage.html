@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <label>姓名</label><input type="text">
+    <label>年龄</label><input type="number"><br><br>
+
+
+    <button class="set">添加数据</button>
+    <button class="get">获取数据</button>
+    <button class="remove">删除数据</button>
+    <button class="del">清空所有数据</button>
+
+    <p class="p1"></p>
+    <p class="p2"></p>
+    <script>
+        // window.localStorage
+        //     1、声明周期永久生效，除非手动删除 否则关闭页面也会存在
+        //     2、可以多窗口（页面）共享（同一浏览器可以共享）
+        console.log("_name" + sessionStorage.getItem('_name'));
+
+        var ipts = document.querySelectorAll('input');
+        console.log(ipts);
+        var names = ipts[0];
+        var age = ipts[1];
+
+        var set = document.querySelector('.set');
+        var get = document.querySelector('.get');
+        var remove = document.querySelector('.remove');
+        var del = document.querySelector('.del');
+
+        set.addEventListener('click', function () {
+            // 当我们点击了之后，就可以把表单里面的值存储起来
+            localStorage.setItem('_name', names.value);
+            localStorage.setItem('_age', age.value);
+        });
+
+
+        var ps = document.querySelectorAll('p');
+        get.addEventListener('click', function () {
+            // 当我们点击了之后，把表单里面的值获取过来
+            ps[0].innerHTML = localStorage.getItem('_name');
+            ps[1].innerHTML = localStorage.getItem('_age');
+
+        });
+
+
+        remove.addEventListener('click', function () {
+            // 
+            localStorage.removeItem('_name');
+            localStorage.removeItem('_age');
+
+        });
+
+        del.addEventListener('click', function () {
+            // 当我们点击了之后，清除所有的
+            localStorage.clear();
+
+        });
+
+        //可将对象JSON.stringify() 转换字符串编码后存储
+        var people = {
+            name: '张三',
+            age: 22,
+            sex: '男'
+        }
+        localStorage.setItem('people', JSON.stringify(people));
+        console.log(localStorage.getItem('people'));
+    </script>
+</body>
+
+</html>

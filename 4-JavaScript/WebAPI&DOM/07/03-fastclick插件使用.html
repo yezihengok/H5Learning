@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 1. 禁用缩放。 浏览器禁用默认的双击缩放行为并且去掉300ms 的点击延迟。 -->
+    <!-- <meta name="viewport" content="user-scalable=no"> -->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width: 50px;
+            height: 50px;
+            background-color: pink;
+        }
+    </style>
+    <script src="js/fastclick.js"></script>
+</head>
+
+<body>
+    <div>移动端click事件会有300ms 的延时，原因是移动端屏幕双击会缩放(double tap to zoom) 页面。</div>
+
+    <script>
+        //=========2.使用插件。fastclick 插件解决300ms 延迟。
+        if ('addEventListener' in document) {
+            document.addEventListener('DOMContentLoaded', function () {
+                FastClick.attach(document.body);
+            }, false);
+        }
+        //==========
+        var div = document.querySelector('div');
+        div.addEventListener('click', function () {
+            alert(11);
+        })
+    </script>
+</body>
+
+</html>

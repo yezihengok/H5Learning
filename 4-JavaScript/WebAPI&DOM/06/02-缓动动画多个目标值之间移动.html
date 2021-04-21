@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            position: absolute;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            background-color: rgb(218, 168, 176);
+        }
+
+        span {
+            position: absolute;
+            left: 0;
+            top: 200px;
+            display: block;
+            width: 150px;
+            height: 150px;
+            background-color: rgb(189, 184, 238);
+        }
+    </style>
+</head>
+
+<body>
+    <button class="btn500">点击到500</button>
+    <button class="btn800">点击到800</button>
+    <span>阿诗丹</span>
+    <script>
+
+        
+        function animate(obj, target, callback) {
+            // 先清除以前的定时器
+            clearInterval(obj.timer);
+            obj.timer = setInterval(function () {
+                // 把我们步长值改为整数 不要出现小数的问题
+                // var step = Math.ceil((target - obj.offsetLeft) / 20);
+                var step = (target - obj.offsetLeft) / 20;
+                step = step > 0 ? Math.ceil(step) : Math.floor(step);  //​	1.如果是正值，则步长往大了取整 2.如果是负值，则步长 向小了取整
+                // 把每次加1 这个步长值改为一个慢慢变小的值  步长公式：(目标值 - 现在的位置) / 20
+                obj.style.left = obj.offsetLeft + step + 'px';
+
+                if (obj.offsetLeft == target) {
+                    clearInterval(obj.timer);
+                    if (callback) {
+                        // 调用函数
+                        callback();
+                    }
+                }
+            }, 15);
+        }
+        var span = document.querySelector('span');
+        var btn500 = document.querySelector('.btn500');
+        var btn800 = document.querySelector('.btn800');
+
+        btn500.addEventListener('click', function () {
+            animate(span, 500);
+        })
+        btn800.addEventListener('click', function () {
+            animate(span, 800,function(){
+                span.innerHTML='动画执行完毕回调';
+            });
+        })
+            // 匀速动画 就是 盒子是当前的位置 +  固定的值 20
+            // 缓动动画就是  盒子当前的位置 + 变化的值(目标值 - 现在的位置) / 20）
+    </script>
+</body>
+
+</html>
