@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.min.js"></script>
+    <style>
+        div {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            top: 40px;
+            left: 40px;
+            background-color: rgb(232, 248, 9);
+        }
+    </style>
+    <script>
+        $(function () {
+            var flag = true;
+            $("button").click(function () {
+                if (flag) {
+                    //同样的这里加上stop()
+                    $("div").stop().animate({
+                        left: 500,
+                        top: 300,
+                        opacity: .4,
+                        width: 400,
+                        height: 400
+                    });
+                } else {
+                    $("div").stop().animate({
+                        left: 40,
+                        top: 40,
+                        opacity: 1,
+                        width: 200,
+                        height: 200
+                    });
+                }
+                flag = !flag;
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+    <button>点击</button>
+    <div></div>
+</body>
+
+</html>

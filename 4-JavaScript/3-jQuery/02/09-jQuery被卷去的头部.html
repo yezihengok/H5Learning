@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            height: 2000px;
+        }
+
+        .back {
+            display: none;
+            position: fixed;
+            width: 80px;
+            height: 50px;
+            right: 30px;
+            bottom: 100px;
+            text-align: center;
+            line-height: 50px;
+            background-color: pink;
+            cursor: pointer;
+        }
+
+        .container {
+            width: 1000px;
+            height: 500px;
+            background-color: #b6ced8;
+            margin: 400px auto;
+        }
+    </style>
+    <script src="js/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="back">返回</div>
+    <div class="container">
+    </div>
+    <script>
+        $(function () {
+            $(document).scrollTop(100);
+            // 被卷去的头部 scrollTop()  / 被卷去的左侧 scrollLeft()
+
+            //内容盒子距离文档顶部的距离
+            var contentBoxTop = $(".container").offset().top;
+            // 页面滚动事件
+            $(window).scroll(function () {
+                console.log("页面卷(滚动)进去的距离:" + $(document).scrollTop());
+
+                if ($(document).scrollTop() >= contentBoxTop) {
+                    $(".back").fadeIn();
+                } else {
+                    $(".back").fadeOut();
+                }
+            });
+
+            $(".back").click(function () {
+                // $(document).scrollTop(0);
+                // $(document).stop().animate({
+                //     scrollTop: 0
+                // }); //不能是文档而是 html和body元素做动画
+                $("html").stop().animate({
+                    scrollTop: contentBoxTop
+                });
+            });
+        })
+    </script>
+</body>
+
+</html>

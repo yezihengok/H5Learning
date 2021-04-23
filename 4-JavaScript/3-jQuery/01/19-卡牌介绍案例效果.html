@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        img {
+            display: block;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+
+
+        .kingHonor {
+            width: 852px;
+            margin: 100px auto;
+            background: url(upload/bg.png) no-repeat;
+            overflow: hidden;
+            padding: 10px;
+        }
+
+        /* .kingHonor ul {
+            overflow: hidden;
+        } */
+
+        .kingHonor li {
+            position: relative;
+            float: left;
+            width: 69px;
+            height: 69px;
+            margin-right: 10px;
+        }
+
+
+        .kingHonor li .small {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 69px;
+            height: 69px;
+            border-radius: 5px;
+        }
+
+        .kingHonor li .big {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 224px;
+            display: none;
+        }
+
+
+        .kingHonor li.current {
+            width: 224px;
+        }
+
+        .kingHonor li.current .small {
+            display: none;
+        }
+
+        .kingHonor li.current .big {
+            display: block;
+        }
+    </style>
+    <script src="js/jquery.min.js"></script>
+    <script>
+        $(function () {
+            // // 鼠标经过某个li 
+            $(".kingHonor li").mouseenter(function () {
+                // 1.当前li 宽度变为 224px， 同时里面的小图片淡出，大图片淡入
+                $(this).stop().animate({
+                    width: 224
+                }).find(".small").stop().fadeOut().siblings(".big").stop().fadeIn();
+                // 2.其余兄弟li宽度变为69px， 小图片淡入， 大图片淡出
+                $(this).siblings("li").stop().animate({
+                    width: 69
+                }).find(".small").stop().fadeIn().siblings(".big").stop().fadeOut();
+            });
+
+
+            //鼠标移走后隐藏big
+            /*             $(".kingHonor li").mouseleave(function () {
+                            $(this).stop().animate({
+                                width: 69
+                            }).find(".small").stop().fadeIn().siblings(".big").stop().fadeOut();
+                        }); */
+        });
+    </script>
+</head>
+
+<body>
+    <div class="kingHonor">
+        <ul>
+            <li class="current">
+                <a href="#">
+                    <img src="upload/m1.jpg" alt="" class="small">
+                    <img src="upload/m.png" alt="" class="big">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="upload/l1.jpg" alt="" class="small">
+                    <img src="upload/l.png" alt="" class="big">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="upload/c1.jpg" alt="" class="small">
+                    <img src="upload/c.png" alt="" class="big">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="upload/w1.jpg" alt="" class="small">
+                    <img src="upload/w.png" alt="" class="big">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="upload/z1.jpg" alt="" class="small">
+                    <img src="upload/z.png" alt="" class="big">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="upload/h1.jpg" alt="" class="small">
+                    <img src="upload/h.png" alt="" class="big">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="upload/t1.jpg" alt="" class="small">
+                    <img src="upload/t.png" alt="" class="big">
+                </a>
+            </li>
+        </ul>
+
+    </div>
+
+
+</body>
+
+</html>

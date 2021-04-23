@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/jquery.min.js"></script>
+    <style>
+        .grandpa {
+            width: 200px;
+            height: 200px;
+            background-color: darkslategray;
+        }
+
+        .father {
+            width: 150px;
+            height: 150px;
+            background-color: darkslategray;
+        }
+
+        .son {
+            width: 100px;
+            height: 100px;
+            background-color: darkslategray;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="grandpa">
+        grandpa
+        <div class="father">
+            father
+            <div class="son">son</div>
+        </div>
+    </div>
+
+    <div class="nav">
+        <p>我是外面的p</p>
+        <div>
+            <p>我是里面p</p>
+        </div>
+    </div>
+    <script>
+        // 注意一下都是方法 带括号
+        $(function () {
+            // 1. 父  parent()====>  返回的是 最近一级的父级元素 亲爹
+            $(".son").parent().css("background", "#ccc");
+            //parents()===返回son 的所有父元素甚至body，通常加上参数，查找指定的父元素：
+            $(".son").parents(".grandpa").css("background", "skyblue");
+
+            // 2. 子
+            // (1) 亲儿子 children()====>类似子代选择器  ul>li
+
+            $(".nav").children("p").css("color", "blue");
+
+            // (2) 可以选里面所有的孩子 包括儿子和孙子  find()====> 类似于后代选择器
+            $(".nav").find("p").css("font-size", "20px");
+
+        });
+    </script>
+</body>
+
+</html>

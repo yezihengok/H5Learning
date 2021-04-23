@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.min.js"></script>
+    <script>
+
+        $(function () {
+            //隔行变色
+            function fuc() {
+                $("ul li:odd").css("background", "#c295d8");
+                $("ul li:even").css("background", "#95acd8");
+            }
+            fuc();
+            $("ul li").mouseover(function () {
+                fuc();
+                $(this).css("background", "gray");
+            });
+        });
+
+
+    </script>
+</head>
+
+<body>
+    <ul>
+        <li>非常棒1</li>
+        <li>非常棒2</li>
+        <li>非常棒3</li>
+        <li>非常棒4</li>
+        <li>非常棒5</li>
+        <li>非常棒6</li>
+        <li>非常棒7</li>
+        <li>非常棒8</li>
+    </ul>
+
+</body>
+
+</html>

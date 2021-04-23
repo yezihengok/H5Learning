@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/jquery.min.js"></script>
+</head>
+
+<body>
+    <div>
+        <button>肥牛卷</button>
+        <button>肥牛卷</button>
+        <button>肥牛卷</button>
+        <button>肥牛卷</button>
+        <button>肥牛卷</button>
+        <button>肥牛卷</button>
+        <button>肥牛卷</button>
+    </div>
+    <script>
+        $(function () {
+            // 1. 隐式迭代 给所有的按钮都绑定了点击事件
+            $("div button").click(function () {
+                // 2. 当前的元素变化背景颜色
+                $(this).css("background", "gold");
+                // 3. 其余的兄弟去掉背景颜色 隐式迭代
+                $(this).siblings().css("background", "");
+
+                //可以直接链式写法：
+                $(this).css('color', 'red').siblings().css('color', '');
+            });
+        });
+    </script>
+</body>
+
+</html>

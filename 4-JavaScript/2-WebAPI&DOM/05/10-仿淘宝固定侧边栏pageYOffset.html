@@ -60,7 +60,7 @@
         var main = document.querySelector('.main');
         var goBack = document.querySelector('.goBack');
 
-        // banner.offestTop 就是被滚动进去头部的大小  要写到滚动的外面
+        // banner.offestTop 就是被卷去头部的大小 一定要写到滚动的外面
         var bannerTop = banner.offsetTop
         // 当侧边栏距离banner顶部的一段距离
         var sliderbarTop = sliderbar.offsetTop - bannerTop;
@@ -69,9 +69,9 @@
         console.log('bannerTop=' + bannerTop + ' mainTop=' + mainTop);
         // 2. 页面滚动事件 scroll
         document.addEventListener('scroll', function () {
-            // window.pageYOffset 页面滚动的距离
+            // window.pageYOffset 页面被卷去的头部 (页面滚动的距离)
 
-            // 3 .当我们页面被滚动进去一段距离，此时是170px, 此时 侧边栏就要改为固定定位
+            // 3 .当我们页面被卷去的头部大于等于了 170px 此时 侧边栏就要改为固定定位
             if (window.pageYOffset >= bannerTop) {
                 sliderbar.style.position = 'fixed';
                 //我们侧边栏固定定位之后之前的距离banner顶部的距离要加上来

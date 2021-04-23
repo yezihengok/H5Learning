@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        select {
+            width: 200px;
+            height: 220px;
+            font-size: 22px;
+            background-color: #c1c4bf;
+            /* overflow: auto; */
+        }
+    </style>
+    <script src="js/jquery.min.js"></script>
+    <script>
+        $(function () {
+            //需求1：点击前两个按钮，一侧的所有option移动到另一侧的select标签中;
+            //需求2：点击后两个按钮，一侧的所有option中"被选中"的全部移动到另一侧的select标签中;
+
+            //以前我们要一把一把操作需要借助for循环;有了jQuery之后，就不用for循环;
+
+
+            $("button").eq(0).click(function () {
+                //左侧所有option全部移动到右侧select中(不用for循环)
+                $("#sel2").append($("#sel1>option"));
+            });
+            $("button").eq(1).click(function () {
+                //右侧所有option全部移动 
+                $("#sel1").append($("#sel2>option"));
+            });
+
+
+            //(:selected)选中的
+
+            $("button").eq(2).click(function () {
+                $("#sel2").append($("#sel1>option:selected"));
+            });
+            $("button").eq(3).click(function () {
+                $("#sel1").append($("#sel2>option:selected"));
+            });
+
+        });
+    </script>
+</head>
+
+<body>
+    <p>点击选中</p>
+    <select name="" id="sel1" size="4" multiple>
+
+        <option value="">香蕉</option>
+        <option value="">大鸭梨</option>
+        <option value="">苹果</option>
+        <option value="">西瓜</option>
+        <option value="">芒果</option>
+        <option value="">葡萄</option>
+        <option value="">哈密瓜</option>
+        <option value="">水蜜桃</option>
+    </select>
+
+    <button>&gt;&gt;&gt;</button>
+    <button>&lt;&lt;&lt;</button>
+    <button>&gt;</button>
+    <button>&lt;</button>
+
+    <select name="" id="sel2" size="4" multiple></select>
+
+
+
+
+</body>
+
+</html>

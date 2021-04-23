@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        .ad {
+            display: none;
+            position: fixed;
+            right: 2px;
+            bottom: 0;
+            width: 240px;
+            height: 160px;
+            background: url(upload/ad.png) no-repeat;
+            /* background-size: 240px 160px; */
+        }
+
+        .ad span {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 40px;
+            height: 18px;
+            background: url(upload/close.jpg) no-repeat;
+            cursor: pointer;
+        }
+    </style>
+    <script src="js/jquery.min.js"></script>
+    <script>
+        $(function () {
+            //需求1：页面加载完毕，ad这个盒子，先滑入在滑出，在淡入;
+            //需求2：点击span淡出我们的视野;(隐藏)
+
+            $(".ad").slideDown(500).slideUp(500).fadeIn(500).find("span").click(function () {
+                $(".ad").fadeOut();
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+    <div class="ad">
+        <span></span>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/jquery.min.js"></script>
+</head>
+
+<body>
+    <ul>
+        <li>多个里面筛选1</li>
+        <li>多个里面筛选2</li>
+        <li>多个里面筛选3</li>
+        <li>多个里面筛选4</li>
+        <li>多个里面筛选5</li>
+        <li>多个里面筛选6</li>
+    </ul>
+    <ol>
+        <li>多个里面筛选1</li>
+        <li>多个里面筛选2</li>
+        <li>多个里面筛选3</li>
+        <li>多个里面筛选4</li>
+        <li>多个里面筛选5</li>
+        <li>多个里面筛选6</li>
+    </ol>
+    <script>
+        $(function () {
+            $("ul li:first").css("color", "red");
+
+            //eq(idenx) 获取指定第几个元素 ,index索引 0开始
+            $("ul li:eq(2)").css("color", "blue");
+
+            //奇数
+            $("ol li:odd").css("color", "skyblue");
+
+            //偶数
+            // $("ol li:even").css("color", "pink");
+            $("ol li:nth-child(2n)").css("color", "deeppink");
+        })
+    </script>
+</body>
+
+</html>

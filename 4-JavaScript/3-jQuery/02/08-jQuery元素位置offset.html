@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .father {
+            width: 400px;
+            height: 400px;
+            background-color: rgb(235, 100, 123);
+            margin: 50px;
+            /* overflow: hidden; */
+            position: relative;
+        }
+
+        .son {
+            width: 150px;
+            height: 150px;
+            background-color: rgb(198, 78, 235);
+            position: absolute;
+            left: 10px;
+            top: 10px;
+        }
+    </style>
+    <script src="js/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+    <button>点击</button>
+    <script>
+        $(function () {
+            // 1. 获取设置距离文档的位置（偏移） offset
+
+            console.log($(".son").offset());
+            console.log("offset().top====" + $(".son").offset().top);
+            //可以设置设置偏移， 【注意】：offset里的 top left ,是以文档的偏移坐标,与父级无关
+            $("button").click(function () {
+                $(".son").offset({
+                    top: 20,
+                    left: 20
+                });
+
+                console.log($(".son").position());
+            });
+
+
+
+            // 2. position  获取带有定位父级位置（偏移）如果没有带有定位的父级，则以文档为准
+            console.log($(".son").position());
+            // position只能获取不能设置偏移，无效：
+            // $(".son").position({
+            //     top: 200,
+            //     left: 200
+            // });
+        })
+    </script>
+</body>
+
+</html>

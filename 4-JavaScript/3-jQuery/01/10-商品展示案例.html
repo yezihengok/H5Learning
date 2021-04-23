@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        #product {
+            width: 250px;
+            height: 248px;
+            margin: 100px auto 0;
+            border: 1px solid pink;
+            overflow: hidden;
+        }
+
+        #left,
+        #content {
+            float: left;
+        }
+
+        #left li {
+            background: url(upload/lili.jpg) repeat-x;
+        }
+
+        #left li a {
+            display: block;
+            width: 48px;
+            height: 27px;
+            border-bottom: 1px solid pink;
+            line-height: 27px;
+            text-align: center;
+            color: black;
+            font-size: 12px;
+        }
+
+        #content {
+            border-left: 1px solid pink;
+        }
+
+        #left li a:hover {
+            background-image: url(upload/abg.gif);
+        }
+    </style>
+
+    <script>
+        $(function () {
+            $("#left li").mouseenter(function () {
+                //  得到当前小li 的索引号
+                var index = $(this).index();
+                // $("#content div").eq(index).show();
+                // $("#content div").eq(index).siblings().hide();
+
+                // 链式写法
+                $("#content div").eq(index).show().siblings().hide();
+
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+    <div id="product">
+        <ul id="left">
+            <li><a href="javascript:">女鞋</a></li>
+            <li><a href="javascript:">雪地靴</a></li>
+            <li><a href="javascript:">冬裙</a></li>
+            <li><a href="javascript:">呢大衣</a></li>
+            <li><a href="javascript:">毛衣</a></li>
+            <li><a href="javascript:">棉服</a></li>
+            <li><a href="javascript:">女裤</a></li>
+            <li><a href="javascript:">羽绒服</a></li>
+            <li><a href="javascript:">牛仔裤</a></li>
+        </ul>
+        <div id="content">
+            <div>
+                <a href="#"><img src="upload/女靴.jpg" width="200px" height="250px" /></a>
+            </div>
+            <div>
+                <a href="#"><img src="upload/雪地靴.jpg" width="200px" height="250px" /></a>
+            </div>
+            <div>
+                <a href="#"><img src="upload/冬裙.jpg" width="200px" height="250px" /></a>
+            </div>
+            <div>
+                <a href="#"><img src="upload/呢大衣.jpg" width="200px" height="250px" /></a>
+            </div>
+            <div>
+                <a href="#"><img src="upload/毛衣.jpg" width="200px" height="250px" /></a>
+            </div>
+            <div>
+                <a href="#"><img src="upload/棉服.jpg" width="200px" height="250px" /></a>
+            </div>
+            <div>
+                <a href="#"><img src="upload/女裤.jpg" width="200px" height="250px" /></a>
+            </div>
+            <div>
+                <a href="#"><img src="upload/羽绒服.jpg" width="200px" height="250px" /></a>
+            </div>
+            <div>
+                <a href="#"><img src="upload/牛仔裤.jpg" width="200px" height="250px" /></a>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+</html>

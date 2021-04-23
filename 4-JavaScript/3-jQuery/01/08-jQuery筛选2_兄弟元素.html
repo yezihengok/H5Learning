@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/jquery.min.js"></script>
+</head>
+
+<body>
+    <ol>
+        <li>我是ol 的li</li>
+        <li>我是ol 的li</li>
+        <li class="item">我是ol 的li</li>
+        <li>我是ol 的li</li>
+        <li class="test">我是ol 的li</li>
+        <li class="test">我是ol 的li</li>
+    </ol>
+    <ul>
+        <li>我是ol 的li</li>
+        <li>我是ol 的li</li>
+        <li>我是ol 的li</li>
+        <li>我是ol 的li</li>
+        <li>我是ol 的li</li>
+        <li>我是ol 的li</li>
+    </ul>
+    <div class="current">有current</div>
+    <div>没有有current</div>
+    <script>
+        // 注意一下都是方法 带括号
+        $(function () {
+            // 1. 兄弟元素siblings() ===> 除了自身元素之外的所有亲兄弟
+            $("ol .item").siblings().css("color", "orange");
+            //siblings()，里不带参数就是自己的所有兄弟元素， 带了参数就是选择指定的兄弟元素 如下选择.test 的兄弟：
+            $("ol .item").siblings(".test").css("color", "skyblue");
+
+            //选择指定的第几个元素 
+            var index = 2;
+            $("ul li:eq(" + index + ")").css("color", "blue");
+            // 可以利用选择方法的方式选择 更推荐这种写法
+            $("ul li").eq(index + 1).css("color", "gold");
+
+            // 3. 判断是否有某个类名
+            console.log($("div:first").hasClass("current"));
+            console.log($("div:last").hasClass("current"));
+
+        });
+    </script>
+</body>
+
+</html>
