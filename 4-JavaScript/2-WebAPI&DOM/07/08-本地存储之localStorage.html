@@ -65,14 +65,20 @@
 
         });
 
-        //可将对象JSON.stringify() 转换字符串编码后存储
+
+        //1.可将对象JSON.stringify() 转换字符串编码后存储
         var people = {
             name: '张三',
             age: 22,
             sex: '男'
         }
         localStorage.setItem('people', JSON.stringify(people));
+
+        var obj = localStorage.getItem('people');
         console.log(localStorage.getItem('people'));
+        // 2. 对象格式 JSON.parse(),可以把json字符串转换为对象
+        obj = JSON.parse(obj);
+        console.log(obj.name);
     </script>
 </body>
 

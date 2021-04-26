@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>五角星评分案例</title>
+    <style>
+        body {
+            font-family: "simsun";
+        }
+
+        .comment {
+            font-size: 40px;
+            color: #e04924;
+        }
+
+        .comment li {
+            float: left;
+            cursor: pointer;
+        }
+
+        ul {
+            list-style: none;
+        }
+    </style>
+    <script src="js/jquery.min.js"></script>
+    <script>
+        $(function () {
+            var emptyStar = "☆";
+            var fullStar = "★";
+            $(".comment").on("mouseenter", "li", function () {
+                //当前的和之前的所有全部变为实心五角星;其他的变为空心;
+                $(this).text(fullStar).prevAll().text(fullStar);
+                $(this).nextAll("li").text(emptyStar);
+            });
+
+
+            //鼠标离开所有变空心,如果有点击过，以点击的位置之前为实星
+            $(".comment").on("mouseleave", function () {
+                console.log($(".current").length);
+                if ($(".current").length > 0) {
+                    $(".current").text(fullStar).prevAll().text(fullStar);
+                    $(this).nextAll(".current").text(emptyStar);
+                } else {
+                    $(".comment>li").text(emptyStar);
+                }
+
+            });
+
+            //鼠标点击哪个li，这个li就是参考li; 
+            $(".comment>li").on("click", function () {
+                $(this).addClass("current").siblings().removeClass("current");
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+
+    <ul class="comment">
+        <li>☆</li>
+        <li>☆</li>
+        <li>☆</li>
+        <li>☆</li>
+        <li>☆</li>
+    </ul>
+
+
+</body>
+
+</html>

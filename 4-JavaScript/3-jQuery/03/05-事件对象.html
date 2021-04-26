@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: rgb(80, 12, 22);
+        }
+    </style>
+    <script src="js/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $(document).on("click", function (e) {
+                alert("点击了document");
+
+            })
+            $("div").on("click", function (event) {
+                console.log(event);
+                alert("点击了div");
+                //stopPropagation，阻止事件冒泡
+                event.stopPropagation();
+                // event.preventDefault();阻止元素默认行为--> 让链接不跳转 或者让提交按钮不提交
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <div></div>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/jquery.min.js"></script>
+    <script>
+
+        //实际开发中，很多项目连续开发十多年，jQuery版本不断更新，最初的 jQuery 版本无法满足需求，
+        //这时就需要保证在旧有版本正常运行的情况下，新的功能使用新的jQuery版本实现，这种情况被称为，jQuery 多库共存。
+        $(function () {
+            function $(ele) {
+                return document.querySelector(ele);
+            }
+            //默认新版本： $("div")
+            console.log($("div"));
+            //方式一： 1. 如果$ 符号冲突 我们就使用： jQuery("div")
+            console.log($("div"));
+
+            //方式二： 2. 让jquery 释放对$ 控制权 让用自己决定
+            var suibian = jQuery.noConflict();
+            console.log(suibian("span"));
+
+        })
+    </script>
+</head>
+
+<body>
+    <div></div>
+    <span></span>
+</body>
+
+</html>

@@ -32,7 +32,9 @@
 
             //eq(idenx) 获取指定第几个元素 ,index索引 0开始
             $("ul li:eq(2)").css("color", "blue");
-
+            //eq推荐这种写法:
+            $("ul li").eq(2).css("color", "blue");
+            
             //奇数
             $("ol li:odd").css("color", "skyblue");
 

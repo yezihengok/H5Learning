@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            margin: 100px;
+            background-color: red;
+        }
+    </style>
+    <script src="js/jquery.min.js"></script>
+
+    <!-- jQuery中的animate()不能实现背景色渐变，需要引入插件 -->
+    <script src="js/jquery.color.js"></script>
+    <script>
+        $(function () {
+            //点击按钮，改变背景色
+
+            $("button").on("click", function () {
+                //通过css可以，但是我们要的是循序渐进的改变颜色；（ animate() ）
+                var json = { "background-color": "#000", "width": 600 };
+                $("div").animate(json, 2000);
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+    <button>改变背景色</button>
+    <div></div>
+
+</body>
+
+</html>

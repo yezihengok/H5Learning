@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+
+        img {
+            vertical-align: top;
+        }
+
+        .top {
+            width: 1500px;
+            margin: 0 auto;
+        }
+
+        .main {
+            margin: 0 auto;
+            width: 1000px;
+        }
+
+        #Q-nav {
+            width: 1500px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+    </style>
+    <script src="js/jquery.min.js"></script>
+    <script>
+        $(function () {
+            //需求：页面滚动，如果被卷去的头部超过第一个盒子的高，给第二个盒子加固定定位，第三个盒子加上padding;
+            $(window).scroll(function () {
+                //判断：页面被卷去的顶部的高;
+                if ($(window).scrollTop() > $("#top").height()) {
+                    //第二个盒子加定位，第三个盒子加padding;
+                    var json = {
+                        position: 'fixed',
+                        top: 0,
+                        left: "50%",
+                        "margin-left": -$("#Q-nav").width() / 2
+                    };
+                    $("#Q-nav").css(json);
+                    $("#main").css("padding-top", $("#Q-nav").height());
+                } else {
+                    //第二个盒子去除定位，第三个盒子去除padding;
+                    var json = {
+                        position: 'static',
+                        left: 0,
+                        "margin-left": 0,
+                        "margin": "0 auto"
+                    };
+                    $("#Q-nav").css(json);
+                    $("#main").css("padding-top", 0);
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+    <!--第一张图片-->
+    <div class="top" id="top">
+        <img src="images/top.png" alt="" />
+    </div>
+    <!--第二张图片-->
+    <div id="Q-nav">
+        <img src="images/nav.png" alt="" />
+    </div>
+    <!--第三张图片-->
+    <div class="main" id="main">
+        <img src="images/main.png" alt="" />
+    </div>
+
+
+</body>
+
+</html>

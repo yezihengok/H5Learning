@@ -33,8 +33,12 @@
         $(function () {
             // 1. 兄弟元素siblings() ===> 除了自身元素之外的所有亲兄弟
             $("ol .item").siblings().css("color", "orange");
-            //siblings()，里不带参数就是自己的所有兄弟元素， 带了参数就是选择指定的兄弟元素 如下选择.test 的兄弟：
+            //siblings("element")，里不带参数就是自己的所有兄弟元素， 带了参数就是选择指定的兄弟元素 如下选择.test 的兄弟：
             $("ol .item").siblings(".test").css("color", "skyblue");
+
+            //nextAll()查找当前元素之后所有的兄弟元素。
+            //prevAll("element")查找当前元素之之前所有的兄弟元素。同样传参element可以指定元素
+
 
             //选择指定的第几个元素 
             var index = 2;
@@ -45,6 +49,7 @@
             // 3. 判断是否有某个类名
             console.log($("div:first").hasClass("current"));
             console.log($("div:last").hasClass("current"));
+
 
         });
     </script>
