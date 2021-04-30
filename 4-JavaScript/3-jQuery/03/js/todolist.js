@@ -58,7 +58,7 @@ $(function () {
                 var data = getData();
                 data[index].title = editInput.val();
                 saveData(data);
-    
+
             }
         })
     });

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>边框图片</title>
+    <style>
+        div {
+            width: 400px;
+            height: 300px;
+            border: 15px solid pink;
+
+            /*4个参数：
+            - 边框图片资源地址 
+            - 裁剪尺寸（上 右 下 左）单位默认px，可使用百分百。 
+            - 边框图片的宽度，默认边框的宽度。 - 平铺方式： 
+            - stretch 拉伸（默认）repeat 平铺，从边框的中心向两侧开始平铺，会出现不完整的图片。round 环绕，是完整的使用切割后的图片进行平铺。 */
+
+            border-image-source: url(images/border.png);
+            border-image-slice: 30 30 30 30;
+            /* 不要跟单位 */
+            /* border-image-slice: 30; */
+            /* 这个属性默认的是 border的宽度 但是 有区别，  这个是 边框图片的宽度 不会挤压文字 */
+            border-image-width: 30px;
+            border-image-repeat: round;
+
+            /* 组合写法： */
+            /* border-image: url(images/border.png) 30/30px round; */
+        }
+
+
+
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        li {
+            width: 350px;
+            height: 160px;
+            margin-top: 20px;
+            border: 20px solid #ccc;
+        }
+
+        li:nth-child(1) {
+            /*border-image: url("images/border.jpg") 167/20px round;*/
+            border-image-source: url("images/border.jpg");
+            border-image-slice: 167 167 167 167;
+            border-image-width: 20px;
+            /*环绕  是完整的使用切割后的图片进行平铺*/
+            border-image-repeat: round;
+        }
+
+        li:nth-child(2) {
+            /*平铺 从边框的中心向两侧开始平铺 会出现不完整的图片*/
+            border-image: url("images/border.jpg") 167/20px repeat;
+        }
+
+        li:nth-child(3) {
+            /*默认的平铺方式*/
+            border-image: url("images/border.jpg") 167/20px stretch;
+        }
+    </style>
+</head>
+
+<body>
+    <div>奥利给</div>
+
+
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</body>
+
+</html>
