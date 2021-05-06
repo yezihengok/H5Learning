@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1. 构造函数的问题. 
+        function Star(uname, age) {
+            this.uname = uname;
+            this.age = age;
+            // this.sing = function() {
+            //     console.log('我会唱歌');
+
+            // }
+        }
+        // JavaScript 规定，每一个构造函数都有一个prototype 属性，指向另一个对象。注意这个prototype就是一个对象，这个对象的所有属性和方法，都会被构造函数所拥有。
+        // 我们可以把那些不变的方法，直接定义在 prototype 对象上，这样所有对象的实例就可以共享这些方法。
+        Star.prototype.sing = function () {
+            console.log('我会唱歌');
+        }
+
+        Star.prototype.work = function () {
+            console.log('我会唱老歌');
+        }
+
+        var ldh = new Star('刘德华', 18);
+        var zxy = new Star('张学友', 19);
+        console.log(ldh.sing === zxy.sing);
+        // console.dir(Star);
+        ldh.sing();
+        zxy.work();
+        // 2. 一般情况下,我们的公共属性定义到构造函数里面, 公共的方法我们放到原型对象身上
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .search {
+            width: 550px;
+            margin: 20px auto;
+        }
+
+        table {
+            width: 400px;
+            margin: 20px auto;
+            border: darkslateblue solid 1px;
+            border-collapse: collapse;
+        }
+
+        td,
+        th {
+            border: 1px solid #000;
+            text-align: center;
+        }
+
+        input {
+            width: 50px;
+        }
+    </style>
+    <script src="js/jquery.min.js"></script>
+    <script>
+        $(function () {
+            // 利用新增数组方法操作数据
+            var data = [{
+                id: 1,
+                pname: '小米',
+                price: 3999
+            }, {
+                id: 2,
+                pname: 'oppo',
+                price: 999
+            }, {
+                id: 3,
+                pname: '荣耀',
+                price: 1299
+            }, {
+                id: 4,
+                pname: '华为',
+                price: 1999
+            },];
+            // 1. 获取相应的元素
+            var tbody = document.querySelector('tbody');
+            var search_price = document.querySelector('.search-price');
+            var start = document.querySelector('.start');
+            var end = document.querySelector('.end');
+            var product = document.querySelector('.product');
+            var search_pro = document.querySelector('.search-pro');
+            setData(data);
+
+            function setData(datalist) {
+                $("tbody").html("");//添加前清除原有的
+
+                datalist.forEach(function (obj, index) {
+                    var tr = $("<tr></tr>");
+                    tr.append(`<td>${obj.id}</td><td>${obj.pname}</td><td>${obj.price}</td>`);
+                    $("tbody").append(tr);
+                });
+            }
+
+            $(".priceSearch").on("click", function () {
+                var min = $(".min").val();
+                var max = $(".max").val();
+                console.log(min.legth);
+                //如果没有值添加默认
+                if (!min) {
+                    min = 0
+                }
+                if (!max) {
+                    max = Number.MAX_VALUE;
+                }
+
+                var newData = data.filter(function (obj, i) {
+                    return obj.price >= min && obj.price <= max;
+                });
+                setData(newData);
+
+            });
+
+
+            $(".nameSearch").on("click", function () {
+                var name = $(".name").val();
+                var arr = [];
+                data.some(function (obj, i) {
+                    // if (obj.pname === name) {
+                    if (hasWord(obj.pname, name)) {
+                        arr.push(obj);
+                        return true;
+                    }
+                });
+                setData(arr);
+            });
+
+            /**
+             * 查找字符串里是否包含摸个字符
+             * @param content 字符串
+             * @param keyWord 关键字
+             */
+            function hasWord(content, keyWord) {
+                //正则表达式
+                var reg = new RegExp(keyWord);
+                return content.match(reg);
+            }
+        })
+    </script>
+</head>
+
+<body>
+
+    <div class="search">
+        按照价格查询: <input type="text" class="min">-<input type="text" class="max"> <button class="priceSearch">搜索</button>
+        按照名称查询：<input type="text" class="name">&nbsp;<button class="nameSearch">查询</button>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>编号</th>
+                <th>名称</th>
+                <th>价格</th>
+            </tr>
+        </thead>
+
+        <tbody></tbody>
+    </table>
+</body>
+
+</html>
