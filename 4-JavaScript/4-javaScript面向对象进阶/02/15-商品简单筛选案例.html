@@ -95,7 +95,8 @@
                 var arr = [];
                 data.some(function (obj, i) {
                     // if (obj.pname === name) {
-                    if (hasWord(obj.pname, name)) {
+                    // if (hasWord(obj.pname, name)) {
+                    if (obj.pname.includes(name)) {
                         arr.push(obj);
                         return true;
                     }
@@ -104,7 +105,7 @@
             });
 
             /**
-             * 查找字符串里是否包含摸个字符
+             * 查找字符串里是否包含mou个字符
              * @param content 字符串
              * @param keyWord 关键字
              */
