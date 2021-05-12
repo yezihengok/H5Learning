@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 浅拷贝只是拷贝一层, 更深层次对象级别的只拷贝引用.
+
+        var obj = {
+            id: 1,
+            name: 'andy',
+            msg: {
+                age: 18
+            }
+        };
+        var o = {};
+
+        Object.assign(o, obj);
+        console.log(o);
+
+        o.msg.age = 20;
+        console.log('-------改变了拷贝的对象会影响原对象-------');
+        console.log(obj);
+    </script>
+</body>
+
+</html>

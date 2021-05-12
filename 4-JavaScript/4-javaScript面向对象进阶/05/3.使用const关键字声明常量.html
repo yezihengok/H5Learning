@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>使用const关键字声明常量</title>
+</head>
+
+<body>
+	<script type="text/javascript">
+		// 使用const关键字声明的常量也具有块级作用域
+		// if (true) {
+		// 	const a = 10;
+		// 	if (true) {
+		// 		const a = 20;
+		// 		console.log(a);
+		// 	}
+		// 	console.log(a);
+		// }
+		// console.log(a);
+
+
+
+		// 常量声明后必须赋初始值，值不可更改 
+		const PI = 3.14;
+		//  PI = 100;
+
+		//常量不能重新进行赋值，如果是基本数据类型，不能更改值，如果是复杂数据类型，不能更改地址值
+
+		const ary = [100, 200];
+		ary[0] = 123;//值可以更改
+		ary = [1, 2]//不可变更
+		console.log(ary);
+
+
+		 	// let、const 、var 的区别
+			// - 使用 var 声明的变量，其作用域为该语句所在的函数内，且存在变量提升现象
+			// - 使用 let 声明的变量，其作用域为该语句所在的代码块内，不存在变量提升
+			// - 使用 const 声明的是常量，在后面出现的代码中不能再修改该常量的值
+	</script>
+</body>
+
+</html>

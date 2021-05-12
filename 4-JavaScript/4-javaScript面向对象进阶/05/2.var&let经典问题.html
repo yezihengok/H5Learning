@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>经典面试题</title>
+</head>
+
+<body>
+	<script type="text/javascript">
+
+		var arr = [];
+
+		for (var i = 0; i < 2; i++) {
+			arr[i] = function () {
+				console.log("i=" + i);
+			}
+		}
+		arr[0]();
+		arr[1]();
+
+		//会打印 2次 i=2 ,因为var 是全局的 循环完后i就是=2的
+		//解决：
+
+		let arr2 = [];
+		for (let i = 0; i < 2; i++) {
+			arr2[i] = function () {
+				console.log("i:" + i);
+			}
+		}
+		arr2[0]();
+		arr2[1]();
+	</script>
+</body>
+
+</html>

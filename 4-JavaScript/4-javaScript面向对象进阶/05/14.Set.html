@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Set</title>
+</head>
+
+<body>
+	<script type="text/javascript">
+		// const s1 = new Set();
+		// console.log(s1.size)
+
+		// const s2 = new Set(["a", "b"]);
+		// console.log(s2.size)
+
+		//Set。它类似于数组，但是成员的值都是唯一的，没有重复的值。
+		const s3 = new Set(["a", "a", "b", "b"]);
+		console.log(s3.size)
+		const ary = [...s3];
+		console.log(ary)
+
+
+		s.add(1).add(2).add(3); // 向 set 结构中添加值 
+		s.delete(2)             // 删除 set 结构中的2值   ,注意：删除的是元素的值，不是代表的索引
+		s.has(1)                // 表示 set 结构中是否有1这个值 返回布尔值 
+		s.clear()               // 清除 set 结构中的所有值
+		//
+
+
+		// 遍历set数据结构 从中取值
+		const s5 = new Set(['a', 'b', 'c']);
+
+		s5.forEach(value => {
+			console.log(value)
+		})
+
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    预定义类指的是某些常见模式的简写方式:
+
+    \d匹配0-9之间的任一数字，相当于[0-9]
+    \D匹配所有0-9以外的字符，相当于[^O-9]
+
+    \w匹配任意的字母、数字和下划线，相当于[A-Za-z0-9_]
+    \W除所有字母、数字和下划线以外的字符，相当于[^A-Za-z0-9_]
+
+    \s匹配空格(包括换行符、制表符、空格符等)，相等于[ \tirlnlvlf]
+    \S匹配非空格的字符，相当于[^\tlrlnlvif]
+
+    <script>
+
+        // 正则里面的或者符号:  |  
+
+        // 座机号码验证:  全国座机号码  两种格式:   010-12345678  或者  0530-1234567
+
+        //2种写法：
+        var reg = /^\d{3}-\d{8}|\d{4}-\d{7}$/;
+        var reg = /^\d{3,4}-\d{7,8}$/;
+    </script>
+</body>
+
+</html>

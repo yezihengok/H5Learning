@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>数组解构</title>
+</head>
+
+<body>
+	<script type="text/javascript">
+		// 解构赋值就是把数据结构分解，然后给变量进行赋值
+
+		console.log("-------数组解构---------");
+		let ary = [1, 2, 3];
+		let [a, b, c, d, e] = ary;
+		console.log(a)
+		console.log(b)
+		console.log(c)
+		console.log(d)
+		console.log(e)
+
+		console.log("-------对象解构---------");
+		let person = { name: '小黑', age: 18 };
+		let { name, age } = person;
+		console.log(name)
+		console.log(age)
+
+		let { name: myName, age: myAge } = person; // myName myAge 属于别名
+		console.log(myName)
+		console.log(myAge)
+	</script>
+</body>
+
+</html>

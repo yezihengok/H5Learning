@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.addEventListener("load", function () {
+            // 1、将字符串 'cqyzsC012QzAabcd'中的acq(忽略大小写)替换为'花'
+            var str = 'cqyzsC012QzAabcd';
+            console.log(str.replace(/[acq]/gi, '花'));
+
+            //2、将以下字符串 中所有的邮箱号码提取出来
+            var str = '小明：大神么么哒，正好是我想要的，我的邮箱是xiaoming@qq.com小红：我老公最爱看这个了，我想给他一个惊喜，么么么哒，邮箱是xiaohong@sina.com我：好人一生平安，邮箱是wuyou@163.com';
+
+            // 字符串.match(正则表达式)可以对字符串进行提取操作,返回值是一个数组
+            // 提取字符串str中的邮箱内容，需要在正则的最后添加匹配模式g 
+            var regex = /\w+@\w+\.\w+/g;
+            var arr = str.match(regex);
+            arr.forEach(function (element) {
+                console.log(element);
+            });
+        });
+
+    </script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>

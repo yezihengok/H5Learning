@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>箭头函数面试题</title>
+</head>
+
+<body>
+	<script type="text/javascript">
+
+		var age = 100;
+
+		var obj = {
+			age: 20,
+			say: () => {
+				alert(this.age)
+			}
+		}
+
+		obj.say();//100 ,箭头函数this指向的是被声明的作用域里面，而对象没有作用域的，所以箭头函数虽然在对象中被定义，但是this指向的是全局作用域
+
+	</script>
+</body>
+
+</html>

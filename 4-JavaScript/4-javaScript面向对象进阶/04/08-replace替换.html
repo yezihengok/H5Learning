@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        textarea {
+            width: 300px;
+            height: 100px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <textarea name="" id="message">他就是一个喜欢激情的gay。</textarea> <button>提交</button>
+    <div></div>
+    <script>
+        // replace() 方法可以实现替换字符串操作，用来替换的参数可以是一个字符串或是一个正则表达式。
+        var str = 'andy和red';
+        // var newStr = str.replace('andy', 'baby');
+        var newStr = str.replace(/andy/, 'baby');
+        console.log(newStr);
+
+        //全部替换g
+        var str = 'asd发发返回键asd';
+        console.log(str.replace(/a/g, '#')) //#sd发发返回键#sd
+        //忽略大小写i
+        var str = 'a发发A返回键A';
+        console.log(str.replace(/a/gi, '&'))//&发发&返回键&
+
+
+
+
+        var text = document.querySelector('textarea');
+        var btn = document.querySelector('button');
+        var div = document.querySelector('div');
+        btn.onclick = function () {
+            div.innerHTML = text.value.replace(/激情|gay/g, '**');
+        }
+    </script>
+</body>
+
+</html>

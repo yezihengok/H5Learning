@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 递归函数 : 函数内部自己调用自己, 这个函数就是递归函数
+        var num = 1;
+
+        function fn() {
+            console.log('我要打印6句话' + num);
+
+            if (num == 6) {
+                return; // 递归里面须加退出条件,避免死循环
+            }
+            num++;
+            fn();
+        }
+        fn();
+
+
+
+
+
+        //利用递归函数求1~n的阶乘 1 * 2 * 3 * 4 * ..n
+        function fn2(n) {
+            if (n == 1) { //结束条件
+                return 1;
+            }
+
+            return n * fn2(n - 1);
+        }
+        console.log(fn2(4));
+
+        
+        // 利用递归函数求斐波那契数列(兔子序列:从第3个数开始，等于前2个数之和)  1、1、2、3、5、8、13、21...
+
+        // 用户输入一个数字 n 就可以求出 这个数字对应的兔子序列值
+
+        // 我们只需要知道用户输入的n 的前面两项(n-1 n-2)就可以计算出n 对应的序列值
+        function fb(n) {
+            if (n === 1 || n === 2) {
+                return 1;
+            }
+            return fb(n - 1) + fb(n - 2);
+        }
+        console.log(fb(4));
+    </script>
+</body>
+
+</html>
