@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./css/news.css" />
+    <script src="../lib/jquery.js"></script>
+    <script src="../lib/template-web.js"></script>
+    <script src="./js/news.js"></script>
+</head>
+
+<body>
+    <div id="news-box"></div>
+
+
+    <script type="text/html" id="scp-news">
+        {{each data}}
+            <div class="news-item">
+                <img class="thumb" src="{{'http://www.liulongbin.top:3006' + $value.img}}" alt="新闻图片" />
+                <div class="rightbox">
+                    <h3 class="title">{{$value.title}}</h3>
+                    <div class="tags">
+                        {{each $value.tags}}
+                        <span>{{$value}}</span>
+                        {{/each}}
+                    </div>
+                            <div class="footer">
+                                <div>
+                                    <span>{{$value.source}}</span>&nbsp;&nbsp;
+                                    <span>{{$value.time | dateFormat}}</span>
+                                </div>
+                                <span>评论数：{{$value.cmtcount}}</span>
+                                </div>
+                            </div>
+                </div>
+            </div>
+        {{/each}}
+    </script>
+
+</body>
+
+</html>

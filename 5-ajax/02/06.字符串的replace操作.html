@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //replace去掉{{}}
+
+    var str = '<div>我是{{name}}</div>'
+    var pattern = /{{([a-zA-Z]+)}}/
+    var result = pattern.exec(str)
+    console.log(result)
+
+    str = str.replace(result[0], result[1])
+    console.log(str)
+
+
+    console.log("========连续replace===========");
+
+    var str = '<div>{{name}}今年{{ age }}岁了</div>'
+    // \s匹配空格  *出现0或者更多次。 即有没有空格都可以匹配
+    var pattern = /{{\s*([a-zA-Z]+)\s*}}/
+
+    // 第一次匹配
+    var res1 = pattern.exec(str)
+    str = str.replace(res1[0], res1[1])
+    console.log(str)
+
+    // 第二次匹配
+    var res2 = pattern.exec(str)
+    str = str.replace(res2[0], res2[1])
+    console.log(str)
+
+    // 第三次匹配
+    var res3 = pattern.exec(str)
+    console.log(res3)
+
+
+    console.log("=======用while改造 连续replace=======");
+
+    let str2 = '<div>{{name}}今年{{ age }}岁了</div>'
+    let result2 = null;
+    //，一直替换到匹配不到停止
+    while (result2 = pattern.exec(str2)) {
+      str2 = str2.replace(result2[0], result2[1])
+    }
+    console.log(str2);
+  </script>
+</body>
+
+</html>

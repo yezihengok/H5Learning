@@ -29,8 +29,11 @@
                 var value = oldobj[k];
 
                 // 2. 判断这个值是否是数组/对象
-                if (value instanceof Array || value instanceof Object) {
+                if (value instanceof Array) {
                     newobj[k] = [];
+                    deepCopy(newobj[k], value)
+                } else if (value instanceof Object) {
+                    newobj[k] = {}
                     deepCopy(newobj[k], value)
                 } else {
                     // 属于简单数据类型

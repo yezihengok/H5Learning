@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="../lib/jquery.js"></script>
+
+  <script>
+    $(function () {
+
+      // $("#btnGET").on("click", function () {
+      //   $.get("http://www.liulongbin.top:3006/api/getbooks", function (res) {
+      //     update(res, 1);
+      //   })
+      // });
+
+      $("#btnGET").on("click", function () {
+        $.ajax({
+          type: "GET",
+          url: "http://www.liulongbin.top:3006/api/getbooks",
+          data: { id: 2 },
+          success: function (res) {
+            update(res);
+          }
+        })
+      })
+
+      $("#btnPOST").on("click", function () {
+        var reqObj = { bookname: '山有木兮木有枝', author: '兮兮', publisher: '伏羲出版社' };
+        $.ajax({
+          type: "POST",
+          url: "http://www.liulongbin.top:3006/api/addbook",
+          data: reqObj,
+          success: function (res) {
+            update(res);
+          }
+        })
+      })
+
+      function update(response) {
+        console.log(response);
+        var element = $("<p>" + JSON.stringify(response) + "</p>");
+        $("div").append(element);
+      }
+
+    })
+  </script>
+
+</head>
+
+<body>
+  <button id="btnGET">发起GET请求</button>
+  <button id="btnPOST">发起POST请求</button>
+  <div></div>
+</body>
+
+</html>

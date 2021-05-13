@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="../lib/jquery.js"></script>
+
+  <script>
+    $(function () {
+
+      $("#btnGET1").on("click", function () {
+        $.get("http://www.liulongbin.top:3006/api/getbooks", function (res) {
+          update(res, 1);
+        })
+      });
+
+      $("#btnGET2").on("click", function () {
+        $.get("http://www.liulongbin.top:3006/api/getbooks", { id: 2 }, function (res) {
+          update(res, 2);
+        })
+      });
+
+
+      function update(response, type) {
+        console.log(response);
+        response.data.forEach(obj => {
+          var element;
+          if (type == 1) {
+            var element = $(`<span>${obj.bookname}&nbsp;</span><br>`);
+          } else {
+            var element = $(`<span>${obj.id}&nbsp;</span>
+                     <span>${obj.bookname}&nbsp;</span>
+                     <span>${obj.author}&nbsp;</span>
+                     <span>${obj.publisher}&nbsp;</span>`);
+          }
+          $("div").append(element);
+        });
+      }
+      
+    })
+  </script>
+</head>
+
+<body>
+  <button id="btnGET1">不带参数的GET请求</button>
+  <button id="btnGET2">带参数的GET请求</button>
+  <div></div>
+
+</body>
+
+</html>

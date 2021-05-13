@@ -1,0 +1,173 @@
+section {
+    position: fixed;
+    top: 20px;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 450px;
+    border-radius: 10px;
+    border: 1px solid #ebebeb;
+    background-color: #fff;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.header {
+    height: 55px;
+    background: linear-gradient(90deg, rgba(246, 60, 47, 0.6), rgba(128, 58, 242, 0.6));
+
+}
+
+.header h3 {
+    float: left;
+    font-size: 17px;
+    color: #fff;
+    line-height: 55px;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 5px #b35350;
+    margin-left: 20px;
+}
+
+.header img {
+    float: right;
+    margin: 8px 20px;
+}
+
+.main {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 55px;
+    bottom: 55px;
+    background-color: #f3f0f0;
+    padding: 10px 0;
+    /* box-sizing: border-box; */
+
+    overflow: hidden;
+}
+
+.ul-list {
+    position: absolute;
+    width: 100%;
+    left: 0px;
+    top: 0px;
+}
+
+.ul-list li {
+    overflow: hidden;
+    margin: 20px 0px 30px;
+}
+
+.ul-list .left img {
+    float: left;
+    margin-left: 20px;
+}
+
+.ul-list .left span {
+    position: relative;
+    float: left;
+    margin-left: 13px;
+    line-height: 25px;
+    background-color: #fe9697;
+    border-radius: 15px;
+    font-size: 16px;
+    padding: 10px 15px;
+    color: #fff;
+    max-width: 300px;
+}
+
+.ul-list .left span::before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: -9px;
+    width: 13px;
+    height: 12px;
+    background: url(../img/corner01.png);
+}
+
+.ul-list .right img {
+    float: right;
+    margin-right: 20px;
+}
+
+.ul-list .right span {
+    position: relative;
+    float: right;
+    margin-right: 13px;
+    line-height: 25px;
+    background-color: #fff;
+    border-radius: 15px;
+    font-size: 16px;
+    padding: 10px 15px;
+    color: rgb(53, 54, 54);
+    max-width: 300px;
+}
+
+.ul-list .right span::after {
+    position: absolute;
+    content: '';
+    top: 0;
+    right: -9px;
+    width: 13px;
+    height: 12px;
+    background: url(../img/corner02.png);
+}
+
+.footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 55px;
+    background-color: #fff;
+}
+
+.footer img {
+    float: left;
+    margin: 8px 0 0 20px;
+}
+
+.footer .iptMsg {
+    float: left;
+    width: 270px;
+    height: 37px;
+    border: 0px;
+    background-color: #f4f3f3;
+    border-radius: 6px;
+    margin: 11px 15px;
+    text-indent: 10px;
+}
+
+.footer .btnSend {
+    float: left;
+    width: 70px;
+    height: 37px;
+    border: 0px;
+    background-color: #fe9697;
+    border-radius: 6px;
+    margin: 11px 0px;
+    color: #fff;
+}
+
+.drag_bar {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    background-color: #fff;
+    height: 100%;
+    width: 6px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #f4f3f3;
+}
+
+.drager {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    background-color: #cdcdcd;
+    height: 100px;
+    width: 6px;
+    border-radius: 3px;
+    cursor: pointer;
+}

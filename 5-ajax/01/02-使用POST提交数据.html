@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="../lib/jquery.js"></script>
+</head>
+
+<body>
+  <button id="btnPOST">发起POST请求</button>
+  <p></p>
+  <script>
+    $(function () {
+      $('#btnPOST').on('click', function () {
+
+        var reqObj = { bookname: '星星点灯', author: '兮兮', publisher: '伏羲出版社' };
+        $.post('http://www.liulongbin.top:3006/api/addbook', reqObj, function (res) {
+          console.log(res)
+          $("p").html(JSON.stringify(res) );
+        })
+      })
+    })
+  </script>
+</body>
+
+</html>

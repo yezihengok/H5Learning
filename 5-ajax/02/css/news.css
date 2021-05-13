@@ -1,0 +1,45 @@
+.news-item {
+    display: flex;
+    width: 700px;
+    padding: 10px;
+    border: #ccc solid 1px;
+    margin-bottom: 10px;
+}
+
+.thumb {
+    display: block;
+    width: 230px;
+    height: 140px;
+    background-color: gainsboro;
+    margin-right: 10px;
+}
+
+.rightbox {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+    font-size: 12px;
+}
+
+.rightbox .title {
+    font-size: 18px;
+}
+
+/* .rightbox .tags{
+    overflow: hidden;
+} */
+.rightbox .tags span {
+    display: block;
+    float: left;
+    background-color: #F0F0F0;
+    padding: 0 10px;
+    border-radius: 10px;
+    margin-right: 8px;
+    line-height: 20px;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+}

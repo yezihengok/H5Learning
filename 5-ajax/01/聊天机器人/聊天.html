@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/demo.css" />
+    <link rel="stylesheet" href="css/comm.css" />
+    <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="js/jquery.mousewheel.js"></script>
+    <script type="text/javascript" src="js/scroll.js"></script>
+    <script type="text/javascript" src="js/demo.js"></script>
+    <title>聊天机器人</title>
+</head>
+
+<body>
+    <section>
+        <div class="header clearfix">
+            <h3>小爱同学</h3>
+            <img src="img/person01.png" alt="icon" />
+        </div>
+        <!-- 中间 聊天内容区域 -->
+        <div class="main">
+            <ul class="ul-list" style="top: 0px;">
+                <li class="left">
+                    <img src="img/person01.png"> <span>hello，您好呀~~~</span>
+                </li>
+                <li class="right">
+                    <img src="img/person02.png"> <span>你好~</span>
+                </li>
+            </ul>
+            <div class="drag_bar" style="display: none;">
+                <div class="drager ui-draggable ui-draggable-handle" style="display: none; height: 412.628px;"></div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <img src="img/person02.png">
+            <input type="text" placeholder="说点什么吧..." class="iptMsg">
+            <button class="btnSend">发送</button>
+        </div>
+    </section>
+    <!-- 只要为 audio 指定了新的 src 属性，而且指定了 autoplay，那么，语音就会自动播放 -->
+    <audio src="" id="voice" autoplay style="display: none;"></audio>
+</body>
+
+</html>

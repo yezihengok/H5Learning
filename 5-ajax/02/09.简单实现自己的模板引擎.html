@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="./js/myTemplate.js"></script>
+</head>
+
+<body>
+
+  <div id="userBox"></div>
+
+  <script id="m-user" type="text/html">
+    <div>姓名：{{name}}</div>
+    <div>年龄{{ age}}</div>
+    <div>性别{{sex }}</div>
+    <div>地址：{{ address }}</div>
+  </script>
+
+  <script>
+
+    var data = { name: '丽萨', age: 28, sex: '女', address: '北京中路南湖大道刘家村' }
+    // 调用模板
+    var htmlStr = myTemplate("m-user", data);
+    console.log(htmlStr);
+
+    document.querySelector("#userBox").innerHTML = htmlStr;
+  </script>
+</body>
+
+</html>
