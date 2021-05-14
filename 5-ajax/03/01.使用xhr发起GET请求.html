@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  XMLHttpRequest（简称 xhr）是浏览器提供的 Javascript 对象，通过它，可以请求服务器上的数据资源。
+  前面使用的 jQuery 中的 Ajax 函数 $.get()、 $.post() 、$.ajax() ，都是基于 xhr 对象封装出来的。
+
+
+  <script>
+    //发起不带参数的get请求
+    // 1. 创建 XHR 对象
+    var xhr = new XMLHttpRequest()
+    // 2. 调用 open 函数
+    xhr.open('GET', 'http://www.liulongbin.top:3006/api/getbooks')
+    // 3. 调用 send 函数
+    xhr.send()
+    // 4. 监听 onreadystatechange 事件
+    xhr.onreadystatechange = function () {
+      //xhr 对象的请求状态 readyState ；与服务器响应的状态 status
+      if (xhr.readyState === 4 && xhr.status === 200) {
+
+        // readyState: (一般我们只关注4 的状态) 
+        // 0	UNSENT	XMLHttpRequest 对象已被创建，但尚未调用 open方法。
+        // 1	OPENED	open() 方法已经被调用。
+        // 2	HEADERS_RECEIVED	send() 方法已经被调用，响应头也已经被接收。
+        // 3	LOADING	数据接收中，此时 response 属性中已经包含部分数据。
+        // 4	DONE	Ajax 请求完成，这意味着数据传输已经彻底完成或失败。
+
+        console.log(xhr.responseText)
+      }
+    }
+
+
+    //发起带参数的get请求
+    var xhr2 = new XMLHttpRequest();
+    xhr.open("GET", "http://www.liulongbin.top:3006/api/getbooks?id=1")
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+        console.log(xhr.responseText)
+      }
+    }
+
+    //查询字符串（URL 参数）--是指在 URL 的末尾加上用于向服务器发送信息的字符串（变量）
+    //将英文的 ? 放在URL 的末尾，然后再加上 参数＝值 ，想加上多个参数的话，使用 & 符号进行分隔:
+
+    // http://www.liulongbin.top:3006/api/getbooks?id=1&bookname=西游记
+
+
+    $.get('url', { name: 'zs', age: 20 }, function () { })
+    // jquery封装的请求参数 等价于：
+    $.get('url?name=zs&age=20', function () { })
+
+//本质上，都是直接将参数以查询字符串的形式，追加到 URL 地址的后面，发送到服务器的。
+
+  </script>
+</body>
+
+</html>

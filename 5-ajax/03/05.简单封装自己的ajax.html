@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="./js/myAjax.js" type="text/javascript"></script>
+</head>
+
+<body>
+
+  <script>
+    // httpReq({
+    //   method: 'get',
+    //   url: 'http://www.liulongbin.top:3006/api/getbooks',
+    //   data: {
+    //     id: 1
+    //   },
+    //   success: function (res) {
+    //     console.log(res)
+    //   }
+    // })
+
+    var req = {
+      bookname: '嘎嘎嘎',
+      author: '鸭子',
+      publisher: '小胡鸭出版社'
+    }
+
+    httpReq({
+      method: 'POST',
+      url: 'http://www.liulongbin.top:3006/api/addbook',
+      data: req,
+      success: function (res) {
+        console.log(res)
+      },
+      timeout: function () {
+        console.log("请求超时了！")
+        alert("请求超时了！");
+      }
+    })
+  </script>
+</body>
+
+</html>

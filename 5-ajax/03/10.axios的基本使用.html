@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="../lib/axios.js"></script>
+</head>
+
+<body>
+  <p>
+    Axios 是专注于网络数据请求的库。<br>
+    相比于原生的 XMLHttpRequest 对象，axios 简单易用。<br>
+    相比于 jQuery，axios 更加轻量化，只专注于网络数据请求。<br>
+  </p>
+
+
+
+  <button id="btn1">发起GET请求</button>
+  <button id="btn2">发起POST请求</button>
+  <button id="btn3">使用axios发起GET请求</button>
+  <button id="btn4">使用axios发起POST请求</button>
+  <p class="resp"></p>
+
+  <script type="text/javascript">
+
+    var resp = document.querySelector(".resp");
+    document.querySelector('#btn1').addEventListener('click', function () {
+      var url = 'http://www.liulongbin.top:3006/api/get'
+      var reqObj = { name: 'asd', age: 20 }
+
+      axios.get(url, { params: reqObj }).then(function (res) {
+        console.log(res.data)
+        resp.innerHTML = JSON.stringify(res.data)
+      })
+    })
+
+    document.querySelector('#btn2').addEventListener('click', function () {
+      var url = 'http://www.liulongbin.top:3006/api/post'
+      var reqObj = { goods: '日用品', num: 3 }
+
+      axios.post(url, { params: reqObj }).then(function (res) {
+        console.log(res.data)
+        resp.innerHTML = JSON.stringify(res.data)
+      })
+
+    })
+
+    document.querySelector('#btn3').addEventListener('click', function () {
+      var url = 'http://www.liulongbin.top:3006/api/get'
+      var reqObj = { name: '钢铁侠', age: 35 }
+      axios({
+        methhod: 'GET',
+        url: url,
+        params: reqObj
+      }).then(function (res) {
+        console.log(res.data)
+        resp.innerHTML = JSON.stringify(res.data)
+      })
+    })
+
+    document.querySelector('#btn4').addEventListener('click', function () {
+      axios({
+        method: 'POST',
+        url: 'http://www.liulongbin.top:3006/api/post',
+        data: {
+          name: '小哥哥',
+          age: 18,
+          hobby: '羽毛球'
+        }
+      }).then(function (res) {
+        console.log(res.data)
+        resp.innerHTML = JSON.stringify(res.data)
+      })
+    })
+  </script>
+</body>
+
+</html>

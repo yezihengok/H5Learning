@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 什么是URL编码?
+
+  URL 地址中，只允许出现英文相关的字母、标点符号、数字，因此，在 URL 地址中不允许出现中文字符。
+  如果 URL 中需要包含中文这样的字符，则必须对中文字符进行编码（转义）。 -->
+
+
+  <!--例如 http://www.liulongbin.top:3006/api/getbooks?id=1&bookname=西游记
+      经过 URL 编码之后，URL地址变成了如下格式：
+http://www.liulongbin.top:3006/api/getbooks?id=1&bookname=%E8%A5%BF%E6%B8%B8%E8%AE%B0 -->
+
+
+  <script>
+    var str = '打广告'
+    //encodeURI()   URL编码
+    var str2 = encodeURI(str)
+    console.log(str2)
+
+    console.log('----------------')
+
+    //encodeURI() URL解码
+    var str3 = decodeURI('%E6%89%93%E5%B9%BF%E5%91%8A')
+    console.log(str3)
+  </script>
+</body>
+
+</html>
