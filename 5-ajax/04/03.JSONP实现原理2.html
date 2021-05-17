@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <p>
+    JSONP的实现原理: <br>
+    由于浏览器同源策略的限制，网页中无法通过 Ajax 请求非同源的接口数据。但是<br>
+    &lt;script&gt; 标签不受浏览器同源策略的影响，可以通过 src 属性，请求非同源的 js 脚本。<br>
+    因此，JSONP 的实现原理，就是通过 &lt;script&gt; 标签的 src 属性，请求跨域的数据接口，并通过函数调用的形式，接收跨域接口响应回来的数据。<br>
+  </p>
+
+
+  <script>
+    function abc(data) {
+      alert('拿到了Data数据：' + JSON.stringify(data))
+    }
+  </script>
+
+  <!-- <script>
+   abc({ name: '广泛的', age: 30 })
+  </script> -->
+
+  <!-- 引用的就是调用上面abc方法的代码-->
+  <script src="./js/test.js?callback=abc"></script>
+</body>
+
+</html>

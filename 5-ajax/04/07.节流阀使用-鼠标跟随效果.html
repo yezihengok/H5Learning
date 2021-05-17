@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="./lib/jquery.js"></script>
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    #angel {
+      position: absolute;
+    }
+  </style>
+</head>
+
+<body>
+  <img src="./angel.gif" alt="" id="angel" />
+
+  <script>
+    //节流阀:可以减少一段时间内事件的触发频率。 使用的意义就是：不必每次滑动都触发，可以降低计算的频率。
+
+    $(function () {
+      var angel = $('#angel')
+      // 步骤1. 定义节流阀
+      var timer = null
+      $(document).on('mousemove', function (e) {
+        // 步骤3：判断节流阀是否为空
+        if (timer) { return }
+        // 步骤2：开启延时器，16毫秒内才执行1次.太频繁的不执行.
+        timer = setTimeout(function () {
+          $(angel).css('top', e.pageY + 'px').css('left', e.pageX + 'px')
+          console.log('ok')
+          timer = null
+        }, 16)
+
+      })
+    })
+  </script>
+</body>
+
+</html>

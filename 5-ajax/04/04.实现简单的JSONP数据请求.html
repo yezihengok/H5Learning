@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      function abc(data) {
+        console.log('JSONP响应回来的数据是：')
+        console.log(data)
+      }
+    </script>
+ 
+<!-- 
+ 由于JSONP 是通过<script> 标签的src属性，来实现跨域数据获取的所以，JSONP只支持GET数据请求，不支持POST请求。
+  注意：JSONP 和 Ajax 之间没有任何关系，不能把 JSONP 请求数据的方式叫做 Ajax，因为 JSONP 没有用到 XMLHttpRequest 这个对象。 -->
+
+    <script src="http://www.liulongbin.top:3006/api/jsonp?callback=abc&name=OKK&age=30"></script>
+  </body>
+</html>

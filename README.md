@@ -1,5 +1,5 @@
 # H5Learning
-平时自己学习H5前端相关的测试代码💘💘💘~~  内容包括：H5、CSS3、rem布局适配、JavaScript、jQUery~
+平时自己学习H5前端相关的测试代码💘💘💘~~  内容包括：H5、CSS3、rem布局适配、JavaScript、jQUery、ajax~
 
 
 #### 截图：

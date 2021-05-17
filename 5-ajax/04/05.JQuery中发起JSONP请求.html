@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="../lib/jquery.js"></script>
+</head>
+
+<body>
+  <p>
+        jQuery 中的 JSONP，也是通过&gl;script&gt 标签的 src 属性实现跨域数据访问的，<br>
+    只不过，jQuery 采用的是动态创建和移除&gl;script&gt标签的方式，来发起 JSONP 数据请求。<br>
+        在发起 JSONP 请求的时候，动态向&gl;header&gt中 append 一个&gl;script&gt标签；<br>
+    在 JSONP 请求成功以后，动态从&gl;header&gt中移除刚才 append 进去的&gl;script&gt标签；<br>
+  </p>
+
+  <button id="btnJSONP">发起JSONP数据请求</button>
+
+  <script>
+    $(function () {
+      $('#btnJSONP').on('click', function () {
+        $.ajax({
+          url: 'http://www.liulongbin.top:3006/api/jsonp?address=供电公司&location=风格',
+          dataType: 'jsonp',// 使用 $.ajax() 发起 JSONP 请求，必须指定 datatype 为 jsonp
+          jsonp: 'callback',// 发送到服务端的参数名称，默认值为 callback
+          jsonpCallback: 'abc',// 自定义的回调函数名称，默认值为 jQueryxxx 格式
+          success: function (res) {
+            console.log(res)
+          }
+        })
+      })
+    })
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="../lib/jquery.js"></script>
+</head>
+
+<body>
+  <!-- 1、同源策略：如果两个页面的协议，域名和端口都相同，则两个页面具有相同的源。 -->
+
+  <!--  http://www.test.com/index.html  网站地址-->
+
+  <!-- 地址相同，只是页面不同属于同源: -->
+  <!-- http://www.test.com/other.html -->
+
+  <!-- 非同源地址： -->
+  <!-- http://blog.test.com/movie.html 
+http://www.test.com：8081/other.html -->
+
+
+  <!-- 同源指的是两个 URL 的协议、域名、端口一致，反之，则是跨域。
+  MDN 官方给定的概念：同源策略限制了从同一个源加载的文档或脚本如何与来自另一个源的资源进行交互。这是一个用于隔离潜在恶意文件的重要安全机制。
+
+出现跨域的根本原因：浏览器的同源策略不允许非同源的 URL 之间进行资源的交互。
+网页：http://www.test.com/index.html
+接口：http://www.api.com/userlist -->
+
+  <script>
+    // 浏览器允许发起跨域请求，但是，跨域请求回来的数据，会被浏览器拦截，无法被页面获取到！
+
+    $.ajax({
+      method: 'GET',
+      url: 'http://ajax.frontend.itheima.net:3006/api/jsonp',
+      data: {
+        name: 'zs',
+        age: 20
+      },
+      success: function (res) {
+        console.log(res)
+      }
+    })
+  </script>
+
+  <p>
+    现如今，实现跨域数据请求，最主要的两种解决方案，分别是 JSONP 和 CORS。<br>
+    JSONP：出现的早，兼容性好（兼容低版本IE）。是前端程序员为了解决跨域问题，被迫想出来的一种临时解决方案。缺点是只支持 GET 请求，不支持 POST 请求。<br>
+    CORS：出现的较晚，它是 W3C 标准，属于跨域 Ajax 请求的根本解决方案。支持 GET 和 POST 请求。缺点是不兼容某些低版本的浏览器。<br>
+  </p>
+  
+</body>
+
+</html>
