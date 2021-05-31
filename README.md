@@ -1,5 +1,5 @@
 # H5Learning
-平时自己学习H5前端相关的测试代码💘💘💘~~  内容包括：H5、CSS3、rem布局适配、JavaScript、jQUery、ajax~
+平时自己学习H5前端相关的测试代码💘💘💘~~  内容包括：H5、CSS3、rem布局适配、JavaScript、jQUery、ajax、node.js~
 
 
 ### 截图：
@@ -48,11 +48,10 @@ Vscode  快速格式化代码:   shift+alt+f
 ​    }
 ```
 
-### 4、VSCode列编辑 快捷键:
+5）VSCode列编辑 快捷键: 
+> VSCode列选择快捷键：```alt+shift+鼠标左键拖动```
 
-◾VSCode列选择快捷键：alt+shift+鼠标左键拖动
-
-### 5、多行注释
+### 4、多行注释
 
 多行注释的注释方式如下：
 
@@ -85,7 +84,7 @@ vscode → 首选项按钮 → 键盘快捷方式 → 查找 原来的快捷键 
 }
 ```
 
-### 5、在 Node.js 环境中执行 JavaScript 代码：
+### 6、在 Node.js 环境中执行 JavaScript 代码：
   - 在要运行的js文件夹的空白处 按住shitf的同时点击鼠标右键,选择powershell打开，即可快速定位到当前目录下。
   - 安装完node.js后，输入: node 文件名.js(文件名不用输入全，按tab可以补全)  即可快速运行js文件  
   <img src="images/img2.png">
@@ -95,3 +94,57 @@ vscode → 首选项按钮 → 键盘快捷方式 → 查找 原来的快捷键 
     > 2、使用 tab 键，能够快速补全路径
     > 3、使用 esc 键，能够快速清空当前已输入的命令
     > 4、输入 cls 命令，可以清空终端
+
+  - VScode 里已集成终端、建议使用：终端->新终端-> cd定位到js路径 即可执行。
+    在VScode 里启动的node http服务 可以通过 ```ctrl+c``` 停止服务。
+
+### 7、Express 
+  > Express是基于 Node.js 平台里内置的http 模块封装的第三方 Web 开发框架，能够极大的提高开发效率。 
+  终端定位到 项目所处的目录中安装命令： ```nmp i express```
+
+  - 基本使用：
+  ```js
+    // 1. 导入 express
+  const express = require('express')
+  // 2. 创建 web 服务器
+  const web = express()
+
+  //http://127.0.0.1:8080/userInfo
+  //监听客户端的 GET 和 POST 请求， 并向客户端响应具体的内容
+  web.get('/userInfo', (req, res) => {
+    let user = {
+      name: '阿三',
+      age: 22,
+      gender: '男'
+    }
+    // res.send()向客户端响应一个 JSON 对象
+    res.send(user)
+  })
+
+  web.post('/userInfo', (req, res) => {
+    //向客户端响应一个 文本字符串
+    res.send('请求成功~')
+  })
+
+  //http://127.0.0.1:8080/?age=22&sex=%E7%94%B7
+  web.get('/', (req, res) => {
+    // 通过 req.query 可以获取到客户端发送过来的 查询参数,req.query 默认是一个空对象
+    console.log(req.query)
+    res.send(req.query)
+  })
+
+  //http: //127.0.0.1:8080/userInfo/2/comme
+  //这里的 :ids 是一个动态的参数
+  web.get('/userInfo/:ids/:username', (req, res) => {
+    // req.params 是动态匹配到的 URL 参数，默认也是一个空对象
+    console.log(req.params)
+    res.send(req.params)
+  })
+  // 启动 web 服务器
+  web.listen(8080, () => {
+    console.log('express server running at http://127.0.0.1:8080')
+  }) 
+  ``` 
+
+
+   
