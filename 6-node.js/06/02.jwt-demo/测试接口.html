@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body>
+  <button id="login">login</button>
+  <button id="getinfo">getinfo</button>
+
+
+  <script>
+    $(function () {
+      // 1. 测试GET接口
+      $('#getinfo').on('click', function () {
+        $.ajax({
+          type: 'GET',
+          url: 'http://127.0.0.1:8888/admin/getinfo',
+          headers: {
+            // token: localStorage.getItem('token') // 通过headers传输token到服务端
+            authorization: 'Bearer ' + localStorage.getItem('token'), // "Bearer "这个也是约定的，必须是这样的格式
+          },
+
+          data: { userid: 10086 },
+          success: function (res) {
+            console.log(res)
+          },
+        })
+      })
+
+      // 2. 测试POST接口
+      $('#login').on('click', function () {
+        $.ajax({
+          type: 'POST',
+          url: 'http://127.0.0.1:8888/api/login',
+          data: { username: 'admin', password: 'admin' },
+          success: function (res) {
+            console.log(res)
+            localStorage.setItem('token', res.token)
+          },
+        })
+      })
+
+
+    })
+  </script>
+</body>
+
+</html>
