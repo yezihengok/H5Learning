@@ -145,6 +145,10 @@ vscode → 首选项按钮 → 键盘快捷方式 → 查找 原来的快捷键 
     console.log('express server running at http://127.0.0.1:8080')
   }) 
   ``` 
-
+### Node.js 里npm安装的包 
+ - npm ,安装的包会在node_modules文件夹下多了包会很大 提交代码时一定要把需要文件夹，添加到 .gitignore 忽略文件中。
+ - npm 包管理工具提供了一个快捷命令，``` npm init -y```可以在执行命令时所处的目录中(最好是英文目录)，快速创建 package.json 这个包管理
+ - 运行 npm install 命令安装包的时候，npm 包管理工具会自动把包的名称和版本号，记录到 package.json 中。
+ - 剔除了 node_modules 的项目之后，需要先把所有的包下载到项目中，才能将项目运行起来。可以运行 npm install 命令（或 ```npm i```）一次性安装所有的依赖包
 
    
