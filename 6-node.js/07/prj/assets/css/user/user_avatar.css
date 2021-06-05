@@ -1,0 +1,67 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  padding: 15px;
+  background-color: #f2f3f5;
+}
+
+.layui-card-body {
+  width: 500px;
+}
+
+.row1 {
+  display: flex;
+}
+
+/* 设置裁剪区域的样式 */
+.cropper-box {
+  width: 350px;
+  height: 350px;
+  background-color: burlywood;
+  overflow: hidden;
+}
+
+.preview-box {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+}
+
+.row2 {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.img-preview {
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.w100 {
+  width: 100px;
+  height: 100px;
+  background-color: gray;
+}
+
+.w50 {
+  width: 50px;
+  height: 50px;
+  background-color: gray;
+  margin-top: 50px;
+}
+
+.size {
+  font-size: 12px;
+  color: gray;
+  text-align: center;
+}
+
+#file {
+  display: none;
+}

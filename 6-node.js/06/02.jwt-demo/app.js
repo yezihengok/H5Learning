@@ -1,4 +1,4 @@
-安装express - jwt
+//安装express - jwt
 // npm i express - jwt--save
 // npm i jsonwebtoken--save
 // npm i cors--save
