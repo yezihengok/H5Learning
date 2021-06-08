@@ -2,7 +2,7 @@ $(function () {
     var layer = layui.layer
     getUserInfo()
 
-    $('#btnLogout').on('click', function () {
+    $('.btn-logout').on('click', function () {
         // 提示用户是否确认退出
         layer.confirm('确定退出登录?', {
             icon: 3,
@@ -41,7 +41,7 @@ function getAvatar(user) {
     $('#welcome').html('欢迎&nbsp;&nbsp;' + name)
     if (user.user_pic !== null) {
         //图片头像
-        $('.layui-nav-img').attr('src',BASE_URL+ user.user_pic).show()
+        $('.layui-nav-img').attr('src', BASE_URL + user.user_pic).show()
         $('.text-avatar').hide()
     } else {
         //文本头像

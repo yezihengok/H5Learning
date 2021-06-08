@@ -145,10 +145,157 @@ vscode → 首选项按钮 → 键盘快捷方式 → 查找 原来的快捷键 
     console.log('express server running at http://127.0.0.1:8080')
   }) 
   ``` 
-### Node.js 里npm安装的包 
+### 8、Node.js 里npm安装的包 
  - npm ,安装的包会在node_modules文件夹下多了包会很大 提交代码时一定要把需要文件夹，添加到 .gitignore 忽略文件中。
  - npm 包管理工具提供了一个快捷命令，``` npm init -y```可以在执行命令时所处的目录中(最好是英文目录)，快速创建 package.json 这个包管理
  - 运行 npm install 命令安装包的时候，npm 包管理工具会自动把包的名称和版本号，记录到 package.json 中。
  - 剔除了 node_modules 的项目之后，需要先把所有的包下载到项目中，才能将项目运行起来。可以运行 npm install 命令（或 ```npm i```）一次性安装所有的依赖包
+
+ ### 9、Node.js 链接MySQL
+  - 安装插件``` npm i mysql``` 基本操作如下：
+  ```js
+  // 1. 导入 mysql 模块
+  const mysql = require('mysql')
+  // 2. 建立与 MySQL 数据库的连接关系
+  const db = mysql.createPool({
+  host: '127.0.0.1', // 数据库的 IP 地址
+  port: '3306',
+  user: 'root', // 登录数据库的账号
+  password: 'admin123', // 登录数据库的密码
+  database: 'new_schema_01', // 指定操作数据库的名称
+  //Node mysql做了安全的限制,想要执行多条sql语句，需要打开对应开关配置
+  multipleStatements: true,
+  })
+
+  /**
+  * 查询 users 表中所有的数据
+  */
+  function getAllUser() {
+    const sqlStr = 'select * from users'
+    db.query(sqlStr, (err, results) => {
+      // 查询数据失败
+      if (err) return console.log(err.message)
+      // 查询数据成功
+      // 注意：如果执行的是 select 查询语句，则执行的结果是数组
+      console.log(results)
+
+      db.end() //不需要继续操作时,关闭
+    })
+  }
+
+  /**
+  * 向 users 表中， 新增一条数据
+  */
+  function addUser() {
+    const user = {
+      username: '放点水',
+      userpwd: 'pcc123'
+    }
+    const sqlStr2 = 'insert into users (username, userpwd) values (?, ?)'
+    // 执行 SQL 语句
+    db.query(sqlStr2, [user.username, user.userpwd], (err, results) => {
+      // 执行 SQL 语句失败了
+      if (err) return console.log(err.message)
+      // 成功了
+      // 注意：如果执行的是 insert into 插入语句，则 results 是一个对象
+      // 可以通过 affectedRows 属性，来判断是否插入数据成功
+      if (results.affectedRows === 1) {
+        console.log('插入数据成功!')
+        getAllUser()
+      }
+    })
+  }
+   ```
+  - 关于常见的分页查询实现 mySql最基本的分页方式的条件顺序如下：
+   > ```SELECT ... FROM ... WHERE ... ORDER BY ... LIMIT ...``` 
+    前端分页请求后台时 传统做法需要查询2次：
+    1、查询列表 ```sql SELECT * FROM user WHERE islogin =1; ```
+    2、查询该表的总数 ```sql SELECT COUNT(*) as total FROM user WHERE islogin =1;```
+
+   > SQL_CALC_FOUND_ROWS 是mysql的内置关键字，可以记录下当前 sql 的总行数（受where 影响,但不受 limit 影响）
+      以下查询 分页数据的同时返回 数据的总数:（看起来是两条SQL语句，但是实际上只执行了一次数据库查询。）
+
+  ```sql
+  select SQL_CALC_FOUND_ROWS * from ev_article_list where is_delete = 0 order by id asc limit 0, 2;
+  SELECT FOUND_ROWS() as total; 
+  ```
+
+  - 实际运用举例：
+  ```js
+  // 根据条件筛选分页 获取文章列表
+  exports.getArtCateList = (req, res) => {
+    let status = req.query.status
+    let cate_id = req.query.cate_id
+
+    let extra_sql //额外的查询条件,非必传的参数
+    if (status) extra_sql = ` and status=${status} `
+    if (cate_id) extra_sql += ` and cate_id=${cate_id} `
+    // 定义根据 ID 获取文章分类数据的 SQL 语句
+    let pagenum = req.query.pagenum //前端请求第几页
+    let pagesize = parseInt(req.query.pagesize) 
+    let start = 0
+    //pagenum 是从1开始
+    if (pagenum > 1) {
+      start = (pagenum - 1) * pagesize
+    }
+
+    // limit 5,10，0开始计数，从第5条数据开始查询10条数据  即查询第6~15条数据,      
+    console.log(`select * from ev_article_list where is_delete=0 order by id asc limit ${start},${pagesize}`);
+
+    //没有额外查询条件的sql 语句:
+    let sql = `select SQL_CALC_FOUND_ROWS * from ev_article_list where is_delete=0 order by id asc limit ${start},${pagesize};SELECT FOUND_ROWS() as total;`
+    if (extra_sql) {
+      console.log(`extra_sql===${extra_sql}`);
+      sql = `select SQL_CALC_FOUND_ROWS * from ev_article_list where is_delete=0${extra_sql}order by id asc limit ${start},${pagesize};SELECT FOUND_ROWS() as total;`
+    }
+    console.log(`分页文章查询sql==========>${sql}`);
+
+    db.query(sql, (err, results) => {
+      if (err) return res.cc(err)
+      //注意 此时results 数组会返回2个item ，第一个item 是查询到了文章列表集合，第二个item 是查询到的总数集合 里面就一个total:
+      console.log(results);
+      /*   [
+            [
+              RowDataPacket {
+                id: 4,
+                title: 'a12',
+                cate_name: '测试3',
+                time: '1622801132703',
+                status: 0,
+                content: '123房贷',
+                cate_id: 0,
+                cover_img: null,
+                author_id: 0,
+                is_delete: 0
+              },
+              RowDataPacket {
+                id: 5,
+                title: 'a12',
+                cate_name: '测试4',
+                time: '1622801132703',
+                status: 1,
+                content: '释放',
+                cate_id: 0,
+                cover_img: null,
+                author_id: 0,
+                is_delete: 0
+              }
+            ],
+            [RowDataPacket {
+              total: 3
+            }]
+          ] */
+      const responseObj = {
+        status: 0,
+        message: '获取文章列表成功！',
+        data: results[0],
+        total: results[1][0].total,
+      }
+      res.send(responseObj)
+    })
+  }
+  ```
+
+
 
    

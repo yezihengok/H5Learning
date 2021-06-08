@@ -13,23 +13,29 @@ const joi = require('@hapi/joi')
 const title = joi.string().required()
 const cate_id = joi.number().integer().min(1).required()
 const content = joi.string().required().allow('')
-const state = joi.string().valid('已发布', '草稿').required()
+const status = joi.string().valid('0', '1').required()
 
 const pagenum = joi.number().integer().min(1).required()
 const pagesize = joi.number().integer().min(1).required()
 
-
+const id = joi.number().integer().min(1).required()
 // 验证规则对象 - 发布文章
 exports.add_article_schema = {
   body: {
     title,
     cate_id,
     content,
-    state,
+    status,
   },
 }
 
-const state2 = joi.required().allow('') //可以为空
+exports.delete_article_schema = {
+  params: {
+    id,
+  }
+}
+
+const status2 = joi.required().allow('') //可以为空
 const cate_id2 = joi.required().allow('') //可以为空
 // 验证规则对象 - 获取文章list
 exports.get_list_schema = {
@@ -37,6 +43,6 @@ exports.get_list_schema = {
     pagenum,
     pagesize,
     cate_id: cate_id2,
-    state: state2,
+    status: status2,
   },
 }

@@ -45,7 +45,7 @@ exports.addArticleCates = (req, res) => {
   })
 }
 
-// 删除文章分类的处理函数
+// 删除文章分类()
 exports.deleteCateById = (req, res) => {
   // 定义标记删除的 SQL 语句
   const sql = `update ev_article_cate set is_delete=1 where id=?`

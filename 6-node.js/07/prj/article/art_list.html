@@ -21,10 +21,10 @@
           <select name="cate_id"></select>
         </div>
         <div class="layui-form-item layui-inline">
-          <select name="state">
+          <select name="status">
             <option value="">所有状态</option>
-            <option value="已发布">已发布</option>
-            <option value="草稿">草稿</option>
+            <option value=0>已发布</option>
+            <option value=1>草稿</option>
           </select>
         </div>
         <div class="layui-form-item layui-inline">
@@ -61,19 +61,19 @@
       {{each data}}
       <tr>
         <td>{{$value.title}}</td>
-        <td>{{$value.type}}</td>
+        <td>{{$value.cate_name}}</td>
         <td>{{$value.time|dataFormat}}</td>
             <td>
-              {{if status === 0}}
+              {{if $value.status === 0}}
               已发布
-              {{else if status === 1}}
+              {{else if $value.status === 1}}
               草稿
               {{/if}}
             </td>
         <!-- <td>{{$value.status}}</td> -->
         <td>
           <button type="button" class="layui-btn layui-btn-xs">编辑</button>
-          <button type="button" class="layui-btn layui-btn-danger layui-btn-xs btn-delete" data-id="{{$value.Id}}">删除</button>
+          <button type="button" class="layui-btn layui-btn-danger layui-btn-xs btn-delete" data-id="{{$value.id}}">删除</button>
         </td>
       </tr>
       {{/each}}
@@ -83,7 +83,7 @@
   <script type="text/html" id="tpl-cate">
       <option value="">所有分类</option>
       {{each data}}
-      <option value="{{$value.Id}}">{{$value.name}}</option>
+      <option value="{{$value.id}}">{{$value.name}}</option>
       {{/each}}
     </script>
 

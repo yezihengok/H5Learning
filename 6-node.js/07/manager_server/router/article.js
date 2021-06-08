@@ -11,17 +11,22 @@ const multer = require('multer')
 const path = require('path')
 
 // 创建 multer 的实例
-const uploads = multer({ dest: path.join(__dirname, '../uploads') })
+const uploads = multer({
+    dest: path.join(__dirname, '../uploads')
+})
 // 导入验证数据的中间件
 const expressJoi = require('@escook/express-joi')
 // 导入需要的验证规则对象
 const {
     add_article_schema,
+    delete_article_schema,
     get_list_schema
 } = require('../schema/article')
 
 // 发布文章的路由
 router.post('/add', uploads.single('cover_img'), expressJoi(add_article_schema), article_handler.addArticle)
+// 根据 id 删除文章路由
+router.get('/delete/:id', expressJoi(delete_article_schema), article_handler.deleteArticleById)
 
 router.get('/list', expressJoi(get_list_schema), article_handler.getArtCateList)
 

@@ -30,9 +30,9 @@ $(function() {
   // 需要将请求参数对象提交到服务器
   var q= {
     pagenum: 1, // 页码值，默认请求第一页的数据
-    pagesize: 2, // 每页显示几条数据，默认每页显示2条
+    pagesize: 5, // 每页显示几条数据，默认每页显示5条
     cate_id: '', // 文章分类的 Id
-    state: '' // 文章的发布状态
+    status: '' // 文章的发布状态
   }
 
   initTable()
@@ -80,10 +80,10 @@ $(function() {
     e.preventDefault()
     // 获取表单中选中项的值
     var cate_id = $('[name=cate_id]').val()
-    var state = $('[name=state]').val()
+    var status = $('[name=status]').val()
     // 为查询参数对象 q 中对应的属性赋值
     q.cate_id = cate_id
-    q.state = state
+    q.status = status
     // 根据最新的筛选条件，重新渲染表格的数据
     initTable()
   })

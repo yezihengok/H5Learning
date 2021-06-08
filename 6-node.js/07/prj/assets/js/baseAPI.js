@@ -19,8 +19,19 @@ $.ajaxPrefilter(function (options) {
             // 强制清空 token
             localStorage.removeItem('token')
             //强制跳转到登录页面
-            location.href = '/login.html'
+            //location.href = '/login.html'
+
+            //如果A页面用iframe嵌套了B页面，需要加上parent，才能让A页面整个跳转。否则会在iframe里跳转
+            parent.location.href = '/login.html'
+        }
+
+        num++
+        if (num % 2 === 0) {
+
+
         }
     }
 
 })
+
+var num = 0;

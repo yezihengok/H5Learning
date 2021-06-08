@@ -1,0 +1,22 @@
+
+insert into ev_users (username,password) values('a1','$2a$10$u8KtPMAnlfF6tnX1dCCwmuLrQ1zQqbmIHoA6lnSekzxzqtFZbWkZK');
+insert into ev_article_list (title,cate_name,time,status,content,cate_id,cover_img,author_id,is_delete) values('a12','测试4','1622801132703',1,'释放',1,'图片路径',105,0);
+
+select *from ev_users;
+select *from ev_article_cate;
+ 
+ -- 查询文章列表
+ select * from ev_article_list;
+  -- 查询未标记删除的文章列表
+select * from ev_article_list where is_delete=0  order by id asc limit 0,4;
+ -- delete from ev_article_list where id=1;
+ 
+ -- SQL_CALC_FOUND_ROWS 是 mysql 的内置关键字， 可以记录下当前 sql 的总行数（受 where 影响，但不受 limit 影响）
+ -- 以下查询 分页数据的同时返回 数据的总数
+select SQL_CALC_FOUND_ROWS * from ev_article_list where is_delete=0 order by id asc limit 0,2;
+SELECT FOUND_ROWS() as total;
+ 
+
+ 
+
+ 

@@ -73,7 +73,7 @@ $(function() {
     // 2. 基于 form 表单，快速创建一个 FormData 对象
     var fd = new FormData($(this)[0])
     // 3. 将文章的发布状态，存到 fd 中
-    fd.append('state', art_state)
+    fd.append('status', art_state)
     // 4. 将封面裁剪过后的图片，输出为一个文件对象
     $image
       .cropper('getCroppedCanvas', {
