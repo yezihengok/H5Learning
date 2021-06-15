@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+      <!-- 组件使用 组件名称 是以HTML标签的形式使用  -->
+    <button-com></button-com>
+    <button-com></button-com>
+  </div>
+  <script type="text/javascript" src="../vue.js"></script>
+  <script type="text/javascript">
+    /*
+      组件注册
+    */
+    Vue.component('button-com', {
+      data: function () {
+        return {
+          count: 0
+        }
+      },
+      template: '<button @click="handle">点击了{{count}}次</button>',
+      methods: {
+        handle: function () {
+          this.count++;
+        },
+      },
+    })
+    var vm = new Vue({
+      el: '#app',
+      data: {
+
+      }
+    });
+  </script>
+</body>
+
+</html>

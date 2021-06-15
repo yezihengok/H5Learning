@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <h2>简单计算器</h2>
+    <div>
+      <span>数值A:</span> <input type="text" v-model='a'>
+
+    </div>
+    <div>
+      <span>数值B:</span> <input type="text" v-model='b'>
+    </div>
+    <div>
+      <button v-on:click='handle'>点击</button>
+    </div>
+    <div>
+      <span>计算结果:</span>
+      <p v-text='result'></p>
+    </div>
+  </div>
+  <script type="text/javascript" src="../vue.js"></script>
+  <script type="text/javascript">
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        a: '',
+        b: '',
+        result: ''
+      },
+      methods: {
+        handle: function () {
+          if (isNaN(this.a) || isNaN(this.b)) return alert('请输入数字')
+          this.result = parseInt(this.a) + parseInt(this.b);
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

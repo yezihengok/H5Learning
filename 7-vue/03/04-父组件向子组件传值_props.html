@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <div>{{pmsg}}</div>
+    <!--1、menu-item  在 APP中嵌套着 故为子组件      -->
+
+    <!-- 给子组件传入一个静态的值 -->
+    <menu-item title='来自父组件的值'></menu-item>
+
+    <!-- 2、 需要动态的数据的时候 需要属性绑定的形式设置 此时 ptitle  来自父组件data 中的数据.传的值可以是数字、对象、数组等等-->
+    <menu-item :title='ptitle' content='hello'></menu-item>
+  </div>
+
+  <script type="text/javascript">
+    Vue.component('menu-item', {
+      // 3、 子组件用属性props接收父组件传递过来的数据  
+      props: ['title', 'content'],
+      data: function () {
+        return {
+          msg: '子组件本身的数据'
+        }
+      },
+      template: '<div>{{msg + "----" + title + "-----" + content}}</div>'
+    });
+
+    //app是父组件
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        pmsg: '父组件中内容',
+        ptitle: '动态绑定属性'
+      }
+    });
+  </script>
+</body>
+
+</html>

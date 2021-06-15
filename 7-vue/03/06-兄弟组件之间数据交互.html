@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <div>父组件</div>
+    <test-tom></test-tom>
+    <test-jerry></test-jerry>
+  </div>
+  <script type="text/javascript" src="../vue.js"></script>
+  <script type="text/javascript">
+    /*
+      兄弟组件之间数据传递
+    */
+    // 1、提供事件中心
+    var hub = new Vue();
+
+    //tom组件
+    Vue.component('test-tom', {
+      data: function () {
+        return { num: 0 }
+      },
+      template: `
+        <div>
+          <div>TOM:{{num}}</div>
+          <div>
+            <button @click='handle'>点击</button>
+          </div>
+        </div>
+      `,
+      methods: {
+        handle: function () {
+          //2、发送数据方，通过一个事件触发hub.$emit(方法名，传递的数据)   触发兄弟组件的事件
+          hub.$emit('jerry-event', 1);
+        }
+      },
+      mounted: function () {
+        // 3、接收数据方，通过mounted(){} 钩子中  触发hub.$on(方法名
+        hub.$on('tom-event', (val) => {
+          this.num += val;
+        });
+      }
+
+    })
+    //jerry组件
+    Vue.component('test-jerry', {
+      data: function () {
+        return {
+          num: 0
+        }
+      },
+      template: `
+        <div>
+          <div>JERRY:{{num}}</div>
+          <div>
+            <button @click='handle'>点击</button>
+          </div>
+        </div>
+      `,
+      methods: {
+        handle: function () {
+          // 发送
+          hub.$emit('tom-event', 2);
+        }
+      },
+      mounted: function () {
+        //接收
+        hub.$on('jerry-event', (val) => {
+          this.num += val;
+        });
+      }
+    });
+
+    var vm = new Vue({
+      el: '#app',
+      data: {},
+      methods: {
+        handle: function () {
+          //4、销毁事件 通过hub.$off()方法名销毁之后无法进行传递数据  
+          hub.$off('tom-event');
+          hub.$off('jerry-event');
+        }
+      },
+    })
+  </script>
+</body>
+
+</html>

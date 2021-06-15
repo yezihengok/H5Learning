@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  
+</head>
+<body>
+  <div id="app">
+    <div>水果列表</div>
+    <ul>
+      <!-- item 是自己定义的名字代表数组里的每一项 items对应data中的数组 -->
+      <li v-for='item in fruits'>{{item}}</li>
+
+      <li v-for='(item,index) in fruits'>{{'当前是第'+index+'个，值是'+item}}</li>
+
+      <!-- key的作用 来给每个节点做一个唯一标识为了VUE效率（高效的更新虚拟DOM） -->
+      <li :key='item.id' v-for='(item,index) in myFruits'>
+        <span>{{item.ename}}</span><span>-----</span><span>{{item.cname}}</span>
+      </li>
+  
+    </ul>
+
+
+  </div>
+  <script type="text/javascript" src="../vue.js"></script>
+  <script type="text/javascript">
+    /*
+      循环结构-遍历数组
+    */
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        fruits: ['apple', 'orange', 'banana'],
+        myFruits: [{
+          id: 1,
+          ename: 'apple',
+          cname: '苹果'
+        },{
+          id: 2,
+          ename: 'orange',
+          cname: '橘子'
+        },{
+          id: 3,
+          ename: 'banana',
+          cname: '香蕉'
+        }]
+      }
+    });
+  </script>
+</body>
+</html>

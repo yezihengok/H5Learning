@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style type="text/css">
+    form div {
+      height: 40px;
+      line-height: 40px;
+    }
+
+    form div:nth-child(4) {
+      height: auto;
+    }
+
+    form div span:first-child {
+      display: inline-block;
+      width: 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <form action="http://www.baidu.com">
+      <div>
+        <span>姓名：</span>
+        <span>
+          <input type="text" v-model='uname'>
+        </span>
+      </div>
+      <div>
+        <span>性别：</span>
+        <!-- 
+          		1、 两个单选框需要同时通过v-model 双向绑定 一个值 
+              2、 每一个单选框必须要有value属性  且value 值不能一样 
+          		3、 当某一个单选框选中的时候 v-model  会将当前的 value值 改变 data 中的 数据
+          		gender 的值就是选中的值，我们只需要实时监控他的值就可以了
+          	-->
+        <span>
+          <input type="radio" id="male" value="1" v-model='gender'>
+          <label for="male">男</label>
+          <input type="radio" id="female" value="2" v-model='gender'>
+          <label for="female">女</label>
+        </span>
+      </div>
+
+      <!-- 复选框 `checkbox` 这种的组合时 data 中的 hobby 要定义成数组 否则无法实现多选 -->
+      <div>
+        <span>爱好：</span>
+        <input type="checkbox" id="ball" value="1" v-model='hobby'>
+        <label for="ball">篮球</label>
+        <input type="checkbox" id="sing" value="2" v-model='hobby'>
+        <label for="sing">唱歌</label>
+        <input type="checkbox" id="code" value="3" v-model='hobby'>
+        <label for="code">写代码</label>
+      </div>
+
+      <div>
+        <span>职业：</span>
+        <!-- multiple  多选 -->
+        <!-- <select v-model='occupation' multiple> -->
+        <select v-model='occupation'> 
+          <option value="0">请选择职业...</option>
+          <option value="1">教师</option>
+          <option value="2">软件工程师</option>
+          <option value="3">律师</option>
+        </select>
+      </div>
+      <div>
+        <span>个人简介：</span>
+        <textarea v-model='第三方的'></textarea>
+      </div>
+      <div>
+        <input type="submit" value="提交" @click.prevent='handle'>
+      </div>
+    </form>
+  </div>
+  <script type="text/javascript" src="../vue.js"></script>
+  <script type="text/javascript">
+    /*
+      表单基本操作
+    */
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        uname: 'lisi',
+        gender: 2,
+        hobby: ['2', '3'],//给定默认值，唱歌 和写代码将会被选中
+         occupation: 3,
+       // occupation: ['2', '3'],
+        desc: 'nihao'
+      },
+      methods: {
+        handle: function () {
+          console.log(this.uname)
+          console.log(this.gender)
+          console.log(this.hobby.toString())
+          console.log(this.occupation)
+          console.log(this.desc)
+
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

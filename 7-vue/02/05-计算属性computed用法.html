@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+
+    <div>{{totalString}}</div>
+    <div>{{totalString}}</div>
+
+    <div>{{reverseString()}}</div>
+    <div>{{reverseString()}}</div>
+  </div>
+  <script type="text/javascript" src="js/vue.js"></script>
+  <script type="text/javascript">
+
+
+    /*
+      计算属性computed 与方法methods的区别===> 计算属性是基于依赖进行缓存的，而方法不缓存
+    */
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        msg: 'Nihao',
+        num: 100
+      },
+
+      // 调用methods中的方法的时候  他每次会重新调用执行
+      methods: {
+        reverseString: function () {
+          console.log('methods---')
+          return this.msg.split('').reverse().join('');
+        }
+      },
+
+      //多次掉用的时候，如果num没有改变，将会直接 return上次的缓存结果，不在重复执行计算。
+      computed: {
+        totalString: function () {
+          console.log('computed---')
+          var total = 0;
+          // 如果data 中的 num 的值改变了 totalString方法才会自动发生计算 
+          for (var i = 0; i <= this.num; i++) {
+            total += i;
+          }
+          return total;
+        }
+      }
+
+
+    });
+  </script>
+</body>
+
+</html>

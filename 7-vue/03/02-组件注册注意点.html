@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <button-counter></button-counter>
+
+    <supter-man></supter-man>
+  </div>
+  <script type="text/javascript" src="../vue.js"></script>
+  <script type="text/javascript">
+    /*
+      组件注册注意事项
+      1、组件参数的data值必须是函数
+      2、组件模板必须是单个跟元素
+      3、组件模板的内容可以是模板字符串
+    */
+
+    // 如果使用驼峰式命名组件，那么在使用组件的时候，只能在字符串模板中用驼峰的方式使用组件，
+    // 4、 在普通的标签模板中，必须使用短横线的方式使用组件：supter-man
+    Vue.component('supterMan', {
+      data: function () {
+        return {
+          msg: 'HelloWorld'
+        }
+      },
+      template: '<div>{{msg}}</div>'
+    });
+
+    Vue.component('button-self', {
+      data: function () {
+        return {
+          count: 0
+        }
+      },
+      //唯有这里可以使用驼峰式命名组件：supterMan
+      template: `
+        <div>
+          <button @click="handle">点击了{{count}}次</button>
+          <button>测试123</button>
+          <supterMan></supterMan>
+        </div>
+      `,
+      methods: {
+        handle: function () {
+          this.count += 2;
+        }
+      }
+    })
+    var vm = new Vue({
+      el: '#app',
+      data: {
+
+      }
+    });
+  </script>
+</body>
+
+</html>

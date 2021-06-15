@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <ul>
+      <li v-for='item in list'>{{item}}</li>
+    </ul>
+    <div>
+      <div>{{info.name}}</div>
+      <div>{{info.age}}</div>
+      <div>{{info.gender}}</div>
+    </div>
+  </div>
+  <script type="text/javascript" src="../vue.js"></script>
+  <script type="text/javascript">
+
+
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        list: ['apple', 'orange', 'banana'],
+        info: {
+          name: 'lisi',
+          age: 12
+        }
+      },
+    });
+    // vm.list[1] = 'lemon';
+    Vue.set(vm.list, 2, '西瓜');
+
+    // - Vue.set(a, b, c)    让 触发视图重新更新一遍，数据动态起来
+    //   - a是要更改的数据 、   b是数据的第几项、   c是更改后的数据
+
+    vm.$set(vm.list, 1, '柠檬');
+
+    // vm.info.gender = 'male';
+    //对象 则是 a更改的对象 b,对象key , c值
+    vm.$set(vm.info, 'gender', 'female');
+    console.log(vm.info);
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <input type="text" v-model='msg'>
+    <!-- 1、可以用与插值表达式和属性绑定 -->
+    <div>{{msg | upper}}</div>
+    <div>{{msg | upper | lower}}</div>
+    <!-- <div :abc='msg | upper'>cc测试数据</div> -->
+
+
+    <div>
+      <!--
+          test 被定义为接收三个参数的过滤器函数。
+          其中 message 的值作为第一个参数，字符串'arg1','arg2'，分别为第二三个参数-->
+      {{ message | test('arg1', 'arg2') }}
+    </div>
+  </div>
+
+
+  <script type="text/javascript" src="../vue.js"></script>
+  <script type="text/javascript">
+
+    // 为全局过滤器:
+    Vue.filter('lower', function (val) {
+      //  lower 
+      return val.charAt(0).toLowerCase() + val.slice(1);
+    });
+
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        msg: '',
+        message: "哈哈哈"
+      },
+      //局部过滤器是filters
+      filters: {
+        upper: function (val) {
+          //过滤器不改变真正的`data`，而只是改变渲染的结果，并返回过滤后的值
+          return val.charAt(0).toUpperCase() + val.slice(1)
+        },
+
+        test: function (val, a, b) {
+          return val.length > 2 ? val + a : val + b
+        }
+      }
+    });
+
+
+
+  </script>
+</body>
+
+</html>

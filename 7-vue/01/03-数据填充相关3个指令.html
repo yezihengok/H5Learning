@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+
+    <div>
+      <!-- Vue  中只有在标签的 内容中 才用插值语法{{}} -->
+      {{msg}}
+    </div>
+
+    <div v-text='msg2'>
+      <!--  
+           注意:在指令中不要写插值语法  直接写对应的变量名称 
+           在 v-text 中 赋值的时候不要在写 插值语法
+           一般属性中不加 {{}}  直接写 对应 的数据名 
+            	-->
+    </div>
+
+    <div v-html='msg3'></div>
+    <div v-pre>{{msg}}</div>
+  </div>
+  <script type="text/javascript" src="../vue.js"></script>
+  <script type="text/javascript">
+    /*
+      1、v-text指令用于将数据填充到标签中，作用于插值表达式类似，但是没有闪动问题
+      2、v-html指令用于将HTML片段填充到标签中，但是可能有安全问题
+      3、v-pre用于显示原始信息
+    */
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        msg: '安安',
+        msg2: '宝宝',
+        msg3: '<u>长城</u>',
+      }
+    })
+  </script>
+</body>
+
+</html>

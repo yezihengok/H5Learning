@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+
+</head>
+
+<body>
+  <div id="app">
+    <!-- #### v-if 使用场景
+    - 1- 多个元素 通过条件判断展示或者隐藏某个元素。或者多个元素
+    - 2- 进行两个视图之间的切换 -->
+    <p v-if='score>=90'>优秀</p>
+    <p v-else-if='score>=80&&score<90'>良好</p>
+    <p v-else-if='score>=60&&score<80'>一般</p>
+    <p v-else>差</p>
+
+    <p v-show='isShow'>v-show显示隐藏的使用</p>
+    <button @click='togger'>点击</button>
+  </div>
+  <script type="text/javascript" src="../vue.js"></script>
+  <script type="text/javascript">
+    /*
+      分支结构
+      v-show的原理：控制元素样式是否显示 display:none
+    */
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        score: 70,
+        isShow: true
+      },
+      methods: {
+        togger: function () {
+            this.isShow=!this.isShow
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

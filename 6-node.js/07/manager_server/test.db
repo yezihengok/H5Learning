@@ -5,6 +5,10 @@ insert into ev_article_list (title,cate_name,time,status,content,cate_id,cover_i
 select *from ev_users;
 select *from ev_article_cate;
  
+ 
+
+ 
+ 
  -- 查询文章列表
  select * from ev_article_list;
   -- 查询未标记删除的文章列表

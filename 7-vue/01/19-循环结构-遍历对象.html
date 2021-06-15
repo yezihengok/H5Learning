@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+
+</head>
+
+<body>
+  <div id="app">
+
+
+    <!--  循环结构-遍历对象
+  		v 代表   对象的value
+  		k  代表对象的 键 
+  		i  代表索引	
+  	--->
+    <div v-for='(v,k,i) in obj'>{{v + '---' + k + '---' + i}}</div>
+
+    <!-- 不推荐**同时使用 `v-if` 和 `v-for`  一起使用时，`v-for` 会具有比 `v-if` 更高的优先级 -->
+
+    <div v-if='v==13' v-for='(v,k,i) in obj'>{{v + '---' + k + '---' + i}}</div>
+
+
+  </div>
+  <script type="text/javascript" src="../vue.js"></script>
+  <script type="text/javascript">
+    // 使用原生js遍历对象
+    var obj = {
+      uname: 'lisi',
+      age: 12,
+      gender: 'male'
+    }
+    for (var key in obj) {
+      console.log(key, obj[key])
+    }
+    /*
+      循环结构
+    */
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        obj: {
+          uname: 'zhangsan',
+          age: 13,
+          gender: 'female'
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

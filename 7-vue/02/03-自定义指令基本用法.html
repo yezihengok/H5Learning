@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <!--  使用自定义的指令，只需在对用的元素中，加上'v-'的前缀形成类似于内部指令'v-if'，'v-text'的形式。 -->
+    <input type="text" v-focus>
+
+    <!-- 注意点： 在自定义指令中 如果以驼峰命名的方式定义 如 Vue.directive('focusA',function(){})
+     在HTML中使用的时候 只能通过 v-focus-a 来使用 -->
+
+
+    <input type="text" v-color='msg'>
+  </div>
+  <script type="text/javascript" src="../vue.js"></script>
+  <script type="text/javascript">
+    /*
+      自定注册一个全局自定义指令 v-focus
+    */
+    Vue.directive('focus', {
+      inserted: function (el) {
+        // el表示指令所绑定的元素
+        el.focus();
+      }
+    });
+
+
+    /*
+      自定义全局指令指令---带参数
+      bind - 只调用一次，在指令第一次绑定到元素上时候调用
+     */
+    Vue.directive('color', {
+      // el表示指令所绑定的元素 
+      // binding 为自定义的函数形参   通过自定义属性传递过来的值 存在 binding.value 里面
+      bind: function (el, binding) {
+        el.style.backgroundColor = binding.value.mColor
+      }
+    })
+
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        msg: {
+          mColor: 'yellow'
+        }
+      },
+
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <div :style='{fontSize: fontSize + "px"}'>{{pmsg}}</div>
+
+    <!-- v-on:large-text  简写：  @large-text-->
+    <menu-item :myarr='parr' @large-text='handle' @large-texts='handles($event)'></menu-item>
+  </div>
+  <script type="text/javascript" src="../vue.js"></script>
+  <script type="text/javascript">
+
+
+    // 1、子组件用$emit()触发事件 ,第一个参数为 自定义的事件名称 第二个参数为需要传递的数据
+    // 2、父组件用v-on 监听子组件的事件： v-on:large-text（简写：@large-text）
+    Vue.component('menu-item', {
+      props: ['myarr'],
+      template: `
+        <div>
+          <ul>
+            <li :key='index' v-for='(item,index) in myarr'>{{item}}</li>
+          </ul>
+          <button @click='$emit("large-text")'>增加父组件中字体大小</button>
+          <button @click='$emit("large-texts",3)'>增加父组件中字体大小</button>
+        </div>
+      `
+    })
+
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        pmsg: '父组件中内容',
+        parr: ['apple', 'orange', 'banana'],
+        fontSize: 10
+      },
+      methods: {
+        handle: function () {
+          // 扩大字体大小
+          this.fontSize += 1;
+        },
+        handles: function (val) {
+          console.log(val);
+          this.fontSize += val;
+        }
+      }
+    });
+
+
+
+
+  </script>
+</body>
+
+</html>

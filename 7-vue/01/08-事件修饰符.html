@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <div>{{num}}</div>
+    <div v-on:click='handle0'>
+      <!-- 事件不会冒泡到父盒子 -->
+      <button v-on:click.stop='handle1'>点击1</button>
+    </div>
+
+    <div>
+      <a href="http://www.baidu.com" v-on:click.prevent='handle2'>百度</a>
+    </div>
+  </div>
+  <script type="text/javascript" src="../vue.js"></script>
+  <script type="text/javascript">
+    /*
+      事件绑定-事件修饰符
+    */
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        num: 0
+      },
+      methods: {
+        handle0: function () {
+          this.num++;
+          console.log(this.num);
+        },
+        handle1: function (event) {
+          // 阻止冒泡等价于:
+          // event.stopPropagation();
+        },
+        handle2: function (event) {
+          // 阻止默认行为等价于:
+          // event.preventDefault();
+        }
+      }
+    });
+
+    
+// < !--修饰符可以串联   即阻止冒泡也阻止默认事件-- >
+// <a v-on:click.stop.prevent="doThat"></a>
+
+// <!--只当在 event.target 是当前元素自身时触发处理函数-- >
+// < !--即事件不是从内部元素触发的 -->
+// <div v-on:click.self="doThat">...</div>
+
+//  使用修饰符时，顺序很重要；相应的代码会以同样的顺序产生。因此，用 v - on: click.prevent.self 会阻止所有的点击，而 v - on: click.self.prevent 只会阻止对元素自身的点击。
+
+  </script>
+</body>
+
+</html>

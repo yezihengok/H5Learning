@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <input type="text" v-color='msg'>
+    <input type="text" v-focus>
+  </div>
+  <script type="text/javascript" src="js/vue.js"></script>
+  <script type="text/javascript">
+    /*
+      自定义指令-局部指令
+    */
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        msg: {
+          color: 'red'
+        }
+      },
+      methods: {
+        handle: function(){
+          
+        }
+      },
+
+  //  - 局部指令，需要定义在  directives 的选项   用法和全局用法一样
+  //  - 局部指令只能在当前组件里面使用
+  //  - 当全局指令和局部指令同名时以局部指令为准
+
+  //对比全局指令写法：
+
+/*    Vue.directive('focus', {
+        inserted: function (el) {
+          el.focus();
+        }
+      }); */
+      directives: {
+        color: {
+          bind: function(el, binding){
+            el.style.backgroundColor = binding.value.color;
+          }
+        },
+        focus: {
+          inserted: function(el) {
+            el.focus();
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

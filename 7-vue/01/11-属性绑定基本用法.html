@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <!--v-bind 指令 用来响应更新 HTML 属性值  -->
+    <a v-bind:href="url">百度</a>
+    <!-- v-bind 简写可以省略 -->
+    <a :href="url">百度1</a>
+    <button v-on:click='handle'>切换</button>
+  </div>
+  <script type="text/javascript" src="../vue.js"></script>
+  <script type="text/javascript">
+    /*
+      属性绑定
+    */
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        url: 'http://www.baidu.com'
+      },
+      methods: {
+        handle: function () {
+          // 修改URL地址
+          this.url = 'http://sina.com';
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

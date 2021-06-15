@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 这里的组件标签里的内容会替换掉 slot  如果不传值 则使用 slot 中的默认值  -->
+    <alert-box>有bug发生</alert-box>
+    <alert-box>有一个警告</alert-box>
+    <alert-box></alert-box>
+  </div>
+  <script type="text/javascript" src="../vue.js"></script>
+  <script type="text/javascript">
+
+    // 组件的最大特性就是复用性，而用好插槽能大大提高组件的可复用能力
+
+    /*
+      默认 没有名字 称之为 匿名插槽
+    */
+    Vue.component('alert-box', {
+      //  当组件渲染的时候，这个<slot> 元素将会被替换为“组件标签中嵌套的内容”。
+      //  插槽内可以包含任何模板代码，包括 HTML
+      template: `
+        <div>
+          <strong>ERROR:</strong>
+          <slot>默认内容</slot>
+        </div>
+      `
+    });
+    var vm = new Vue({
+      el: '#app',
+      data: {
+
+      }
+    });
+  </script>
+</body>
+
+</html>

@@ -1,5 +1,5 @@
 # H5Learning
-平时自己学习H5前端相关的测试代码💘💘💘~~  内容包括：H5、CSS3、rem布局适配、JavaScript、jQUery、ajax、node.js~
+平时自己学习H5前端相关的测试代码💘💘💘~~  内容包括：H5、CSS3、rem布局适配、JavaScript、jQUery、ajax、node.js、Vue~
 
 
 ### 截图：
@@ -295,7 +295,15 @@ vscode → 首选项按钮 → 键盘快捷方式 → 查找 原来的快捷键 
     })
   }
   ```
+  ##### MySQL导出数据库文件：
+  > 1、进入MySQL目录下的bin文件夹：cd MySQL中到bin文件夹的目录: 
+       cd C:\Program Files\MySQL\MySQL Server 8.0\bin 
 
+    2、导出数据库：mysqldump -u 用户名 -p 数据库名 > 导出的文件名:
+       mysqldump -u root -p jluibmclub > d:\ jluibmclub .sql(回车后输入MySQL的密码) 
+
+  > 或者在mysql顶端选项卡Server -->DataExport -->勾选Export to self-Contained File -->Start Export
+  
 
 
    

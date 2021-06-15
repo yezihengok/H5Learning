@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <input type="text" v-model='new_name'>
+    <button v-on:click='add'>新增</button>
+    <button @click='del'>删除</button>
+    <button @click='update'>更改</button>
+    <ul>
+      <li :key='item.id' v-for='(item,index) in list'>{{item}}</li>
+    </ul>
+  </div>
+  <script type="text/javascript" src="../vue.js"></script>
+  <script type="text/javascript">
+    /*
+      Vue数组操作
+      1、变异方法：会影响数组的原始数据的变化。
+      2、替换数组：不会影响原始的数组数据，而是形成一个新的数组。
+    */
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        new_name: '',
+        list: ['阿三', '阿四', '阿五']
+      },
+      methods: {
+        add: function () {
+          this.list.push(this.new_name);// 往数组最后面添加一个元素
+        },
+        del: function () {
+          this.list.pop();//删除数组的最后一个元素
+        },
+        update: function () {
+          this.list = this.list.slice(0, 2);//截取选定的数组
+        }
+      },
+    })
+/*     变异方法：
+        | `push()` | 往数组最后面添加一个元素，成功返回当前数组的长度             |
+        | ----------- | ------------------------------------------------------------ |
+        | `pop()` | 删除数组的最后一个元素，成功返回删除元素的值 |
+        | `shift()` | 删除数组的第一个元素，成功返回删除元素的值 |
+        | `unshift()` | 往数组最前面添加一个元素，成功返回当前数组的长度 |
+        | `splice()` | 有三个参数，第一个是想要删除的元素的下标（必选），第二个是想要删除的个数（必选），第三个是删除 后想要在原位置替换的值 |
+        | `sort()` | sort()  使数组按照字符编码默认从小到大排序, 成功返回排序后的数组 |
+        | `reverse()` | reverse()  将数组倒序，成功返回倒序后的数组 | */
+
+/*    替换数组：
+        | filter | filter() 方法创建一个新的数组，新数组中的元素是通过检查指定数组中符合条件的所有元素。 |
+        | ------ | ------------------------------------------------------------ |
+        | concat | concat() 方法用于连接两个或多个数组。该方法不会改变现有的数组 |
+        | slice | slice() 方法可从已有的数组中返回选定的元素。该方法并不会修改数组，而是返回一个子数组 | */
+  </script>
+</body>
+
+</html>
