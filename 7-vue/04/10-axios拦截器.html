@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script type="text/javascript" src="../axios.js"></script>
+  <script type="text/javascript">
+    /*
+      axios拦截器
+    */
+
+    // 请求拦截器的作用是在请求发送前进行一些操作 - 例如在每个请求体里加上token 
+    axios.interceptors.request.use(function (config) {
+      console.log(config.url)
+      // config.headers.mytoken = 'nihao';
+      return config;
+    }, function (err) {
+      console.log(err)
+    })
+
+    //响应拦截器的作用是在接收到响应后进行一些操作--例如在服务器返回登录状态失效，需要重新登录的时候，跳转到登录页
+    axios.interceptors.response.use(function (res) {
+      // console.log(res)
+      var data = res.data;
+      return data;
+    }, function (err) {
+      console.log(err)
+    })
+
+
+    axios.get('http://localhost:3000/adata').then(function (data) {
+      console.log(data)
+    })
+  </script>
+</body>
+
+</html>

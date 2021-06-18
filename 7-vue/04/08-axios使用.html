@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script type="text/javascript" src="../axios.js"></script>
+  <script type="text/javascript">
+
+    // # 1.  get 请求传递参数
+
+    // # 1.1  通过传统的url  以 ? 的形式传递参数
+    axios.get('http://localhost:3000/axios?id=123').then(function(ret){
+      //#  拿到 ret 是一个对象      所有的对象都存在 ret 的data 属性里面
+      console.log(ret.data)
+    })
+
+    //1.2  restful 形式传递参数  123
+    axios.get('http://localhost:3000/axios/123').then(function(ret){
+      console.log(ret.data)
+    })
+    //1.3  通过params  形式传递参数 
+    axios.get('http://localhost:3000/axios', {
+      params: {
+        id: 789
+      }
+    }).then(function(ret){
+      console.log(ret.data)
+    })
+
+    // axios delete 请求传参     传参的形式和 get 请求一样
+    axios.delete('http://localhost:3000/axios', {
+      params: {
+        id: 111
+      }
+    }).then(function(ret){
+      console.log(ret.data)
+    })
+
+    // axios post 请求
+    // 通过选项传递参数
+    axios.post('http://localhost:3000/axios', {
+      uname: 'lisi',
+      pwd: 123
+    }).then(function(ret){
+      console.log(ret.data)
+    })
+
+    //通过 URLSearchParams  传递参数 
+    var params = new URLSearchParams();
+    params.append('uname', 'zhangsan');
+    params.append('pwd', '111');
+    axios.post('http://localhost:3000/axios', params).then(function(ret){
+      console.log(ret.data)
+    })
+
+
+    // axios put 请求传参 传参的形式和post请求一样 
+    axios.put('http://localhost:3000/axios/123', {
+      uname: 'lisi',
+      pwd: 123
+    }).then(function(ret){
+      console.log(ret.data)
+    })
+
+    
+
+  </script>
+</body>
+</html>

@@ -10,7 +10,7 @@
   <div id="app">
     <div :style='{fontSize: fontSize + "px"}'>{{pmsg}}</div>
 
-    <!-- v-on:large-text  简写：  @large-text-->
+<!--     2、父组件用v-on 监听子组件的事件： v-on:large-text（简写：@large-text） -->
     <menu-item :myarr='parr' @large-text='handle' @large-texts='handles($event)'></menu-item>
   </div>
   <script type="text/javascript" src="../vue.js"></script>
@@ -18,7 +18,6 @@
 
 
     // 1、子组件用$emit()触发事件 ,第一个参数为 自定义的事件名称 第二个参数为需要传递的数据
-    // 2、父组件用v-on 监听子组件的事件： v-on:large-text（简写：@large-text）
     Vue.component('menu-item', {
       props: ['myarr'],
       template: `
