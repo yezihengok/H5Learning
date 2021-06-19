@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Document</title>
+  <!-- 导入 vue 文件 -->
+  <script src="../vue.js"></script>
+  <script src="../vue-router_3.0.2.js"></script>
+</head>
+
+<body>
+  <!-- 被 vm 实例所控制的区域 -->
+  <div id="app">
+    <router-link to="/user">用户</router-link>
+    <router-link to="/register">注册</router-link>
+
+    <!-- 路由占位符 -->
+    <router-view></router-view>
+  </div>
+
+  <script>
+    const User = {
+      template: '<h2>User 组件</h1>'
+    }
+
+    const Register = {
+      template: '<h2>Register 组件</h2>'
+    }
+    // 创建路由实例对象
+    const router = new VueRouter({
+      //路由规则集合
+      routes: [
+        //path设置为/表示页面最初始的地址 / ,redirect表示要被重定向的新地址，设置为一个路由即可
+        { path: "/", redirect: "/user" },
+        { path: '/user', component: User },
+        { path: '/register', component: Register }
+      ]
+    });
+    // 创建 vm 实例对象
+    const vm = new Vue({
+      el: '#app',
+      data: {},
+      // 挂载路由实例对象
+      // router: router
+      router
+    })
+  </script>
+</body>
+
+</html>

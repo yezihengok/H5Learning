@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Document</title>
+  <!-- 导入 vue 文件 -->
+  <script src="../vue.js"></script>
+  <script src="../vue-router_3.0.2.js"></script>
+</head>
+
+<body>
+  页面导航的两种方式：
+  A.声明式导航：通过点击链接的方式实现的导航
+  B.编程式导航：调用js的api方法实现导航
+
+  <div id="app">
+    <router-link to="/user/1">User1</router-link>
+    <router-link to="/user/2">User2</router-link>
+    <!-- <router-link to="/user/3">User3</router-link> -->
+    <router-link :to="{ name: 'user', params: {id: 3} }">User3</router-link>
+    <router-link to="/register">Register</router-link>
+
+    <!-- 路由占位符 -->
+    <router-view></router-view>
+  </div>
+
+  <script>
+    const User = {
+      props: ['id', 'uname', 'age'],
+      template: `
+      <div>
+        <h2>User 组件 -- 用户id为: {{id}} -- 姓名为:{{uname}} -- 年龄为：{{age}}</h2>
+        <button @click='toRegister'>跳转到注册页面</button>
+      </div>
+      `,
+      methods: {
+        toRegister() {
+          this.$router.push('/register')
+        /*        Vue - Router中常见的导航方式：
+                  this.$router.push("hash地址");
+                  this.$router.push("/login");
+                  this.$router.push({ name: 'user', params: { id: 123 } });
+                  this.$router.push({ path: "/login" });
+                  this.$router.push({ path: "/login", query: { username: "jack" } }); */
+        },
+      },
+    }
+
+    const Register = {
+      template: `
+      <div>
+      <h1>Register 组件</h1>
+       <button @click="goBack">返回</button>
+       </div>
+      `,
+      methods: {
+        goBack() {
+          //this.$router.go( n );//n为数字，参考history.go
+          this.$router.go(-1)
+        }
+      }
+    }
+
+    // 创建路由实例对象
+    const router = new VueRouter({
+      // 所有的路由规则
+      routes: [
+        { path: '/', redirect: '/user' },
+        {
+          name: 'user',// 给路由取别名
+          path: '/user/:id',
+          component: User,
+          //如果想要 传递:id的形参的值 同时又要传递对象数据，那么props应该设置为函数形式。
+          props: (route) => {
+            return { uname: "jack", age: 22, id: route.params.id }
+          }
+        },
+        { path: '/register', component: Register }
+      ]
+    })
+
+    const vm = new Vue({
+
+      el: '#app',
+      data: {},
+      // 挂载路由实例对象
+      // router: router
+      router
+    })
+  </script>
+</body>
+
+</html>
