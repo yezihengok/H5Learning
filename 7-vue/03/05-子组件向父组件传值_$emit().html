@@ -10,8 +10,8 @@
   <div id="app">
     <div :style='{fontSize: fontSize + "px"}'>{{pmsg}}</div>
 
-<!--     2、父组件用v-on 监听子组件的事件： v-on:large-text（简写：@large-text） -->
-    <menu-item :myarr='parr' @large-text='handle' @large-texts='handles($event)'></menu-item>
+    <!--     2、父组件用v-on 监听子组件的事件： v-on:changetext（简写：@changetext） -->
+    <menu-item :myarr='parr' @changetext='handle' @changetexts='handles($event)'></menu-item>
   </div>
   <script type="text/javascript" src="../vue.js"></script>
   <script type="text/javascript">
@@ -25,8 +25,8 @@
           <ul>
             <li :key='index' v-for='(item,index) in myarr'>{{item}}</li>
           </ul>
-          <button @click='$emit("large-text")'>增加父组件中字体大小</button>
-          <button @click='$emit("large-texts",3)'>增加父组件中字体大小</button>
+          <button @click='$emit("changetext")'>增加父组件中字体大小</button>
+          <button @click='$emit("changetexts",3)'>增加父组件中字体大小</button>
         </div>
       `
     })

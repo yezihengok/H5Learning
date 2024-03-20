@@ -1,5 +1,11 @@
 {
+  "editor.formatOnType": true,
   "editor.formatOnSave": true,
   "eslint.enable": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "workbench.colorCustomizations": {
+    "statusBar.background": "#484848",
+    "statusBar.noFolderBackground": "#0A0A0D",
+    "statusBar.debuggingBackground": "#511f1f"
+  },
 }

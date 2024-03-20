@@ -178,3 +178,9 @@ function shuffle(arr) {
     return arr;
 }
 console.log(shuffle(arr1));
+
+// 获取某个时间格式的时间戳
+var stringTime = "2014-07-10 10:21:12";
+var timestamp2 = Date.parse(new Date(stringTime));
+timestamp2 = timestamp2 / 1000;
+ 
