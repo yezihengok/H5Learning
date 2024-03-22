@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      width: 150px;
+      height: 150px;
+      border: 3px solid #000;
+      font-size: 20px;
+      margin-top: 10px;
+    }
+
+    .pink {
+      background-color: pink;
+    }
+
+    .big {
+      width: 200px;
+      height: 200px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="app">
+    <h4>为了方便开发者进行样式控制， Vue 扩展了 v-bind 的语法，可以针对 class 类名 和 style 行内样式 进行控制</h4>
+    <!-- 当class动态绑定的是对象时，键就是类名，值就是布尔值，如果值是true，就有这个类，否则没有这个类 -->
+    <div class="box" :class="{box:true,pink:true,big:true}">懂的都懂</div>
+
+    <div class="box" :class="['box','big']">也可是数组选定值</div>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+    })
+  </script>
+</body>
+
+</html>

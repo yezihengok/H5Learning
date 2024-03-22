@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <!-- 
+    1.如果在模板中(页面中)使用事件对象,可以使用$event(固定写法)
+    2.如果在js中使用事件对象,还是事件处理函数的形参 e
+    3.如果js中,既有 e 又有其他参数,原则一个实参对用形参
+   -->
+
+  <div id='app'>
+    <h2>需求：输入框输入内容，将内容显示在p标签中</h2>
+    <!-- 如果不传递任何参数，则方法无需加小括号；methods方法中可以直接使用 e 当做事件对象 -->
+    <input type="text" @input="func">
+    <p>{{ result }}</p>
+  </div>
+
+
+
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: {
+        result: ''
+      },
+      methods: {
+        func(e) {
+          this.result = e.target.value
+        }
+      }
+    });
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <div id="app">
+    <h4>v-for指令 v-for="(item,index) in list" ，通常用来基于一个数组来循环渲染一个列表结构</h4>
+    <!-- item 是数组中的每一项 index 是每一项的索引，不需要可以省略 arr 是被遍历的数组 -->
+    <ul>
+      <li v-for="(item,index) in list">{{index}}---{{item}}</li>
+    </ul>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        list: ['西瓜', '苹果', '鸭梨', '榴莲']
+      }
+    })
+  </script>
+</body>
+
+</html>

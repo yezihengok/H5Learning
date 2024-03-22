@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <div id="app">
+    <!-- 
+      v-model 可以让数据和视图，形成双向数据绑定
+      (1) 数据变化，视图自动更新
+      (2) 视图变化，数据自动更新
+      可以快速[获取] 或 [设置]表单元素的内容
+     -->
+    姓名：<input v-model="username" type="text" /><br />
+
+    <!-- 
+       前置理解：
+         1. name:  给单选框加上 name 属性 可以分组 → 同一组互相会互斥
+         2. value: 给单选框加上 value 属性，用于提交给后台的数据
+       结合 Vue 使用 → v-model
+     -->
+
+    性别：
+    <input v-model="gender" type="radio" name="sex" value="1">男
+    <input v-model="gender" type="radio" name="sex" value="2">女
+    <br><br>
+
+    爱好：
+    <input v-model="hobby" type="checkbox" name="aihao" value="吃" />吃饭
+    <input v-model="hobby" type="checkbox" name="aihao" value="睡" />睡觉
+    <input v-model="hobby" type="checkbox" name="aihao" value="玩" />打豆豆<br />
+
+    <!-- 
+           前置理解：
+             1. option 需要设置 value 值，提交给后台
+             2. select 的 value 值，关联了选中的 option 的 value 值
+           结合 Vue 使用 → v-model
+            -->
+    籍贯：
+    <select v-model="cityId">
+      <option value="101">北京</option>
+      <option value="102">上海</option>
+      <option value="103">成都</option>
+      <option value="104">南京</option>
+    </select><br />
+
+    是否单身：
+    <input type="checkbox" v-model="isSingle"><br><br>
+    自我描述：
+    <textarea v-model="desc"></textarea>
+
+  </div>
+  </div>
+  <!-- <script src="../vue.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        username: '小花',
+        isSingle: false,
+        gender: "2",
+        cityId: '102',
+        hobby: ['吃', '玩'],
+        desc: "写点什么吧..."
+      }
+    })
+  </script>
+</body>
+
+</html>

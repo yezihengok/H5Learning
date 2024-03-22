@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    table {
+      border: 1px solid #000;
+      text-align: center;
+      width: 300px;
+    }
+
+    th,
+    td {
+      border: 1px solid #000;
+    }
+
+    h3 {
+      position: relative;
+    }
+
+    span {
+      position: absolute;
+      left: 145px;
+      top: -4px;
+      width: 16px;
+      height: 16px;
+      color: white;
+      font-size: 12px;
+      text-align: center;
+      border-radius: 50%;
+      background-color: #e63f32;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="app">
+    <h3>小黑的礼物清单🛒<span>?</span></h3>
+    <h3>小黑的礼物清单🛒<span>{{ totalCountFn() }}</span></h3>
+    <table>
+      <tr>
+        <th>名字</th>
+        <th>数量</th>
+      </tr>
+      <tr v-for="(item ,index) in list" :key="item.id">
+        <td>{{item.name}}</td>
+        <td>{{item.num}}个</td>
+      </tr>
+    </table>
+
+    <p>礼物总数：{{totalCount}} 个</p>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        // 现有的数据
+        list: [
+          { id: 1, name: '篮球', num: 3 },
+          { id: 2, name: '玩具', num: 2 },
+          { id: 3, name: '铅笔', num: 5 },
+        ]
+      },
+      //1、computed中的计算属性虽然是函数的写法，但他依然是个属性
+      //2、computed中的计算属性不能和data中的属性同名
+      //3、使用computed中的计算属性和使用data中的属性是一样的用法
+      computed: {
+        totalCount() {
+          //对 this.list 数组里面的 num 进行求和 → reduce
+          let total = this.list.reduce((sum, item) => sum + item.num, 0)
+          return total
+        }
+      },
+
+      // 计算属性相比普通方法的优势:
+      // 1、缓存特性（提升性能）计算属性会对计算出来的结果缓存，再次使用直接读取缓存，
+      // 依赖项变化了，会自动重新计算 → 并再次缓存
+      // 2、methods没有缓存特性
+      methods: {
+        totalCountFn() {
+          console.log('methods方法执行了')
+          let total = this.list.reduce((sum, item) => sum + item.num, 0)
+          return total
+        }
+      },
+    })
+  </script>
+</body>
+
+</html>

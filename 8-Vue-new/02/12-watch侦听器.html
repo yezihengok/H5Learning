@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-size: 18px;
+    }
+
+    #app {
+      padding: 10px 20px;
+    }
+
+    .query {
+      margin: 10px 0;
+    }
+
+    .box {
+      display: flex;
+    }
+
+    textarea {
+      width: 300px;
+      height: 160px;
+      font-size: 18px;
+      border: 1px solid #dedede;
+      outline: none;
+      resize: none;
+      padding: 10px;
+    }
+
+    textarea:hover {
+      border: 1px solid #1589f5;
+    }
+
+    .transbox {
+      width: 300px;
+      height: 160px;
+      background-color: #f0f0f0;
+      padding: 10px;
+      border: none;
+    }
+
+    .tip-box {
+      width: 300px;
+      height: 25px;
+      line-height: 25px;
+      display: flex;
+    }
+
+    .tip-box span {
+      flex: 1;
+      text-align: center;
+    }
+
+    .query span {
+      font-size: 18px;
+    }
+
+    .input-wrap {
+      position: relative;
+    }
+
+    .input-wrap span {
+      position: absolute;
+      right: 15px;
+      bottom: 15px;
+      font-size: 12px;
+    }
+
+    .input-wrap i {
+      font-size: 20px;
+      font-style: normal;
+    }
+
+    .query {
+      display: inline-block;
+      margin: 10px;
+    }
+
+    select {
+      width: 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 条件选择框 -->
+    <div class="query">
+      <span>翻译成的语言：</span>
+      <select v-model="obj.lang">
+        <option value="italy">意大利</option>
+        <option value="english">英语</option>
+        <option value="german">德语</option>
+      </select>
+    </div>
+
+    <!-- 翻译框 -->
+    <div class="box">
+      <div class="input-wrap">
+        <textarea v-model="obj.words"></textarea>
+        <span><i>⌨️</i>文档翻译</span>
+      </div>
+      <div class="output-wrap">
+        <div class="transbox">{{ result }}</div>
+      </div>
+    </div>
+  </div>
+  <script src="../vue.js"></script>
+  <script src="../axios.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script> -->
+  <script>
+    // 接口地址：https://applet-base-api-t.itheima.net/api/translate
+    // 请求方式：get
+    // 请求参数：
+    // （1）words：需要被翻译的文本（必传）
+    // （2）lang： 需要被翻译成的语言（可选）默认值-english
+    // -------------------接口内容仅供测试用，翻译内容并不真实----------------------------
+
+    const app = new Vue({
+      el: '#app',
+      data: {
+        // words: '',
+        obj: {
+          words: '非常棒',
+          lang: 'english'
+        },
+        result: '', //翻译后的结果
+        timer: null
+      },
+      // 侦听器
+
+      // -------------------------- 侦听器简写写法 --------------------------
+      //   //result:(变化后的值,变化前的值(变化前的值可不写))
+
+      // result: {
+      //   words(newValue, oldValue) {
+      //     console.log(newValue, oldValue);
+      //   },
+
+      //   //如果侦听的是对象的属性 要加'引号'
+      //   'obj.words'(newValue, oldValue) {
+      //     console.log(newValue, oldValue);
+      //   }
+      //  }
+
+      // -------------------------- 侦听器完整写法 --------------------------
+      // watch: { 
+      //   数据属性名: {
+      //     deep: true, // 深度监视(针对复杂类型);当对象的任意属性改变后,都可以侦听到
+      //     immediate: true, //立即侦听(页面刷新,马上执行一次handler函数)
+      //     handler(newValue) {
+      //       console.log(newValue)
+      //     }
+      //   }
+      // }
+
+      watch: {
+        obj: {
+          deep: true,
+          immediate: true,
+          handler(newValue) {
+            if (newValue === '') {
+              this.result = ''
+              return
+            }
+            clearTimeout(this.timer)
+            this.timer = setTimeout(async () => {
+              const res = await axios({
+                url: 'https://applet-base-api-t.itheima.net/api/translate',
+                params: newValue
+              })
+              console.log(res)
+              // 把服务器返回的结果,赋值给数据项
+              this.result = res.data.data
+            }, 500)
+          }
+        }
+      }
+
+    })
+  </script>
+</body>
+
+</html>

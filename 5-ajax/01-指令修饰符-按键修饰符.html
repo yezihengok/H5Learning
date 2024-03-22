@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <h3>@keyup.enter → 监听键盘回车事件</h3>
+    <!-- 
+      1.按键修饰符只能用于键盘事件，keyup和keydown
+      2.语法  @keyup.enter=""  表示按回车键才会执行操作
+      3.语法  @keyup.esc=""    表示按esc键才会执行操作
+      4.语法  @keyup.49        表示按keyCode值为49的键才会执行操作。这里的49表示键盘的keyCode值
+     -->
+    <input type="text" @keyup.enter="fn" v-model="username">
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        username: ''
+      },
+      methods: {
+        fn(e) {
+          // if (e.key === 'Enter') {
+          //   console.log('键盘回车的时候触发', this.username)
+          // }
+          alert(`键盘回车的时候触发--${this.username}`)
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

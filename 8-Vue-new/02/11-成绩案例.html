@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./styles/index.css" />
+  <title>Document</title>
+</head>
+
+<body>
+
+  <div id="app" class="score-case">
+    <div class="table">
+      <table>
+        <thead>
+          <tr>
+            <th>编号</th>
+            <th>科目</th>
+            <th>成绩</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(item,index) in list" :key="item.id" @click="onTab(item,index)">
+            <td>{{index + 1}}</td>
+            <td>{{item.subject}}</td>
+            <td :class="{red:item.score<60}">{{item.score}}</td>
+            <td><a href="#" @click="del(item.id)">删除</a></td>
+          </tr>
+
+        </tbody>
+        <tbody v-if="this.list===0">
+          <tr>
+            <td colspan="5">
+              <span class="none">暂无数据</span>
+            </td>
+          </tr>
+        </tbody>
+
+        <tfoot>
+          <tr>
+            <td colspan="5">
+              <span>总分：{{total}}</span>
+              <span style="margin-left: 50px">平均分：{{avg}}</span>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+    <div class="form">
+      <div class="form-item">
+        <div class="label">科目：</div>
+        <div class="input">
+          <input type="text" placeholder="请输入科目" v-model="subject" />
+        </div>
+      </div>
+      <div class="form-item">
+        <div class="label">分数：</div>
+        <div class="input">
+          <input type="text" placeholder="请输入分数" v-model.number="score" />
+        </div>
+      </div>
+      <div class="form-item">
+        <div class="label"></div>
+        <div class="input">
+          <button class="submit" @click="add">添加</button>
+          <button class="submit" @click="update">修改</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="../vue.js"></script>
+
+  <script>
+    const defaultList = [
+      { id: 1, subject: '语文', score: 20 },
+      { id: 7, subject: '数学', score: 99 },
+      { id: 12, subject: '英语', score: 70 },
+    ];
+
+    const app = new Vue({
+      el: '#app',
+      data: {
+        // list: [
+        //   { id: 1, subject: '语文', score: 20 },
+        //   { id: 7, subject: '数学', score: 99 },
+        //   { id: 12, subject: '英语', score: 70 },
+        // ],
+        list: JSON.parse(localStorage.getItem('myList')) || defaultList,
+
+        subject: '', // 和科目输入框双向绑定
+        score: '',// 和分数输入框双向绑定
+        selectedIndex: -1 //选中项目
+      },
+      methods: {
+        //增
+        add() {
+          if (!this.subject) {
+            alert('请输入科目')
+            return
+          }
+          if (typeof this.score !== 'number') {
+            alert('请输入正确的成绩')
+            return
+          }
+          this.list.push({
+            id: Date.now(),
+            subject: this.subject,
+            score: this.score
+          })
+          this.subject = this.score = ''
+          this.selectedIndex = -1
+        },
+        //删
+        del(id) {
+          this.list = this.list.filter(item => item.id !== id)
+        },
+
+        update(item) {
+          if (this.selectedIndex < 0) {
+            alert('你还没有选中项，点击选中后再修改')
+            return
+          }
+          this.list[this.selectedIndex].subject = this.subject
+          this.list[this.selectedIndex].score = this.score
+        },
+        onTab(item, index) {
+          this.subject = item.subject
+          this.score = item.score
+          this.selectedIndex = index
+        },
+      },
+      computed: {
+        total() {
+
+          // return this.list.reduce((sum, item) => sum + item.score, 0)
+
+          var sum = 0;
+          //value 数组元素的值 ,index索引号  array当前的数组
+          this.list.forEach(function (value, index, array) {
+            console.log('索引号:' + index);
+            sum += value.score;
+          })
+          return sum
+        },
+        avg() {
+          return (this.total / this.list.length).toFixed(2)
+        }
+      },
+
+      //监听器，用于监听数据变化（见下节详情讲）
+      watch: {
+        list: {
+          deep: true,
+          handler(newValue) {
+            // 需要将变化后的 newValue 存入本地 （转JSON）
+            localStorage.setItem('myList', JSON.stringify(newValue))
+          }
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

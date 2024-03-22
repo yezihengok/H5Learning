@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <div id="app">
+
+    <div>直接展示msg HTML标签字符串也会显示： {{msg}}</div>
+
+
+    <!-- v-html=动态设置元素 innerHTML -->
+    <div v-html="msg">如果这里面有内容会被v-html覆盖</div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script>
+
+    const app = new Vue({
+      el: '#app',
+      data: {
+        msg: `
+          <h3>学前端~！</h3>
+        `
+      }
+    })
+
+  </script>
+
+</body>
+
+</html>

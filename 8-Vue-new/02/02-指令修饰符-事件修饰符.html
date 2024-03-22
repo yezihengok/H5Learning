@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .father {
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+      margin-top: 20px;
+    }
+
+    .son {
+      width: 100px;
+      height: 100px;
+      background-color: skyblue;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+
+    <h3> @事件名.stop → 阻止冒泡</h3>
+    <div class="father" @click="fatherFn">
+      <div class="son" @click.stop="sonFn">儿子</div>
+    </div>
+
+    <h3>@事件名.prevent → 阻止默认行为</h3>
+    <a href="http://www.baidu.com" @click.prevent>阻止默认行为,无法跳转</a>
+
+    <!-- @click.stop.prevent —>可以连用 即阻止事件冒泡也阻止默认行为 -->
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      methods: {
+        fatherFn() {
+          alert('老父亲被点击了')
+        },
+        sonFn(e) {
+          //  @click.stop 等同于执行： 
+          // e.stopPropagation()
+          alert('儿子被点击了')
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

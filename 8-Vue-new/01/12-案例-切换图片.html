@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #app {
+      display: flex;
+      align-items: center;
+    }
+
+    .btn {
+      width: 100px;
+      text-align: center;
+      font-style: italic;
+    }
+  </style>
+</head>
+<!-- 
+切换图片，就得准备很多个图片。用数组表示
+显示图片==><img :src="list[下标]” />
+想切换图片，就改变下标即可 ===> 弄个index当下标
+点击按钮，修改index
+加入条件，控制按钮何时显示 
+-->
+
+<body>
+  <div id="app">
+    <button class="btn" v-show="index > 0" @click="index--">上一页</button>
+    <div><img :src="list[index]" alt=""> </div>
+    <button class="btn" v-show="index < list.length - 1" @click="index++">下一页</button>
+
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        index: 0,
+        list: [
+          './imgs/11-00.gif',
+          './imgs/11-01.gif',
+          './imgs/11-02.gif',
+          './imgs/11-03.gif',
+          './imgs/11-04.png',
+          './imgs/11-05.png',
+        ]
+      }
+    })
+  </script>
+</body>
+
+</html>
