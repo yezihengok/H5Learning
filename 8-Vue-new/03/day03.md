@@ -558,9 +558,19 @@ Vue生命周期过程中，会**自动运行一些函数**，被称为【**生�
 
 ### 2.组件是由三部分构成
 
-- 语法高亮插件
+- 语法高亮插件：
 
 ![68216926426](assets/1682169264266.png)
+
+- 补充
+  注意事项：
+	注意终端路径；
+	vscode只能打开项目根目录；（vue2必须这样打开项目）
+	项目不能安装到有特殊符号的文件夹
+	安装vscode插件：	（不太推荐使用文档上述截图里的插件，因为仅Vue2 能用，且与未来的vue3有冲突部分）
+	一下VUE2 VUE3均可使用：
+	https://marketplace.visualstudio.com/items?itemName=Vue.volar   --vue高亮插件
+	https://marketplace.visualstudio.com/items?itemName=sdras.vue-vscode-snippets    --vue代码提示插件
 
 - 三部分构成
 

@@ -1,0 +1,14 @@
+脚手架Vue CLI 使用步骤：
+
+全局安装（只需安装一次即可） yarn global add @vue/cli 或者 npm i @vue/cli -g
+查看vue/cli版本： vue --version
+创建项目架子：vue create project-name(项目名不能使用中文)
+启动项目：yarn serve 或者 npm run serve(命令不固定，找package.json)
+
+关闭服务：在开启服务的cmd 在命令窗口输入Ctrl + C   ，输入y   回车即可停止服务
+
+
+-----------------------------------------------------
+
+练习期间每一个demo就创建一个 生成脚手架项目比较占用内存，
+这里我重命名原本src 为案例名称： 01组件注册  02xxxxx   ....    要查看原本案例效果，把内容复制到src文件下即可
