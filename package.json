@@ -2,5 +2,8 @@
   "devDependencies": {
     "less": "^4.2.0",
     "less-loader": "^12.2.0"
+  },
+  "dependencies": {
+    "echarts": "^5.5.0"
   }
 }
