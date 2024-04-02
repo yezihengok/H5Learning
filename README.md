@@ -303,6 +303,30 @@ vscode → 首选项按钮 → 键盘快捷方式 → 查找 原来的快捷键 
        mysqldump -u root -p jluibmclub > d:\ jluibmclub .sql(回车后输入MySQL的密码) 
 
   > 或者在mysql顶端选项卡Server -->DataExport -->勾选Export to self-Contained File -->Start Export
+
+   ### 10、Vue相关
+   - 脚手架Vue CLI 使用步骤：
+
+  > 全局安装（只需安装一次即可） yarn global add @vue/cli 或者 npm i @vue/cli -g
+  查看vue/cli版本： vue --version
+  创建项目架子：vue create project-name(项目名不能使用中文)
+  启动项目：yarn serve 或者 npm run serve(命令不固定，找package.json)
+
+关闭服务：在开启服务的cmd 在命令窗口输入Ctrl + C   ，输入y   回车即可停止服务
+
+ - down下拉项目 需要 npm i 安装依赖 ，可能遇到版本冲突问题，在安装命令后加上 --legacy-peer-deps:
+  ```js
+  npm i --legacy-peer-deps
+   ```
+
+- 下载的工程带有submodule   
+
+  当使用git clone下来的工程中带有submodule时，初始的时候，submodule的内容并不会自动下载下来的，此时，只需执行如下命令：
+  ```js
+  git submodule update --init --recursive
+   ```
+
+
   
 
 

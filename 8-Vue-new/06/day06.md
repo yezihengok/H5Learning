@@ -152,13 +152,13 @@ const router = new VueRouter({
 ### 3.查询参数传参
 
 - 如何传参？
-
+```js
   <router-link to="/path?参数名=值"></router-link>
-
+```
 - 如何接受参数
-
+```js
   固定用法：$router.query.参数名
-
+```
 
 
 ### 4.代码演示
@@ -214,10 +214,15 @@ Home.vue
       <button>搜索一下</button>
     </div>
     <div class="hot-link">
+          <!-- 
+    路由跳转传参之--查询参数传参  
+    1、在跳转路由时, 进行传值 to="/path?参数名=值"
+    2、对应页面组件接收传递过来的值 $route.query.参数名
+    -->
       热门搜索：
-      <router-link to="">黑马程序员</router-link>
-      <router-link to="">前端培训</router-link>
-      <router-link to="">如何成为前端大牛</router-link>
+     <router-link to="/search?key=黑马程序员">黑马程序员</router-link>
+      <router-link to="/search?key=前端培训">前端培训</router-link>
+      <router-link to="/search?key=如何成为前端大牛">如何成为前端大牛</router-link>
     </div>
   </div>
 </template>
@@ -275,7 +280,7 @@ Search.vue
 ```vue
 <template>
   <div class="search">
-    <p>搜索关键字: 黑马程序员</p>
+    <p>搜索关键字: {{$route.query}}</p>
     <p>搜索结果: </p>
     <ul>
       <li>.............</li>
@@ -290,7 +295,8 @@ Search.vue
 export default {
   name: 'MyFriend',
   created () {
-    // 在created中，获取路由参数
+     // 在created中，this.$route.query.参数名 获取路由参数
+    console.log(this.$route.query.key);
   }
 }
 </script>
@@ -537,6 +543,7 @@ export default router
 
 ```js
 const router = new VueRouter({
+  // 注意：一旦使用 history 模式，地址栏就没有 #，需要后台配置访问规则
     mode:'histroy', //默认是hash
     routes:[]
 })
@@ -545,10 +552,10 @@ const router = new VueRouter({
 
 
 ## 十、编程式导航-两种路由跳转方式
-
+ 
 ### 1.问题
 
-点击按钮跳转如何实现？
+点击按钮跳转如何实现？  
 
 ![68250048105](assets/1682500481059.png)
 

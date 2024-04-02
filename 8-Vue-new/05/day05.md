@@ -1422,8 +1422,8 @@ Vue 官方的一个路由插件，是一个第三方包
    ```bash
    yarn add vue-router@3.6.5
    ```
-   ```bash
-   或  num i vue-router@3.6.5
+   ```js
+   或  npm i vue-router@3.6.5
    ```
 2. main.js中引入VueRouter
 
