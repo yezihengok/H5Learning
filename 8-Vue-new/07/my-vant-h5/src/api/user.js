@@ -15,12 +15,12 @@ import request from '@/utils/request'
 // }
 
 // 注册请求函数
-export const register = obj => request.post('/user/register', obj)
+export const register = obj => request.post('/h5/user/register', obj)
 
 // 登录请求函数
-export const login = obj => request.post('/user/login', obj)
+export const login = obj => request.post('/h5/user/login', obj)
 
 // 获取用户信息
 export const getUserInfo = () => {
-  return request('/user/currentUser')
+  return request('/h5/user/currentUser')
 }

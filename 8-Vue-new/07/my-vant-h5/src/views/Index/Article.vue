@@ -1,12 +1,13 @@
 <template>
     <div class="article-page">
         <nav class="my-nav van-hairline--bottom">
-            <a href="#" :class="{ active: sorter === 'weight_desc' }">推荐</a>
-            <a href="#" :class="{ active: sorter === null }">最新</a>
+            <a href="#" :class="{ active: sorter === 'weight_desc' }" @click="changeSort('weight_desc')">推荐</a>
+            <a href="#" :class="{ active: sorter === null }" @click="changeSort(null)">最新</a>
             <div class="logo"><img src="@/assets/logo.png"></div>
         </nav>
-        <van-list v-model="loading" :finished="finished" finished-text="没有更多了" @load="onLoad">
 
+        <van-list v-model="loading" :finished="finished" finished-text="没有更多了" @load="onLoad">
+            <ArticleItem v-for="item in list" :key="item.id" :item="item"></ArticleItem>
         </van-list>
     </div>
 </template>
@@ -15,6 +16,7 @@
 
 // import { Cell } from 'vant';
 import { articleAPI } from '@/api/article'
+
 export default {
     //文件名不合规范，这里重定义
     name: 'article-page',
@@ -25,7 +27,7 @@ export default {
             sorter: 'weight_desc', // weight_desc--获取推荐的面试题；  null--获取最新的面试题
             list: [],
             loading: false, // true表示不允许加载数据(正在加载某一页的数据),false表示此时没有发送请求获取数据
-            finished: false,
+            finished: false,//分页数据没有更多了
             temp: 0, // 临时记录滚动出去的距离
             scrollTop: 0 // 真实的滚动出去的距离
         }
@@ -34,10 +36,40 @@ export default {
         // 获取面经数据列表
         async onLoad() {
             const { data: res } = await articleAPI({
-                this.current
+                current: this.current,
+                sorter: this.sorter
             })
+            console.log(res)
+            //SE6语法 ：list.push(...res.rows)则是 把数组 row 里面元素 一个个批量拷贝添加到list
+            this.list.push(...res.rows)
+            //this.list.push(res.rows) //注意 这样添加是 把一个数组当作一个元素添加到list里。
+
+            this.loading = false
+            this.current++
+            if (this.current > res.pageTotal) {
+                this.finished = true
+            }
+        },
+        changeSort(sorter) {
+            this.sorter = sorter
+            this.current = 1 // 重置页码为1
+            this.list = [] // 重置存储数据的数组
+            this.loading = true // 避免重复发送请求(避免因滚动条问题,自动调用onload,因为下面我们手动调用了)
+            this.onLoad()
         }
-    }
+    },
+    // activated() {
+    //     console.log('articele组件激活时掉用')
+    //     window.addEventListener('scroll', () => {
+    //         this.temp = document.documentElement.scrollTop
+    //     })
+    //     document.documentElement.scrollTop = '2222'
+    // },
+    // deactivated() {
+    //     console.log('acticle暂时失去活性')
+    //     // 吧滚动出去的记录 记录到一个新的变量中
+    //     this.scrollTop = this.temp
+    // }
 }
 </script>
 
@@ -52,7 +84,7 @@ export default {
         left: 0;
         top: 0;
         width: 100%;
-        z-index: 999;
+
         background: #fff;
         display: flex;
         align-items: center;

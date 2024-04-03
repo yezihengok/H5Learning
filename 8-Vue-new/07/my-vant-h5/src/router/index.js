@@ -1,34 +1,52 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-
-//一级页面
-import Login from '@/views/Login'
-import Register from '@/views/Register'
-import Detail from '@/views/Detail'
-import Layout from '@/views/Layout'
-
-//首页Home下的二级页面
-import Article from '@/views/Index/Article'
-import Collect from '@/views/Index/Collect'
-import Like from '@/views/Index/Like'
-import My from '@/views/Index/My'
-
 Vue.use(VueRouter)
 
 import { getToken } from '@/utils/storage'
+//一级页面
+// import Login from '@/views/Login'
+// import Register from '@/views/Register'
+// import Detail from '@/views/Detail'
+// import Layout from '@/views/Layout'
+
+// //首页Home下的二级页面
+// import Article from '@/views/Index/Article'
+// import Collect from '@/views/Index/Collect'
+// import Like from '@/views/Index/Like'
+// import My from '@/views/Index/My'
+
+// const routes = [
+//     { path: '/login', component: Login },
+//     { path: '/register', component: Register },
+//     { path: '/detail', component: Detail },
+//     {
+//         path: '/',
+//         redirect: '/article',
+//         component: Layout,
+//         children: [
+//             { path: 'article', component: Article }, // 面经列表
+//             { path: 'collect', component: Collect }, // 收藏
+//             { path: 'like', component: Like }, // 喜欢
+//             { path: 'my', component: My } // 我的
+//         ]
+//     }
+// ]
+
+
+//import静态导入 没有访问也要加载初始化 ,路由懒加载:动态导入 访问时才加载解析
 const routes = [
-    { path: '/login', component: Login },
-    { path: '/register', component: Register },
-    { path: '/detail', component: Detail },
+    { path: '/login', component: () => import('@/views/Login') },
+    { path: '/register', component: () => import('@/views/Register') },
+    { path: '/detail', component: () => import('@/views/Detail') },
     {
         path: '/',
         redirect: '/article',
-        component: Layout,
+        component: () => import('@/views/Layout'),
         children: [
-            { path: 'article', component: Article }, // 面经列表
-            { path: 'collect', component: Collect }, // 收藏
-            { path: 'like', component: Like }, // 喜欢
-            { path: 'my', component: My } // 我的
+            { path: 'article', component: () => import('@/views/Index/Article') }, // 面经列表
+            { path: 'collect', component: () => import('@/views/Index/Collect') }, // 收藏
+            { path: 'like', component: () => import('@/views/Index/Like') }, // 喜欢
+            { path: 'my', component: () => import('@/views/Index/My') } // 我的
         ]
     }
 ]

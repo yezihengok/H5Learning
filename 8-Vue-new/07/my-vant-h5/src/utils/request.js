@@ -7,7 +7,8 @@ import router from '@/router'
 
 // 创建一个新的axios实例
 const request = axios.create({
-   baseURL: 'http://interview-api-t.itheima.net/h5/', // 请求基地址
+  baseURL: 'http://interview-api-t.itheima.net/', // 请求基地址
+  
   timeout: 5000 // 超时时间
 })
 

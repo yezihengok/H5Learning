@@ -1,37 +1,21 @@
 <template>
   <div id="app">
-    <!-- 只需要留一个默认的路由出口 -->
-    <router-view></router-view>
+    <!-- 一级路由出口 -->
+    <!-- include ： 组件名数组，只有匹配的组件会被缓存 -->
+    <!-- exclude ： 组件名数组，任何匹配的组件都不会被缓存 -->
+    <keep-alive include="['article-page']">
+      <router-view></router-view>
+    </keep-alive>
   </div>
 </template>
 
 <script>
-import request from '@/utils/request'
-import { setToken } from '@/utils/storage'
+
 export default {
   name: 'App',
-  data() {
-    return {
-      checked: true
-    }
-  },
-  methods: {
-    async fn() {
-      // 注册
-      // const res = await request.post('/user/register', {
-      //   username: 'shuaipeng118',
-      //   password: '123456'
-      // })
-      // console.log(res)
 
-      // 登录
-      const res = await request.post('/user/login', {
-        username: 'shuaipeng118',
-        password: '123456'
-      })
-      setToken(res.data.token)
-      console.log(res)
-    }
+  methods: {
+
   }
 }
 </script>

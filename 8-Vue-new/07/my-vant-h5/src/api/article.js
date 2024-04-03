@@ -19,7 +19,7 @@ export function detailAPI(id) {
 }
 
 // 点赞 收藏 取消点赞 取消收藏
-export function abc(data) {
+export function clickOpt(data) {
     return request.post('/h5/interview/opt', data)
 }
 

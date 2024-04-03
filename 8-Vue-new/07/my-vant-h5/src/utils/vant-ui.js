@@ -13,7 +13,8 @@ import {
     Icon,
     Grid,
     GridItem,
-    CellGroup
+    CellGroup,
+    Sticky
 } from 'vant'
 import 'vant/lib/index.css'
 Vue.use(Grid)
@@ -30,3 +31,4 @@ Vue.use(TabbarItem)
 Vue.use(NavBar)
 Vue.use(Form)
 Vue.use(Field)
+Vue.use(Sticky);

@@ -326,8 +326,13 @@ vscode → 首选项按钮 → 键盘快捷方式 → 查找 原来的快捷键 
   git submodule update --init --recursive
    ```
 
+##### Yarn 工具简介：
+- 什么是 yarn 工具:
+Yarn 是 facebook 发布的一款取代 npm 的资源包管理工具，是一个快速、可靠、安全的依赖管理工具，一款新的 JavaScript 资源包管理工具(比起 npm 安装更快离线缓存，yarn 缓存了每个下载过的包，所以再次使用时无需重复下载、安装包版本一致)；
 
-  
+>1、安装 yarn 的命令： npm install -g yarn
+2、安装依赖包执行命令： yarn install    
+3、运行执行命令：  yarn run serve
 
 
    
